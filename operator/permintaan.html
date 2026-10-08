@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permintaan Pindah Ruangan Sementara - Operator Lantai 5 Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Operator Lantai 5
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;">
+          Gedung H • Lantai 5
+        </span>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Operator -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Operator">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kalender Jadwal Pemakaian">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Kalender</span>
+            </a>
+          </li>
+          <li>
+            <a href="permintaan.html" class="nav-link active" title="Permintaan Pindah Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Permintaan</span>
+            </a>
+          </li>
+          <li>
+            <a href="activity-log.html" class="nav-link" title="Activity Log Operator">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Activity Log</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - OPERATOR LANTAI 5</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">PERMINTAAN PINDAH RUANGAN SEMENTARA</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div style="margin-bottom: 24px;">
+          <h1 class="page-title" style="margin-bottom: 4px;">Permintaan pindah ruangan sementara</h1>
+          <p class="page-subtitle" style="margin-bottom: 0;">
+            Permintaan peminjaman dan pemindahan ke ruangan laboratorium di Lantai 5 yang membutuhkan konfirmasi operator.
+          </p>
+        </div>
+
+        <!-- KPI Metrics Summary Bar -->
+        <div class="operator-kpi-grid">
+          <div class="operator-kpi-card">
+            <div class="operator-kpi-icon icon-blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="operator-kpi-value" id="kpiTotal">12</div>
+              <div class="operator-kpi-label">Total Permintaan</div>
+            </div>
+          </div>
+
+          <div class="operator-kpi-card">
+            <div class="operator-kpi-icon icon-amber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="operator-kpi-value" id="kpiPending" style="color: #ca8a04;">12</div>
+              <div class="operator-kpi-label">Menunggu Verifikasi</div>
+            </div>
+          </div>
+
+          <div class="operator-kpi-card">
+            <div class="operator-kpi-icon icon-emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="operator-kpi-value" id="kpiApproved" style="color: #16a34a;">0</div>
+              <div class="operator-kpi-label">Telah Disetujui</div>
+            </div>
+          </div>
+
+          <div class="operator-kpi-card">
+            <div class="operator-kpi-icon icon-rose">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+              </svg>
+            </div>
+            <div>
+              <div class="operator-kpi-value" id="kpiRejected" style="color: #dc2626;">0</div>
+              <div class="operator-kpi-label">Telah Ditolak</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toolbar: Search on Left, Filter on Right (Right-Aligned) -->
+        <div class="history-controls-toolbar">
+          <!-- Quick Search -->
+          <div class="history-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="history-search-input" placeholder="Cari nama peminjam atau ruangan..." aria-label="Cari permintaan peminjaman">
+          </div>
+
+          <!-- Filter Status Dropdown -->
+          <div class="history-filter-select-wrapper">
+            <span class="filter-select-icon-left" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+            </span>
+            <select id="statusFilterSelect" class="history-filter-select" aria-label="Filter berdasarkan status">
+              <option value="all" selected>Semua Status (12)</option>
+              <option value="Pending">Pending (12)</option>
+              <option value="Disetujui">Disetujui (0)</option>
+              <option value="Ditolak">Ditolak (0)</option>
+            </select>
+            <span class="filter-select-icon-right" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Request Table Container -->
+        <div class="history-card-container">
+          <div class="history-table-wrapper">
+            <table class="history-table operator-table" id="requestTable" aria-label="Tabel Permintaan Pindah Ruangan Sementara">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 170px;">Jam</th>
+                  <th scope="col" style="width: 110px;">Ruangan</th>
+                  <th scope="col">Nama Peminjam</th>
+                  <th scope="col" style="width: 140px;">Status</th>
+                  <th scope="col" style="text-align: center; width: 140px;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="requestTableBody">
+                <!-- Row 1: Budiono siregar -->
+                <tr data-status="Pending" data-borrower="Budiono siregar" data-room="H.5.2" data-time="07.00 - 07.40" data-origin="H.5.1" data-reason="Kapasitas ruangan H.5.1 kurang memadai (kapasitas 30, peserta 45). Memohon pindah ke lab H.5.2.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>07.00 - 07.40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.2</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">BS</span>
+                      <span>Budiono siregar</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Budiono siregar" onclick="handleDecision(this, 'Budiono siregar', 'H.5.2', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Budiono siregar" onclick="handleDecision(this, 'Budiono siregar', 'H.5.2', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Budiono siregar" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Sarah Johnson -->
+                <tr data-status="Pending" data-borrower="Sarah Johnson" data-room="H.5.3" data-time="07.40 - 08.20" data-origin="H.4.4" data-reason="Laboratorium H.4.4 mengalami kendala instalasi software Docker. Pindah ke H.5.3 yang sudah siap pakai.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>07.40 - 08.20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.3</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">SJ</span>
+                      <span>Sarah Johnson</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Sarah Johnson" onclick="handleDecision(this, 'Sarah Johnson', 'H.5.3', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Sarah Johnson" onclick="handleDecision(this, 'Sarah Johnson', 'H.5.3', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Sarah Johnson" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Michael Wong -->
+                <tr data-status="Pending" data-borrower="Michael Wong" data-room="H.5.4" data-time="08.20 - 09.00" data-origin="H.5.1" data-reason="Perangkat proyektor di ruangan H.5.1 berkedip. Memohon pindah ke lab H.5.4.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>08.20 - 09.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.4</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">MW</span>
+                      <span>Michael Wong</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Michael Wong" onclick="handleDecision(this, 'Michael Wong', 'H.5.4', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Michael Wong" onclick="handleDecision(this, 'Michael Wong', 'H.5.4', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Michael Wong" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Linda Martinez -->
+                <tr data-status="Pending" data-borrower="Linda Martinez" data-room="H.5.5" data-time="09.00 - 09.40" data-origin="H.4.2" data-reason="Kebutuhan jaringan LAN khusus server database lokal yang hanya tersedia di lab H.5.5.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>09.00 - 09.40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.5</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">LM</span>
+                      <span>Linda Martinez</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Linda Martinez" onclick="handleDecision(this, 'Linda Martinez', 'H.5.5', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Linda Martinez" onclick="handleDecision(this, 'Linda Martinez', 'H.5.5', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Linda Martinez" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 5: James Smith -->
+                <tr data-status="Pending" data-borrower="James Smith" data-room="H.5.6" data-time="09.40 - 10.20" data-origin="H.5.1" data-reason="AC laboratorium H.5.1 dalam perbaikan teknisi. Suhu ruangan tidak kondusif untuk coding, pindah ke H.5.6.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>09.40 - 10.20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.6</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">JS</span>
+                      <span>James Smith</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan James Smith" onclick="handleDecision(this, 'James Smith', 'H.5.6', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan James Smith" onclick="handleDecision(this, 'James Smith', 'H.5.6', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian James Smith" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 6: Emma Brown -->
+                <tr data-status="Pending" data-borrower="Emma Brown" data-room="H.5.7" data-time="10.20 - 11.00" data-origin="H.4.5" data-reason="Pertemuan evaluasi tugas akhir membutuhkan ruangan lab AI berkapasitas besar di H.5.7.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>10.20 - 11.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.7</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">EB</span>
+                      <span>Emma Brown</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Emma Brown" onclick="handleDecision(this, 'Emma Brown', 'H.5.7', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Emma Brown" onclick="handleDecision(this, 'Emma Brown', 'H.5.7', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Emma Brown" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 7: David Lee -->
+                <tr data-status="Pending" data-borrower="David Lee" data-room="H.5.8" data-time="11.00 - 11.40" data-origin="H.5.2" data-reason="Kebutuhan kapasitas workstation iMac untuk praktikum Desain UI/UX yang tersedia di H.5.8.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>11.00 - 11.40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.8</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">DL</span>
+                      <span>David Lee</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan David Lee" onclick="handleDecision(this, 'David Lee', 'H.5.8', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan David Lee" onclick="handleDecision(this, 'David Lee', 'H.5.8', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian David Lee" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 8: Sophia Kim -->
+                <tr data-status="Pending" data-borrower="Sophia Kim" data-room="H.5.9" data-time="11.40 - 12.20" data-origin="H.5.1" data-reason="Peralihan sesi mendadak karena lab H.5.1 dipakai briefing dosen pembina.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>11.40 - 12.20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.9</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">SK</span>
+                      <span>Sophia Kim</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Sophia Kim" onclick="handleDecision(this, 'Sophia Kim', 'H.5.9', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Sophia Kim" onclick="handleDecision(this, 'Sophia Kim', 'H.5.9', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Sophia Kim" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 9: Daniel Chen -->
+                <tr data-status="Pending" data-borrower="Daniel Chen" data-room="H.5.10" data-time="12.20 - 13.00" data-origin="H.4.3" data-reason="Kapasitas listrik di lab asal mengalami kendala. Memohon pindah ke lab H.5.10.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>12.20 - 13.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.10</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">DC</span>
+                      <span>Daniel Chen</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Daniel Chen" onclick="handleDecision(this, 'Daniel Chen', 'H.5.10', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Daniel Chen" onclick="handleDecision(this, 'Daniel Chen', 'H.5.10', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Daniel Chen" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 10: Olivia Patel -->
+                <tr data-status="Pending" data-borrower="Olivia Patel" data-room="H.5.11" data-time="13.00 - 13.40" data-origin="H.5.4" data-reason="Perpindahan sesi riset mandiri kelompok komputasi awan ke H.5.11.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>13.00 - 13.40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.11</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">OP</span>
+                      <span>Olivia Patel</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Olivia Patel" onclick="handleDecision(this, 'Olivia Patel', 'H.5.11', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Olivia Patel" onclick="handleDecision(this, 'Olivia Patel', 'H.5.11', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Olivia Patel" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 11: William Garcia -->
+                <tr data-status="Pending" data-borrower="William Garcia" data-room="H.5.12" data-time="13.40 - 14.20" data-origin="H.4.1" data-reason="Ruang H.4.1 mengalami gangguan kabel audio visual proyektor. Pindah ke H.5.12.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>13.40 - 14.20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.12</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">WG</span>
+                      <span>William Garcia</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan William Garcia" onclick="handleDecision(this, 'William Garcia', 'H.5.12', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan William Garcia" onclick="handleDecision(this, 'William Garcia', 'H.5.12', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian William Garcia" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 12: Ava Wilson -->
+                <tr data-status="Pending" data-borrower="Ava Wilson" data-room="H.5.13" data-time="14.20 - 15.00" data-origin="H.5.2" data-reason="Peralihan ruang sesi praktikum komputasi grafis lanjutan ke lab H.5.13.">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>14.20 - 15.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.13</span>
+                  </td>
+                  <td>
+                    <div class="borrower-name-cell" onclick="openDetailFromRow(this)" style="cursor: pointer;" title="Klik untuk melihat rincian pengajuan">
+                      <span class="borrower-avatar">AW</span>
+                      <span>Ava Wilson</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Pending
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <div class="operator-action-group">
+                      <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan Ava Wilson" onclick="handleDecision(this, 'Ava Wilson', 'H.5.13', 'approve')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan Ava Wilson" onclick="handleDecision(this, 'Ava Wilson', 'H.5.13', 'reject')">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                      <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian Ava Wilson" onclick="openDetailFromRow(this)">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer -->
+          <div class="history-table-footer">
+            <span id="footerCount">Menampilkan 12 dari 12 permintaan</span>
+            <div class="pagination-controls">
+              <button type="button" class="pagination-btn" disabled>Sebelumnya</button>
+              <button type="button" class="pagination-btn" disabled>Berikutnya</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Rincian Permintaan Pindah Ruangan -->
+  <div class="modal-overlay" id="detailTransferModal" role="dialog" aria-modal="true" aria-labelledby="modalTransferTitle">
+    <div class="modal-dialog" style="max-width: 580px;">
+      <div class="modal-header">
+        <h2 id="modalTransferTitle" class="modal-title">Rincian Permintaan Pindah Ruangan</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Dialog">&times;</button>
+      </div>
+
+      <div style="margin-bottom: 24px;">
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 18px; margin-bottom: 16px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px;">
+            <div>
+              <span style="font-size: 0.775rem; color: #64748b; font-weight: 600; text-transform: uppercase;">Peminjam</span>
+              <div id="modalDetailBorrower" style="font-size: 1.1rem; font-weight: 700; color: #0f172a;">Budiono siregar</div>
+              <div style="font-size: 0.8rem; color: #64748b;">NIM: A11.2023.14920 - HMTI Bengkel Koding</div>
+            </div>
+            <div id="modalDetailStatusBadge">
+              <span class="status-badge status-menunggu">
+                <span class="status-dot"></span>
+                Pending
+              </span>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">WAKTU SESI</span>
+              <div id="modalDetailTime" style="font-weight: 700; color: #1e293b; margin-top: 2px;">07.00 - 07.40</div>
+              <div style="font-size: 0.775rem; color: #64748b;">1 Januari 2026</div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: #64748b; font-weight: 600;">PERMINTAAN PINDAH RUANG</span>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+                <span id="modalDetailOrigin" class="room-chip" style="background: #fee2e2; border-color: #fca5a5; color: #991b1b;">H.5.1</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                <span id="modalDetailTarget" class="room-chip" style="background: #dbeafe; border-color: #bfdbfe; color: #1e40af;">H.5.2</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 10px;">
+            <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Alasan Pemindahan:</span>
+            <p id="modalDetailReason" style="margin: 6px 0 0; font-size: 0.875rem; color: #334155; line-height: 1.5;">
+              Kapasitas ruangan H.5.1 kurang memadai (kapasitas 30, peserta 45). Memohon pindah ke H.5.2.
+            </p>
+          </div>
+
+          <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: #166534; background: #f0fdf4; padding: 8px 12px; border-radius: 6px; border: 1px solid #bbf7d0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>Ruangan tujuan di Lantai 5 terkonfirmasi berstatus <strong>Tersedia</strong> dan tidak bentrok dengan jadwal lain.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;" id="modalActionFooter">
+        <button type="button" class="btn btn-light" data-close-modal>Tutup</button>
+        <button type="button" class="btn" style="background: #ef4444; color: #ffffff; border: none;" id="btnModalReject">
+          Tolak Permintaan
+        </button>
+        <button type="button" class="btn btn-primary" style="background: #10b981; border-color: #059669;" id="btnModalApprove">
+          Setujui Perpindahan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script>
+    let activeSelectedRow = null;
+
+    // Open detail modal directly from row or view icon
+    function openDetailFromRow(el) {
+      const row = el.closest('tr');
+      activeSelectedRow = row;
+
+      const borrower = row.getAttribute('data-borrower');
+      const roomTarget = row.getAttribute('data-room');
+      const time = row.getAttribute('data-time');
+      const origin = row.getAttribute('data-origin') || 'H.5.1';
+      const reason = row.getAttribute('data-reason');
+      const status = row.getAttribute('data-status');
+
+      document.getElementById('modalDetailBorrower').textContent = borrower;
+      document.getElementById('modalDetailTarget').textContent = roomTarget;
+      document.getElementById('modalDetailOrigin').textContent = origin;
+      document.getElementById('modalDetailTime').textContent = time;
+      document.getElementById('modalDetailReason').textContent = reason;
+
+      const badgeContainer = document.getElementById('modalDetailStatusBadge');
+      if (status === 'Disetujui') {
+        badgeContainer.innerHTML = `<span class="status-badge status-disetujui"><span class="status-dot"></span>Disetujui</span>`;
+      } else if (status === 'Ditolak') {
+        badgeContainer.innerHTML = `<span class="status-badge status-ditolak"><span class="status-dot"></span>Ditolak</span>`;
+      } else {
+        badgeContainer.innerHTML = `<span class="status-badge status-menunggu"><span class="status-dot"></span>Pending</span>`;
+      }
+
+      openModal('detailTransferModal');
+    }
+
+    // Modal Action Buttons
+    document.getElementById('btnModalApprove').addEventListener('click', () => {
+      if (activeSelectedRow) {
+        const borrower = activeSelectedRow.getAttribute('data-borrower');
+        const room = activeSelectedRow.getAttribute('data-room');
+        applyDecisionOnRow(activeSelectedRow, borrower, room, 'approve');
+        closeModal(document.getElementById('detailTransferModal'));
+      }
+    });
+
+    document.getElementById('btnModalReject').addEventListener('click', () => {
+      if (activeSelectedRow) {
+        const borrower = activeSelectedRow.getAttribute('data-borrower');
+        const room = activeSelectedRow.getAttribute('data-room');
+        applyDecisionOnRow(activeSelectedRow, borrower, room, 'reject');
+        closeModal(document.getElementById('detailTransferModal'));
+      }
+    });
+
+    // Handle Quick Action from Table
+    function handleDecision(btn, borrower, room, action) {
+      const row = btn.closest('tr');
+      applyDecisionOnRow(row, borrower, room, action);
+    }
+
+    // Unified decision engine
+    function applyDecisionOnRow(row, borrower, room, action) {
+      const statusCell = row.querySelector('td:nth-child(4)');
+      const actionCell = row.querySelector('td:nth-child(5)');
+
+      if (action === 'approve') {
+        row.setAttribute('data-status', 'Disetujui');
+        statusCell.innerHTML = `
+          <span class="status-badge status-disetujui">
+            <span class="status-dot"></span>
+            Disetujui
+          </span>
+        `;
+        actionCell.innerHTML = `
+          <div class="operator-action-group">
+            <span class="badge-decision-approved">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Disetujui</span>
+            </span>
+            <button type="button" class="btn-action-undo" onclick="undoDecision(this, '${borrower}', '${room}')" title="Ubah kembali ke status Pending">Ubah</button>
+          </div>
+        `;
+        showToast(`Permintaan pindah ${borrower} (${room}) berhasil disetujui!`, 'success');
+      } else {
+        row.setAttribute('data-status', 'Ditolak');
+        statusCell.innerHTML = `
+          <span class="status-badge status-ditolak">
+            <span class="status-dot"></span>
+            Ditolak
+          </span>
+        `;
+        actionCell.innerHTML = `
+          <div class="operator-action-group">
+            <span class="badge-decision-rejected">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span>Ditolak</span>
+            </span>
+            <button type="button" class="btn-action-undo" onclick="undoDecision(this, '${borrower}', '${room}')" title="Ubah kembali ke status Pending">Ubah</button>
+          </div>
+        `;
+        showToast(`Permintaan pindah ${borrower} (${room}) telah ditolak.`, 'info');
+      }
+
+      updateAllCounts();
+      applyFilters();
+    }
+
+    // Undo action back to Pending
+    function undoDecision(btn, borrower, room) {
+      const row = btn.closest('tr');
+      const statusCell = row.querySelector('td:nth-child(4)');
+      const actionCell = row.querySelector('td:nth-child(5)');
+
+      row.setAttribute('data-status', 'Pending');
+      statusCell.innerHTML = `
+        <span class="status-badge status-menunggu">
+          <span class="status-dot"></span>
+          Pending
+        </span>
+      `;
+      actionCell.innerHTML = `
+        <div class="operator-action-group">
+          <button type="button" class="btn-action-approve" title="Setujui Permintaan" aria-label="Setujui permohonan ${borrower}" onclick="handleDecision(this, '${borrower}', '${room}', 'approve')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+          <button type="button" class="btn-action-reject" title="Tolak Permintaan" aria-label="Tolak permohonan ${borrower}" onclick="handleDecision(this, '${borrower}', '${room}', 'reject')">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <button type="button" class="btn-action-view" title="Lihat Rincian Pengajuan" aria-label="Lihat rincian ${borrower}" onclick="openDetailFromRow(this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+      `;
+
+      updateAllCounts();
+      applyFilters();
+      showToast(`Permintaan ${borrower} dikembalikan ke status Pending.`, 'info');
+    }
+
+    // Filter and Search Logic
+    const statusFilterSelect = document.getElementById('statusFilterSelect');
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#requestTableBody tr');
+    const footerCount = document.getElementById('footerCount');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    statusFilterSelect.addEventListener('change', (e) => {
+      currentFilter = e.target.value;
+      applyFilters();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyFilters();
+    });
+
+    function applyFilters() {
+      let visibleCount = 0;
+      tableRows.forEach(row => {
+        const rowStatus = row.getAttribute('data-status');
+        const borrower = (row.getAttribute('data-borrower') || '').toLowerCase();
+        const room = (row.getAttribute('data-room') || '').toLowerCase();
+        const time = (row.getAttribute('data-time') || '').toLowerCase();
+
+        const matchesStatus = (currentFilter === 'all') || (rowStatus === currentFilter);
+        const matchesSearch = !searchQuery || borrower.includes(searchQuery) || room.includes(searchQuery) || time.includes(searchQuery);
+
+        if (matchesStatus && matchesSearch) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      footerCount.textContent = `Menampilkan ${visibleCount} dari ${tableRows.length} permintaan`;
+    }
+
+    function updateAllCounts() {
+      let pending = 0;
+      let approved = 0;
+      let rejected = 0;
+
+      tableRows.forEach(row => {
+        const st = row.getAttribute('data-status');
+        if (st === 'Pending') pending++;
+        else if (st === 'Disetujui') approved++;
+        else if (st === 'Ditolak') rejected++;
+      });
+
+      // Update KPI Cards
+      document.getElementById('kpiTotal').textContent = tableRows.length;
+      document.getElementById('kpiPending').textContent = pending;
+      document.getElementById('kpiApproved').textContent = approved;
+      document.getElementById('kpiRejected').textContent = rejected;
+
+      // Update Filter Select Options
+      statusFilterSelect.options[0].text = `Semua Status (${tableRows.length})`;
+      statusFilterSelect.options[1].text = `Pending (${pending})`;
+      statusFilterSelect.options[2].text = `Disetujui (${approved})`;
+      statusFilterSelect.options[3].text = `Ditolak (${rejected})`;
+    }
+
+    // Initial calculation on load
+    updateAllCounts();
+  </script>
+</body>
+</html>

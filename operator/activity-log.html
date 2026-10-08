@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Log - Operator Lantai 5 Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Operator Lantai 5
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 0.85rem; color: #64748b; font-weight: 600;">
+          Gedung H • Lantai 5
+        </span>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Operator -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Operator">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kalender Jadwal Pemakaian">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Kalender</span>
+            </a>
+          </li>
+          <li>
+            <a href="permintaan.html" class="nav-link" title="Permintaan Pindah Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Permintaan</span>
+            </a>
+          </li>
+          <li>
+            <a href="activity-log.html" class="nav-link active" title="Activity Log Operator" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Activity Log</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - OPERATOR LANTAI 5</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">ACTIVITY LOG</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div style="margin-bottom: 24px;">
+          <h1 class="page-title" style="margin-bottom: 4px;">Activity Log Operator Lantai 5</h1>
+          <p class="page-subtitle" style="margin-bottom: 0;">
+            Rekam jejak seluruh keputusan persetujuan, penolakan, perubahan jadwal, dan status perawatan ruangan di Lantai 5.
+          </p>
+        </div>
+
+        <!-- Controls Toolbar: Search on Left, Filter on Right -->
+        <div class="history-controls-toolbar">
+          <!-- Search Box -->
+          <div class="history-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="logSearchInput" class="history-search-input" placeholder="Cari aktivitas atau ruangan..." aria-label="Cari rekaman aktivitas">
+          </div>
+
+          <!-- Filter Dropdown -->
+          <div class="history-filter-select-wrapper">
+            <span class="filter-select-icon-left" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+            </span>
+            <select id="logCategorySelect" class="history-filter-select" aria-label="Filter kategori log">
+              <option value="all" selected>Semua Aktivitas (6)</option>
+              <option value="Persetujuan">Persetujuan (2)</option>
+              <option value="Penolakan">Penolakan (1)</option>
+              <option value="Maintenance">Maintenance (2)</option>
+              <option value="Jadwal Baru">Jadwal Baru (1)</option>
+            </select>
+            <span class="filter-select-icon-right" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Log Table Container -->
+        <div class="history-card-container">
+          <div class="history-table-wrapper">
+            <table class="history-table operator-table" id="activityTable" aria-label="Tabel Activity Log Operator">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 170px;">Waktu & Tanggal</th>
+                  <th scope="col" style="width: 140px;">Kategori</th>
+                  <th scope="col">Rincian Aktivitas</th>
+                  <th scope="col" style="width: 120px;">Ruangan</th>
+                  <th scope="col" style="width: 190px;">Aktor Operator</th>
+                </tr>
+              </thead>
+              <tbody id="activityTableBody">
+                <!-- Log 1: Persetujuan Pindah Ruang -->
+                <tr data-category="Persetujuan">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>08 Okt 2026, 09:15</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-persetujuan">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Persetujuan</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Menyetujui pemindahan ruangan</strong> untuk Budiono siregar (ke H.5.2) pada sesi 07.00 - 07.40.
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.2</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Op. Budi Santoso (Lantai 5)</span>
+                  </td>
+                </tr>
+
+                <!-- Log 2: Maintenance Aktif -->
+                <tr data-category="Maintenance">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>08 Okt 2026, 08:30</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-maintenance">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                      </svg>
+                      <span>Maintenance</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Aktivasi pemeliharaan lab</strong>: Upgrade GPU Server & Re-cabling Jaringan di lab H.5.5 (Sesi 08.20 - 09.00).
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.5</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Tim Hardware & Lab 5</span>
+                  </td>
+                </tr>
+
+                <!-- Log 3: Persetujuan Pindah Ruang Sarah -->
+                <tr data-category="Persetujuan">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>07 Okt 2026, 15:40</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-persetujuan">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                      </svg>
+                      <span>Persetujuan</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Menyetujui pemindahan ruangan</strong> untuk Sarah Johnson (ke H.5.3) terkait kendala Docker.
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.3</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Op. Budi Santoso (Lantai 5)</span>
+                  </td>
+                </tr>
+
+                <!-- Log 4: Penolakan -->
+                <tr data-category="Penolakan">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>07 Okt 2026, 14:10</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-penolakan">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                      <span>Penolakan</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Menolak permohonan peminjaman</strong> H.5.1 karena terdapat jadwal kuliah reguler berjalan.
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.1</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Op. Budi Santoso (Lantai 5)</span>
+                  </td>
+                </tr>
+
+                <!-- Log 5: Jadwal Baru -->
+                <tr data-category="Jadwal Baru">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>06 Okt 2026, 11:20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-jadwal">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>Jadwal Baru</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Plotting kelas semester baru</strong>: Kuliah Teori Koding (Dr. Setiawan) pada lab H.5.1 sesi 09.00 - 09.40.
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.1</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Op. Budi Santoso (Lantai 5)</span>
+                  </td>
+                </tr>
+
+                <!-- Log 6: Maintenance Selesai -->
+                <tr data-category="Maintenance">
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>05 Okt 2026, 17:00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="activity-badge activity-badge-maintenance">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                      </svg>
+                      <span>Maintenance</span>
+                    </span>
+                  </td>
+                  <td>
+                    <strong>Penyelesaian maintenance proyektor</strong> di lab H.5.4. Ruangan kembali tersedia.
+                  </td>
+                  <td>
+                    <span class="room-chip">H.5.4</span>
+                  </td>
+                  <td>
+                    <span style="font-size: 0.85rem; color: #334155; font-weight: 600;">Tim Teknisi Lab Lantai 5</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer -->
+          <div class="history-table-footer">
+            <span id="logFooterCount">Menampilkan 6 dari 6 catatan aktivitas</span>
+            <div class="pagination-controls">
+              <button type="button" class="pagination-btn" disabled>Sebelumnya</button>
+              <button type="button" class="pagination-btn" disabled>Berikutnya</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script>
+    // Live filter and search for Activity Log
+    const logCategorySelect = document.getElementById('logCategorySelect');
+    const logSearchInput = document.getElementById('logSearchInput');
+    const logRows = document.querySelectorAll('#activityTableBody tr');
+    const logFooterCount = document.getElementById('logFooterCount');
+
+    let currentLogCategory = 'all';
+    let currentLogQuery = '';
+
+    logCategorySelect.addEventListener('change', (e) => {
+      currentLogCategory = e.target.value;
+      applyLogFilters();
+    });
+
+    logSearchInput.addEventListener('input', (e) => {
+      currentLogQuery = e.target.value.toLowerCase().trim();
+      applyLogFilters();
+    });
+
+    function applyLogFilters() {
+      let count = 0;
+      logRows.forEach(row => {
+        const cat = row.getAttribute('data-category');
+        const text = row.textContent.toLowerCase();
+
+        const matchCat = (currentLogCategory === 'all') || (cat === currentLogCategory);
+        const matchQuery = !currentLogQuery || text.includes(currentLogQuery);
+
+        if (matchCat && matchQuery) {
+          row.style.display = '';
+          count++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      logFooterCount.textContent = `Menampilkan ${count} dari ${logRows.length} catatan aktivitas`;
+    }
+  </script>
+</body>
+</html>

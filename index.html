@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Prototipe Kirei - Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .portal-hero {
+      max-width: 860px;
+      margin: 40px auto 48px auto;
+      text-align: center;
+    }
+    .portal-hero h1 {
+      font-size: 2.35rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+    }
+    .portal-hero p {
+      font-size: 1.05rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .role-card {
+      background: #ffffff;
+      border: 1.5px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    .role-card:hover {
+      border-color: var(--color-primary);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+    }
+    .role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+    .badge-active {
+      background: #dcfce7;
+      color: #15803d;
+    }
+    .badge-ready {
+      background: #fef3c7;
+      color: #b45309;
+    }
+    .badge-upcoming {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    .role-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-text-main);
+      margin-bottom: 8px;
+    }
+    .role-desc {
+      font-size: 0.925rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .role-pages-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: var(--color-text-label);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 24px;
+      background: var(--color-bg-subtle);
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+    }
+    .role-pages-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+        <div class="brand-logo-icon">
+          <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="44" height="44" rx="22" fill="#0B3272"/>
+            <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+            <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Bengkel</span>
+          <span class="brand-subtitle">Koding</span>
+        </div>
+      </a>
+      <span style="font-size: 0.9rem; font-weight: 600; color: var(--color-text-muted);">
+        Kirei Prototype Gateway
+      </span>
+    </header>
+
+    <main class="main-content" style="padding-top: 10px;">
+      <!-- Hero Intro -->
+      <section class="portal-hero">
+        <h1>Portal Prototipe Kirei</h1>
+        <p>
+          Silakan pilih peran (role) untuk membuka modul dan antarmuka sistem reservasi. Seluruh arsitektur file telah dipisahkan per modul folder agar rapi, modular, dan siap diperluas.
+        </p>
+      </section>
+
+      <!-- Roles Cards Grid -->
+      <section class="role-grid" aria-label="Daftar Peran Pengguna">
+        <!-- 1. Role Ormawa -->
+        <article class="role-card">
+          <div>
+            <span class="role-badge badge-active">Tersedia (5 Halaman)</span>
+            <h2 class="role-title">Ormawa / Mahasiswa</h2>
+            <p class="role-desc">
+              Modul pengajuan peminjaman kelas dan meeting room, pengecekan kalender ketersediaan, pengisian form organisasi, serta pemantauan riwayat status.
+            </p>
+            <ul class="role-pages-list">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Pilih Kategori Ruangan</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Kalender Jadwal Pemakaian</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Matriks Sesi Pemakaian Kelas</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Formulir Peminjaman & Unggah Berkas</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Histori Reservasi Ruangan</span>
+              </li>
+            </ul>
+          </div>
+          <a href="ormawa/index.html" class="btn btn-primary btn-block">
+            <span>Buka Portal Ormawa</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+
+        <!-- 2. Role Operator -->
+        <article class="role-card" style="border-color: #3b82f6;">
+          <div>
+            <span class="role-badge badge-active">Tersedia (3 Halaman)</span>
+            <h2 class="role-title">Operator (Lantai 5)</h2>
+            <p class="role-desc">
+              Modul operasional harian khusus untuk memantau jadwal pemakaian kelas di Lantai 5, verifikasi permintaan pindah ruangan sementara, dan pencatatan activity log.
+            </p>
+            <ul class="role-pages-list">
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Kalender Jadwal Pemakaian Kelas (Matrix Lantai 5)</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Permintaan Pindah Ruangan Sementara (Lab Lantai 5)</span>
+              </li>
+              <li>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Activity Log & Audit Trail Operator Lantai 5</span>
+              </li>
+            </ul>
+          </div>
+          <a href="operator/index.html" class="btn btn-primary btn-block">
+            <span>Buka Portal Operator Lantai 5</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </article>
+
+        <!-- 3. Role Dosen -->
+        <article class="role-card">
+          <div>
+            <span class="role-badge badge-upcoming">Mendatang</span>
+            <h2 class="role-title">Dosen</h2>
+            <p class="role-desc">
+              Modul untuk dosen pengampu mata kuliah dalam melihat alokasi lab, penjadwalan kuliah pengganti, dan asistensi kelas praktikum.
+            </p>
+          </div>
+          <button type="button" class="btn btn-light btn-block" disabled style="cursor: not-allowed; opacity: 0.7;">
+            Tahap Berikutnya
+          </button>
+        </article>
+
+        <!-- 4. Role Admin -->
+        <article class="role-card">
+          <div>
+            <span class="role-badge badge-upcoming">Mendatang</span>
+            <h2 class="role-title">Admin</h2>
+            <p class="role-desc">
+              Modul pengelolaan master data fasilitas, persetujuan surat resmi organisasi, konfigurasi kapasitas, dan laporan utilisasi ruang.
+            </p>
+          </div>
+          <button type="button" class="btn btn-light btn-block" disabled style="cursor: not-allowed; opacity: 0.7;">
+            Tahap Berikutnya
+          </button>
+        </article>
+
+        <!-- 5. Role Superadmin -->
+        <article class="role-card">
+          <div>
+            <span class="role-badge badge-upcoming">Mendatang</span>
+            <h2 class="role-title">Superadmin</h2>
+            <p class="role-desc">
+              Modul tingkat tertinggi untuk kontrol manajemen akun pengguna, pengaturan hak akses role, log audit keamanan, dan konfigurasi sistem Bengkel Koding.
+            </p>
+          </div>
+          <button type="button" class="btn btn-light btn-block" disabled style="cursor: not-allowed; opacity: 0.7;">
+            Tahap Berikutnya
+          </button>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender Jadwal Pemakaian Kelas - Kirei Ormawa Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #e2e8f0; color: #334155; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Role: Ormawa
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Ormawa">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kioku">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Kioku</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="draft-reservasi.html" class="nav-link" title="Draft Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Draft Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori-reservasi.html" class="nav-link" title="Histori Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Histori Reservasi</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - KALENDER</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">JADWAL PEMAKAIAN KELAS</span>
+        </nav>
+
+        <!-- Calendar Container Card -->
+        <div class="card-container">
+          <!-- Calendar Card Header -->
+          <div class="calendar-card-header">
+            <div>
+              <h1 class="calendar-header-title">Kalender</h1>
+              <p class="calendar-header-sub">Kalender apa nih</p>
+            </div>
+            <div class="floor-badge-select">
+              <label for="floorSelect">Lantai:</label>
+              <select id="floorSelect" class="floor-pill" aria-label="Pilih Lantai Gedung">
+                <option value="Lantai 5">Lantai 5</option>
+                <option value="Lantai 4" selected>Lantai 4</option>
+                <option value="Lantai 3">Lantai 3</option>
+                <option value="Lantai 2">Lantai 2</option>
+                <option value="Lantai 1">Lantai 1</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Month Navigation Bar -->
+          <div class="calendar-month-bar">
+            <h2 class="month-label">Januari 2026</h2>
+          </div>
+
+          <!-- Calendar Days Grid -->
+          <div class="calendar-grid" role="grid" aria-label="Kalender Januari 2026">
+            <div class="day-header" role="columnheader">Senin</div>
+            <div class="day-header" role="columnheader">Selasa</div>
+            <div class="day-header" role="columnheader">Rabu</div>
+            <div class="day-header" role="columnheader">Kamis</div>
+            <div class="day-header" role="columnheader">Jumat</div>
+            <div class="day-header" role="columnheader">Sabtu</div>
+            <div class="day-header" role="columnheader">Minggu</div>
+
+            <!-- Row 1: 1 - 7 -->
+            <a href="jadwal.html?date=1" class="date-cell" title="Lihat jadwal 1 Januari 2026" role="gridcell">1</a>
+            <a href="jadwal.html?date=2" class="date-cell" title="Lihat jadwal 2 Januari 2026" role="gridcell">2</a>
+            <a href="jadwal.html?date=3" class="date-cell" title="Lihat jadwal 3 Januari 2026" role="gridcell">3</a>
+            <a href="jadwal.html?date=4" class="date-cell" title="Lihat jadwal 4 Januari 2026" role="gridcell">4</a>
+            <a href="jadwal.html?date=5" class="date-cell" title="Lihat jadwal 5 Januari 2026" role="gridcell">5</a>
+            <a href="jadwal.html?date=6" class="date-cell" title="Lihat jadwal 6 Januari 2026" role="gridcell">6</a>
+            <a href="jadwal.html?date=7" class="date-cell" title="Lihat jadwal 7 Januari 2026" role="gridcell">7</a>
+
+            <!-- Row 2: 8 - 14 -->
+            <a href="jadwal.html?date=8" class="date-cell" title="Lihat jadwal 8 Januari 2026" role="gridcell">8</a>
+            <a href="jadwal.html?date=9" class="date-cell" title="Lihat jadwal 9 Januari 2026" role="gridcell">9</a>
+            <a href="jadwal.html?date=10" class="date-cell" title="Lihat jadwal 10 Januari 2026" role="gridcell">10</a>
+            <a href="jadwal.html?date=11" class="date-cell" title="Lihat jadwal 11 Januari 2026" role="gridcell">11</a>
+            <a href="jadwal.html?date=12" class="date-cell" title="Lihat jadwal 12 Januari 2026" role="gridcell">12</a>
+            <a href="jadwal.html?date=13" class="date-cell" title="Lihat jadwal 13 Januari 2026" role="gridcell">13</a>
+            <a href="jadwal.html?date=14" class="date-cell" title="Lihat jadwal 14 Januari 2026" role="gridcell">14</a>
+
+            <!-- Row 3: 15 - 21 -->
+            <a href="jadwal.html?date=15" class="date-cell" title="Lihat jadwal 15 Januari 2026" role="gridcell">15</a>
+            <a href="jadwal.html?date=16" class="date-cell" title="Lihat jadwal 16 Januari 2026" role="gridcell">16</a>
+            <a href="jadwal.html?date=17" class="date-cell" title="Lihat jadwal 17 Januari 2026" role="gridcell">17</a>
+            <a href="jadwal.html?date=18" class="date-cell" title="Lihat jadwal 18 Januari 2026" role="gridcell">18</a>
+            <a href="jadwal.html?date=19" class="date-cell" title="Lihat jadwal 19 Januari 2026" role="gridcell">19</a>
+            <a href="jadwal.html?date=20" class="date-cell" title="Lihat jadwal 20 Januari 2026" role="gridcell">20</a>
+            <a href="jadwal.html?date=21" class="date-cell" title="Lihat jadwal 21 Januari 2026" role="gridcell">21</a>
+
+            <!-- Row 4: 22 - 28 -->
+            <a href="jadwal.html?date=22" class="date-cell" title="Lihat jadwal 22 Januari 2026" role="gridcell">22</a>
+            <a href="jadwal.html?date=23" class="date-cell" title="Lihat jadwal 23 Januari 2026" role="gridcell">23</a>
+            <a href="jadwal.html?date=24" class="date-cell" title="Lihat jadwal 24 Januari 2026" role="gridcell">24</a>
+            <a href="jadwal.html?date=25" class="date-cell" title="Lihat jadwal 25 Januari 2026" role="gridcell">25</a>
+            <a href="jadwal.html?date=26" class="date-cell" title="Lihat jadwal 26 Januari 2026" role="gridcell">26</a>
+            <a href="jadwal.html?date=27" class="date-cell" title="Lihat jadwal 27 Januari 2026" role="gridcell">27</a>
+            <a href="jadwal.html?date=28" class="date-cell" title="Lihat jadwal 28 Januari 2026" role="gridcell">28</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

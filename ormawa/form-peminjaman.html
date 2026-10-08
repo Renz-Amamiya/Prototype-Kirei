@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Peminjaman Ruangan - Kirei Ormawa Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #e2e8f0; color: #334155; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Role: Ormawa
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Ormawa">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kioku">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Kioku</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="draft-reservasi.html" class="nav-link" title="Draft Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Draft Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori-reservasi.html" class="nav-link" title="Histori Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Histori Reservasi</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - SISTEM RESERVASI</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">FORM PEMINJAMAN</span>
+        </nav>
+
+        <!-- Page Header -->
+        <h1 class="page-title">Form Peminjaman</h1>
+        <p class="page-subtitle">Lengkapi Data Data di bawah untuk meminjam ruangan</p>
+
+        <!-- Reservation Form -->
+        <form id="reservationForm">
+          <div class="form-grid-layout">
+            <!-- Left Column: Kelas dan Jadwal -->
+            <div>
+              <div class="form-card">
+                <h2 class="form-card-title">Kelas dan Jadwal</h2>
+                <p class="form-card-desc">Kelas yang tersedia mengikuti tanggal dan jam yang kamu pilih</p>
+
+                <!-- Field: Kelas yang dipilih -->
+                <div class="form-group">
+                  <label class="form-label" id="labelKelasDipilih">Kelas yang dipilih</label>
+                  <div class="selected-rooms-box" aria-labelledby="labelKelasDipilih">
+                    <div class="room-tags-wrapper" id="roomTagsContainer">
+                      <span class="room-tag">H.4.2</span>
+                    </div>
+                    <button type="button" class="change-room-link" onclick="openModal('roomModal')" aria-label="Ubah pilihan ruangan laboratorium">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                      </svg>
+                      <span>Ubah Ruangan</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Field: Tanggal -->
+                <div class="form-group">
+                  <label for="inputTanggal" class="form-label">Tanggal Pelaksanaan</label>
+                  <div class="input-icon-wrapper">
+                    <span class="input-icon-prefix" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                    </span>
+                    <input type="text" id="inputTanggal" name="tanggal" class="form-input form-input-with-icon" value="15/03/2026" placeholder="DD/MM/YYYY" required>
+                  </div>
+                </div>
+
+                <!-- Field: Jam Mulai & Jam Selesai -->
+                <div class="form-group">
+                  <div class="form-row-2col">
+                    <div>
+                      <label for="inputJamMulai" class="form-label">Jam Mulai</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon-prefix" aria-hidden="true">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                        </span>
+                        <input type="text" id="inputJamMulai" name="jam_mulai" class="form-input form-input-with-icon" placeholder="07.00" value="07.00" required>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="inputJamSelesai" class="form-label">Jam Selesai</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon-prefix" aria-hidden="true">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                        </span>
+                        <input type="text" id="inputJamSelesai" name="jam_selesai" class="form-input form-input-with-icon" placeholder="10.20" value="10.20" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Field: Keperluan -->
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="inputKeperluan" class="form-label">Keperluan & Nama Kegiatan</label>
+                  <textarea id="inputKeperluan" name="keperluan" class="form-textarea" placeholder="Tuliskan tujuan dan deskripsi singkat agenda kegiatan (contoh: Workshop Pengembangan Aplikasi Web)" required></textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Data Organisasi & Surat Peminjaman -->
+            <div>
+              <!-- Card: Data Organisasi -->
+              <div class="form-card">
+                <h2 class="form-card-title">Data Organisasi</h2>
+                <p class="form-card-desc">Identitas peminjam dan penanggung jawab kegiatan</p>
+
+                <!-- Field: Nama Ormawa / UKM -->
+                <div class="form-group">
+                  <label for="inputOrmawa" class="form-label">Nama Ormawa / Komunitas</label>
+                  <div class="input-icon-wrapper">
+                    <span class="input-icon-prefix" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                      </svg>
+                    </span>
+                    <input type="text" id="inputOrmawa" name="nama_ormawa" class="form-input form-input-with-icon" placeholder="Contoh: HMTI / DNCC / BEM FIK" required>
+                  </div>
+                </div>
+
+                <!-- Field: Ketua Umum & Penanggung Jawab -->
+                <div class="form-group" style="margin-bottom: 0;">
+                  <div class="form-row-2col">
+                    <div>
+                      <label for="inputKetua" class="form-label">Ketua Umum</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon-prefix" aria-hidden="true">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                          </svg>
+                        </span>
+                        <input type="text" id="inputKetua" name="ketua_umum" class="form-input form-input-with-icon" placeholder="Nama Ketua Umum" required>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="inputPenanggungJawab" class="form-label">Penanggung Jawab (PIC)</label>
+                      <div class="input-icon-wrapper">
+                        <span class="input-icon-prefix" aria-hidden="true">
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                          </svg>
+                        </span>
+                        <input type="text" id="inputPenanggungJawab" name="penanggung_jawab" class="form-input form-input-with-icon" placeholder="Nama PJ & No. HP" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card: Surat Peminjaman -->
+              <div class="form-card">
+                <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; flex-wrap: wrap;">
+                  <div>
+                    <h2 class="form-card-title">Surat Peminjaman</h2>
+                    <p class="form-card-desc" style="margin-bottom: 0;">Lampirkan berkas permohonan resmi dalam format PDF</p>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-outline-primary" id="btnDownloadTemplate" title="Unduh template resmi surat permohonan peminjaman ruangan">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    <span>Unduh Template</span>
+                  </button>
+                </div>
+
+                <!-- Modern Interactive Upload Dropzone -->
+                <div class="upload-dropzone" id="uploadDropzone" role="button" tabindex="0" aria-label="Area unggah berkas surat peminjaman PDF">
+                  <div class="upload-dropzone-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="upload-dropzone-title">Unggah Berkas Surat PDF</div>
+                    <div class="upload-dropzone-sub">Klik di sini untuk memilih berkas atau seret dokumen ke kotak ini</div>
+                  </div>
+                  <span style="font-size: 0.75rem; color: #64748b; background: #e2e8f0; padding: 3px 10px; border-radius: 9999px; font-weight: 600;">Maksimal 5 MB • Format .pdf</span>
+                </div>
+                <input type="file" id="inputPdfFile" accept="application/pdf" style="display: none;">
+
+                <!-- Active Uploaded Document Preview -->
+                <div class="upload-file-active" id="uploadFileActive" style="display: none;">
+                  <div style="display: flex; align-items: center; gap: 12px; min-width: 0;">
+                    <div style="width: 36px; height: 36px; border-radius: 8px; background: #fef2f2; border: 1px solid #fee2e2; color: #ef4444; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                      </svg>
+                    </div>
+                    <div style="min-width: 0;">
+                      <span style="font-weight: 700; font-size: 0.875rem; color: #0f172a; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="selectedFileName">
+                        Surat_Peminjaman.pdf
+                      </span>
+                      <span style="font-size: 0.75rem; color: #166534; display: flex; align-items: center; gap: 4px; margin-top: 2px;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Siap diunggah (<span id="selectedFileSize">1.2 MB</span>)
+                      </span>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-sm btn-ghost" id="btnRemoveFile" style="color: #ef4444; font-weight: 700; padding: 4px 8px;" title="Ganti berkas dokumen">
+                    Ganti Berkas
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons: Polished & Prominent -->
+          <div class="form-bottom-actions">
+            <!-- Left: Back Navigation -->
+            <a href="jadwal.html" class="btn btn-ghost" style="gap: 8px;" title="Kembali ke matriks jadwal pemakaian kelas">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>Kembali ke Jadwal</span>
+            </a>
+
+            <!-- Right: Secondary & Primary Buttons -->
+            <div class="form-bottom-actions-right">
+              <button type="button" class="btn btn-outline-primary" id="btnSimpanDraft" style="gap: 8px;" title="Simpan pengisian sementara ke draft">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                  <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                  <polyline points="7 3 7 8 15 8"></polyline>
+                </svg>
+                <span>Simpan sebagai Draft</span>
+              </button>
+
+              <button type="submit" class="btn btn-primary" id="btnKirim" style="padding: 12px 30px; font-weight: 700; box-shadow: 0 3px 8px rgba(11, 50, 114, 0.3); gap: 10px;" title="Kirim permohonan peminjaman ruangan">
+                <span>Kirim Pengajuan</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Ganti Ruangan -->
+  <div class="modal-overlay" id="roomModal" role="dialog" aria-modal="true" aria-labelledby="modalRoomTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="modalRoomTitle" class="modal-title">Pilih Ruangan Laboratorium</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Dialog">&times;</button>
+      </div>
+      <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 16px;">
+        Centang ruangan yang ingin Anda gunakan pada Lantai 4:
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" name="selected_rooms" value="H.4.1" style="width: 18px; height: 18px;">
+            <strong>Ruang H.4.1</strong>
+          </div>
+          <span style="font-size: 0.8rem; color: #64748b;">Lab Programming • 30 PC</span>
+        </label>
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" name="selected_rooms" value="H.4.2" checked style="width: 18px; height: 18px;">
+            <strong>Ruang H.4.2</strong>
+          </div>
+          <span style="font-size: 0.8rem; color: #64748b;">Lab Networking • 35 PC</span>
+        </label>
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" name="selected_rooms" value="H.4.3" style="width: 18px; height: 18px;">
+            <strong>Ruang H.4.3</strong>
+          </div>
+          <span style="font-size: 0.8rem; color: #64748b;">Lab Multimedia • 30 PC</span>
+        </label>
+        <label style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border: 1px solid var(--color-border-subtle); border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" name="selected_rooms" value="H.4.4" style="width: 18px; height: 18px;">
+            <strong>Ruang H.4.4</strong>
+          </div>
+          <span style="font-size: 0.8rem; color: #64748b;">Ruang Teori 1 • 40 Kursi</span>
+        </label>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 12px;">
+        <button type="button" class="btn btn-light" data-close-modal>Batal</button>
+        <button type="button" class="btn btn-primary" id="btnConfirmRooms">Terapkan Ruangan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('ruang')) {
+      const roomContainer = document.getElementById('roomTagsContainer');
+      roomContainer.innerHTML = `<span class="room-tag">${params.get('ruang')}</span>`;
+    }
+    if (params.get('mulai')) {
+      document.getElementById('inputJamMulai').value = params.get('mulai');
+    }
+    if (params.get('selesai')) {
+      document.getElementById('inputJamSelesai').value = params.get('selesai');
+    }
+
+    // Template download
+    document.getElementById('btnDownloadTemplate').addEventListener('click', () => {
+      showToast('Mengunduh format template surat peminjaman resmi (.pdf)', 'success');
+    });
+
+    // File Upload handling (Dropzone & Input)
+    const uploadDropzone = document.getElementById('uploadDropzone');
+    const inputPdfFile = document.getElementById('inputPdfFile');
+    const uploadFileActive = document.getElementById('uploadFileActive');
+    const selectedFileName = document.getElementById('selectedFileName');
+    const selectedFileSize = document.getElementById('selectedFileSize');
+    const btnRemoveFile = document.getElementById('btnRemoveFile');
+
+    uploadDropzone.addEventListener('click', () => {
+      inputPdfFile.click();
+    });
+
+    uploadDropzone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        inputPdfFile.click();
+      }
+    });
+
+    inputPdfFile.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        const file = e.target.files[0];
+        displaySelectedFile(file.name, `${(file.size / (1024 * 1024)).toFixed(1)} MB`);
+      }
+    });
+
+    function displaySelectedFile(name, size) {
+      selectedFileName.textContent = name;
+      selectedFileSize.textContent = size;
+      uploadDropzone.style.display = 'none';
+      uploadFileActive.style.display = 'flex';
+      showToast(`Berkas ${name} siap diunggah`, 'info');
+    }
+
+    btnRemoveFile.addEventListener('click', () => {
+      inputPdfFile.value = '';
+      uploadFileActive.style.display = 'none';
+      uploadDropzone.style.display = 'flex';
+    });
+
+    // Simpan Draft
+    document.getElementById('btnSimpanDraft').addEventListener('click', () => {
+      const ormawa = document.getElementById('inputOrmawa').value || 'Ormawa Tanpa Nama';
+      const tgl = document.getElementById('inputTanggal').value;
+      const keperluan = document.getElementById('inputKeperluan').value;
+      const draftData = {
+        ormawa,
+        tgl,
+        keperluan,
+        ruangan: document.getElementById('roomTagsContainer').textContent.trim(),
+        savedAt: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+      };
+      localStorage.setItem('kirei_draft_reservation', JSON.stringify(draftData));
+      showToast('Draft permohonan berhasil disimpan ke sistem!', 'success');
+    });
+
+    // Submit Form
+    document.getElementById('reservationForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      showToast('Permohonan berhasil dikirim! Mengalihkan ke histori reservasi...', 'success');
+      setTimeout(() => {
+        window.location.href = 'histori-reservasi.html';
+      }, 1200);
+    });
+
+    // Room Selection Modal
+    document.getElementById('btnConfirmRooms').addEventListener('click', () => {
+      const checkedBoxes = document.querySelectorAll('input[name="selected_rooms"]:checked');
+      const roomContainer = document.getElementById('roomTagsContainer');
+      if (checkedBoxes.length > 0) {
+        roomContainer.innerHTML = '';
+        checkedBoxes.forEach(box => {
+          const tag = document.createElement('span');
+          tag.className = 'room-tag';
+          tag.textContent = box.value;
+          roomContainer.appendChild(tag);
+        });
+        showToast('Pilihan ruangan berhasil diperbarui', 'info');
+      }
+      const modal = document.getElementById('roomModal');
+      closeModal(modal);
+    });
+  </script>
+</body>
+</html>

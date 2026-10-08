@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histori Reservasi - Kirei Ormawa Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #e2e8f0; color: #334155; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Role: Ormawa
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Ormawa">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kioku">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Kioku</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="nav-link" title="Reservasi Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="draft-reservasi.html" class="nav-link" title="Draft Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Draft Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori-reservasi.html" class="nav-link active" title="Histori Reservasi" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Histori Reservasi</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - SISTEM RESERVASI</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">HISTORI PENGAJUAN RUANGAN</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h1 class="page-title" style="margin-bottom: 4px;">Histori Reservasi</h1>
+            <p class="page-subtitle" style="margin-bottom: 0;">
+              Pantau status verifikasi, jadwal pemakaian, dan riwayat pengajuan peminjaman ruangan Anda.
+            </p>
+          </div>
+          <a href="index.html" class="btn btn-primary" style="gap: 8px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>Reservasi Baru</span>
+          </a>
+        </div>
+
+        <!-- Toolbar: Search on Left, Filter on Right -->
+        <div class="history-controls-toolbar">
+          <!-- Quick Search -->
+          <div class="history-search-box">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="history-search-input" placeholder="Cari ruangan atau tanggal..." aria-label="Cari riwayat reservasi">
+          </div>
+
+          <!-- Filter Status Dropdown -->
+          <div class="history-filter-select-wrapper">
+            <span class="filter-select-icon-left" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+            </span>
+            <select id="statusFilterSelect" class="history-filter-select" aria-label="Filter berdasarkan status reservasi">
+              <option value="all" selected>Semua Status (8)</option>
+              <option value="Menunggu">Menunggu (1)</option>
+              <option value="Disetujui">Disetujui (2)</option>
+              <option value="Ditolak">Ditolak (2)</option>
+              <option value="Selesai">Selesai (3)</option>
+            </select>
+            <span class="filter-select-icon-right" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- History Card Container with Enhanced Table -->
+        <div class="history-card-container">
+          <div class="history-table-wrapper">
+            <table class="history-table" id="historyTable" aria-label="Tabel Riwayat Reservasi Ruangan">
+              <thead>
+                <tr>
+                  <th scope="col">Ruangan</th>
+                  <th scope="col">Tanggal</th>
+                  <th scope="col">Jam</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" style="text-align: center; width: 90px;">Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Row 1: Menunggu -->
+                <tr data-status="Menunggu"
+                    data-id="BK-2026-0042"
+                    data-rooms="H.4.1, H.4.2, H.4.3"
+                    data-date="05/10/2026"
+                    data-fulldate="Senin, 05 Oktober 2026"
+                    data-time="07.00 - 10.20"
+                    data-org="HMTI (Himpunan Mahasiswa Teknik Informatika)"
+                    data-event="Workshop Flutter & Mobile App Development"
+                    data-pic="Ahmad Fauzi (0812-3456-7890)"
+                    data-keterangan="Pengajuan sedang dalam proses peninjauan berkas oleh Koordinator Lab Gedung H dan Bagian Sarpras. Estimasi verifikasi kelayakan 1x24 jam kerja."
+                    data-surat-name="Surat_Permohonan_HMTI_042_WorkshopFlutter.pdf"
+                    data-surat-size="1.2 MB"
+                    data-letter-no="042/ORMAWA-HMTI/EXT/X/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.1</span>
+                      <span class="room-chip">H.4.2</span>
+                      <span class="room-chip">H.4.3</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>05/10/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>07.00 - 10.20</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-menunggu">
+                      <span class="status-dot"></span>
+                      Menunggu
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.1, H.4.2, H.4.3" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: Disetujui -->
+                <tr data-status="Disetujui"
+                    data-id="BK-2026-0038"
+                    data-rooms="H.4.4, H.4.5, H.4.6"
+                    data-date="06/10/2026"
+                    data-fulldate="Selasa, 06 Oktober 2026"
+                    data-time="10.30 - 14.00"
+                    data-org="BEM Fakultas Ilmu Komputer"
+                    data-event="Pelatihan Dasar Git & Kolaborasi GitHub"
+                    data-pic="Nabila Putri (0813-9876-5432)"
+                    data-keterangan="Disetujui oleh Koordinator Sarpras. Catatan: Harap menjaga kebersihan laboratorium, memastikan proyektor dan AC dimatikan seusai acara, serta mengembalikan posisi kursi."
+                    data-surat-name="Surat_Peminjaman_BEM_FIK_038_GitTraining.pdf"
+                    data-surat-size="1.5 MB"
+                    data-letter-no="038/BEM-FIK/EXT/X/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.4</span>
+                      <span class="room-chip">H.4.5</span>
+                      <span class="room-chip">H.4.6</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>06/10/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>10.30 - 14.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-disetujui">
+                      <span class="status-dot"></span>
+                      Disetujui
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.4, H.4.5, H.4.6" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3: Ditolak -->
+                <tr data-status="Ditolak"
+                    data-id="BK-2026-0035"
+                    data-rooms="H.4.7, H.4.8, H.4.9"
+                    data-date="07/10/2026"
+                    data-fulldate="Rabu, 07 Oktober 2026"
+                    data-time="14.30 - 18.00"
+                    data-org="UKM Bengkel Koding"
+                    data-event="Bootcamp Competitive Programming Divisi Algoritma"
+                    data-pic="Rian Saputra (0856-7890-1234)"
+                    data-keterangan="Ditolak oleh Operator Lab: Lab H.4.7, H.4.8, dan H.4.9 pada jam tersebut telah terplot untuk jadwal perkuliahan praktikum reguler semester berjalan. Silakan ajukan jadwal pada hari Sabtu/Minggu."
+                    data-surat-name="Surat_Permohonan_UKMBK_035_BootcampCP.pdf"
+                    data-surat-size="980 KB"
+                    data-letter-no="035/UKM-BK/EXT/X/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.7</span>
+                      <span class="room-chip">H.4.8</span>
+                      <span class="room-chip">H.4.9</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>07/10/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>14.30 - 18.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-ditolak">
+                      <span class="status-dot"></span>
+                      Ditolak
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.7, H.4.8, H.4.9" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 4: Selesai -->
+                <tr data-status="Selesai"
+                    data-id="BK-2026-0031"
+                    data-rooms="H.4.10, H.4.11"
+                    data-date="01/10/2026"
+                    data-fulldate="Kamis, 01 Oktober 2026"
+                    data-time="08.00 - 12.00"
+                    data-org="HMSI (Himpunan Mahasiswa Sistem Informasi)"
+                    data-event="Seleksi Internal UI/UX Design Competition"
+                    data-pic="Dimas Wicaksono (0821-4455-6677)"
+                    data-keterangan="Kegiatan telah selesai terlaksana dengan tertib. Berita acara serah terima fasilitas dan kunci telah ditandatangani operator laboratorium Lantai 4."
+                    data-surat-name="Surat_Izin_HMSI_031_SeleksiUIUX.pdf"
+                    data-surat-size="1.1 MB"
+                    data-letter-no="031/HMSI-UDINUS/EXT/X/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.10</span>
+                      <span class="room-chip">H.4.11</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>01/10/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>08.00 - 12.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-selesai">
+                      <span class="status-dot"></span>
+                      Selesai
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.10, H.4.11" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 5: Selesai -->
+                <tr data-status="Selesai"
+                    data-id="BK-2026-0027"
+                    data-rooms="H.4.2, H.4.3"
+                    data-date="28/09/2026"
+                    data-fulldate="Senin, 28 September 2026"
+                    data-time="13.00 - 16.30"
+                    data-org="Forum Asisten Laboratorium FIK"
+                    data-event="Sharing Session Alumni: Persiapan Magang Industri Tech"
+                    data-pic="Siti Nurhaliza (0819-1122-3344)"
+                    data-keterangan="Kegiatan sukses terlaksana. Seluruh 60 unit PC lab dan akses jaringan internet beroperasi optimal tanpa kendala perangkat."
+                    data-surat-name="Surat_Peminjaman_Aslab_027_SharingAlumni.pdf"
+                    data-surat-size="850 KB"
+                    data-letter-no="027/ASLAB-FIK/EXT/IX/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.2</span>
+                      <span class="room-chip">H.4.3</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>28/09/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>13.00 - 16.30</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-selesai">
+                      <span class="status-dot"></span>
+                      Selesai
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.2, H.4.3" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 6: Selesai -->
+                <tr data-status="Selesai"
+                    data-id="BK-2026-0022"
+                    data-rooms="H.4.5, H.4.6"
+                    data-date="25/09/2026"
+                    data-fulldate="Jumat, 25 September 2026"
+                    data-time="09.00 - 12.00"
+                    data-org="GDSC (Google Developer Student Club) UDINUS"
+                    data-event="Hands-on Machine Learning dengan TensorFlow"
+                    data-pic="Kevin Pratama (0877-3344-5566)"
+                    data-keterangan="Kegiatan selesai sesuai jadwal. Fasilitas proyektor dan sistem pendingin ruangan lab telah dinonaktifkan dengan aman."
+                    data-surat-name="Surat_Permohonan_GDSC_022_MLWorkshop.pdf"
+                    data-surat-size="1.8 MB"
+                    data-letter-no="022/GDSC-UDINUS/EXT/IX/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.5</span>
+                      <span class="room-chip">H.4.6</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>25/09/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>09.00 - 12.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-selesai">
+                      <span class="status-dot"></span>
+                      Selesai
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.5, H.4.6" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 7: Ditolak -->
+                <tr data-status="Ditolak"
+                    data-id="BK-2026-0019"
+                    data-rooms="H.4.1"
+                    data-date="20/09/2026"
+                    data-fulldate="Minggu, 20 September 2026"
+                    data-time="15.00 - 17.30"
+                    data-org="Panitia Dies Natalis Fakultas Ilmu Komputer"
+                    data-event="Rapat Koordinasi Divisi Acara & Perlengkapan"
+                    data-pic="Bayu Aji (0813-2233-4455)"
+                    data-keterangan="Ditolak: Untuk agenda rapat koordinasi non-praktikum tanpa kebutuhan PC lab, silakan meminjam Ruang Rapat / Meeting Room di Lantai 2 agar laboratorium komputer dimaksimalkan untuk kegiatan teknis."
+                    data-surat-name="Surat_Permohonan_DiesNatalis_019_Rapat.pdf"
+                    data-surat-size="720 KB"
+                    data-letter-no="019/DIES-FIK/EXT/IX/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.1</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>20/09/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>15.00 - 17.30</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-ditolak">
+                      <span class="status-dot"></span>
+                      Ditolak
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.1" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 8: Disetujui -->
+                <tr data-status="Disetujui"
+                    data-id="BK-2026-0014"
+                    data-rooms="H.4.3, H.4.4"
+                    data-date="18/09/2026"
+                    data-fulldate="Jumat, 18 September 2026"
+                    data-time="10.00 - 13.00"
+                    data-org="Divisi Akademik Bengkel Koding"
+                    data-event="Sosialisasi Kurikulum & Jalur Minat Bengkod"
+                    data-pic="Dewi Lestari (0852-6677-8899)"
+                    data-keterangan="Disetujui oleh Koordinator Sarpras. Didampingi oleh Dosen Pembina dan PIC Lab Gedung H."
+                    data-surat-name="Surat_Peminjaman_Akademik_014_Sosialisasi.pdf"
+                    data-surat-size="1.3 MB"
+                    data-letter-no="014/BK-AKAD/EXT/IX/2026">
+                  <td>
+                    <div class="room-chip-group">
+                      <span class="room-chip">H.4.3</span>
+                      <span class="room-chip">H.4.4</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      <span>18/09/2026</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-meta-text">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>10.00 - 13.00</span>
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge status-disetujui">
+                      <span class="status-dot"></span>
+                      Disetujui
+                    </span>
+                  </td>
+                  <td style="text-align: center;">
+                    <button type="button" class="action-icon-btn" title="Lihat Keterangan & Lampiran Surat" aria-label="Lihat rincian pengajuan ruang H.4.3, H.4.4" onclick="openReservationDetail(this)">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Table Footer Pagination -->
+          <div class="history-table-footer">
+            <span id="footerCount">Menampilkan 8 dari 8 reservasi</span>
+            <div class="pagination-controls">
+              <button type="button" class="pagination-btn" disabled>Sebelumnya</button>
+              <button type="button" class="pagination-btn" disabled>Berikutnya</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal 1: Rincian Pengajuan Reservasi & Lampiran Surat (Read-Only) -->
+  <div class="modal-overlay" id="detailModal" role="dialog" aria-modal="true" aria-labelledby="modalDetailTitle">
+    <div class="modal-dialog modal-dialog-large">
+      <div class="modal-header">
+        <div>
+          <div style="font-size: 0.775rem; font-weight: 700; color: #64748b; letter-spacing: 0.05em; text-transform: uppercase;" id="detailModalId">
+            ID RESERVASI: #BK-2026-0042
+          </div>
+          <h2 id="modalDetailTitle" class="modal-title" style="margin-top: 2px;">Rincian Pengajuan Reservasi</h2>
+        </div>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Dialog">&times;</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Status Header Pill Banner -->
+        <div style="display: flex; align-items: center; justify-content: space-between; background: #ffffff; border: 1px solid var(--color-border-subtle); padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px;">
+          <span style="font-size: 0.85rem; color: #475569; font-weight: 500;">Status Verifikasi Terkini:</span>
+          <div id="detailStatusBadgeWrapper">
+            <!-- Injected by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Section: Data Spesifikasi Reservasi -->
+        <div class="detail-section-card">
+          <div class="detail-section-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>Informasi Pengajuan Ruangan</span>
+          </div>
+          <div class="detail-grid">
+            <div>
+              <span class="detail-label">Ruangan Laboratorium</span>
+              <div id="detailModalRooms" class="room-chip-group" style="margin-top: 4px;">
+                <!-- Room chips injected -->
+              </div>
+            </div>
+            <div>
+              <span class="detail-label">Hari & Tanggal</span>
+              <div class="detail-value" id="detailModalDate">-</div>
+            </div>
+            <div>
+              <span class="detail-label">Waktu / Sesi Pemakaian</span>
+              <div class="detail-value" id="detailModalTime">-</div>
+            </div>
+            <div>
+              <span class="detail-label">Organisasi Pemohon</span>
+              <div class="detail-value" id="detailModalOrg">-</div>
+            </div>
+            <div class="detail-grid-full">
+              <span class="detail-label">Nama Kegiatan / Keperluan</span>
+              <div class="detail-value" id="detailModalEvent" style="font-size: 0.95rem; color: #0b3272;">-</div>
+            </div>
+            <div class="detail-grid-full">
+              <span class="detail-label">Penanggung Jawab (PIC)</span>
+              <div class="detail-value" id="detailModalPic">-</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Keterangan / Catatan Verifikasi -->
+        <div class="detail-section-card" style="margin-bottom: 16px;">
+          <div class="detail-section-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span>Keterangan & Catatan Verifikasi</span>
+          </div>
+          <div id="detailRemarkCard" class="remark-note-card remark-note-pending">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <div id="detailModalKeterangan">
+              <!-- Remarks injected -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Section: Lampiran Surat Permohonan Resmi -->
+        <div class="detail-section-card">
+          <div class="detail-section-title">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <span>Lampiran Dokumen Surat Permohonan</span>
+          </div>
+          
+          <div class="attachment-card">
+            <div class="attachment-card-main">
+              <div class="attachment-pdf-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <div class="attachment-card-texts">
+                <span class="attachment-card-filename" id="detailAttachmentName">Surat_Permohonan_HMTI_042.pdf</span>
+                <div class="attachment-card-meta">
+                  <span id="detailAttachmentSize">1.2 MB</span>
+                  <span>•</span>
+                  <span>PDF Resmi Bertandatangan & Berstempel</span>
+                </div>
+              </div>
+            </div>
+            <div class="attachment-card-actions">
+              <button type="button" class="btn btn-outline" style="min-height: 34px; padding: 4px 12px; font-size: 0.825rem; gap: 6px;" onclick="viewOfficialLetterPreview()" title="Lihat isi lengkap surat permohonan resmi">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Lihat Surat</span>
+              </button>
+              <button type="button" class="btn btn-primary" style="min-height: 34px; padding: 4px 12px; font-size: 0.825rem; gap: 6px;" onclick="downloadAttachmentFile()" title="Unduh berkas PDF">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Unduh PDF</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer: Read-Only (Tutup Saja) -->
+      <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--color-border-subtle);">
+        <button type="button" class="btn btn-primary" data-close-modal style="min-width: 100px;">Tutup</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Preview Dokumen Surat Resmi (Official Letter Viewer) -->
+  <div class="modal-overlay" id="officialLetterModal" role="dialog" aria-modal="true" aria-labelledby="modalLetterTitle">
+    <div class="modal-dialog modal-dialog-document">
+      <div class="modal-header">
+        <div>
+          <div style="font-size: 0.775rem; font-weight: 700; color: #64748b; letter-spacing: 0.05em; text-transform: uppercase;">
+            LAMPIRAN DOKUMEN RESMI
+          </div>
+          <h2 id="modalLetterTitle" class="modal-title" style="margin-top: 2px;">Surat Permohonan Peminjaman Ruang</h2>
+        </div>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Preview">&times;</button>
+      </div>
+
+      <div class="modal-body-scroll">
+        <!-- Realistic Letterhead Paper -->
+        <article class="official-letter-paper">
+          <!-- Kop Surat -->
+          <header class="letter-header">
+            <div class="letter-inst-name">KEMENTERIAN PENDIDIKAN TINGGI, SAINS, DAN TEKNOLOGI</div>
+            <div class="letter-univ-name">UNIVERSITAS DIAN NUSWANTORO SEMARANG</div>
+            <div class="letter-faculty-name">FAKULTAS ILMU KOMPUTER - ORGANISASI KEMAHASISWAAN</div>
+            <div class="letter-address">
+              Gedung H Bengkel Koding, Jl. Imam Bonjol No. 207, Pendrikan Kidul, Semarang 50131 • Surel: fik@dinus.ac.id
+            </div>
+          </header>
+          <div class="letter-header-double-line"></div>
+
+          <!-- Metadata Surat -->
+          <div class="letter-meta-row">
+            <div>
+              <div><strong>Nomor</strong> : <span id="letterDocNo">042/ORMAWA-HMTI/EXT/X/2026</span></div>
+              <div><strong>Lampiran</strong> : 1 (satu) Berkas Proposal Kegiatan</div>
+              <div><strong>Hal</strong> : <u>Permohonan Izin Peminjaman Ruang Laboratorium Komputer</u></div>
+            </div>
+            <div style="text-align: right;">
+              <div>Semarang, <span id="letterDocDate">02 Oktober 2026</span></div>
+            </div>
+          </div>
+
+          <!-- Tujuan Surat -->
+          <div style="margin-bottom: 18px; font-size: 0.875rem;">
+            <div>Kepada Yth.</div>
+            <div><strong>Koordinator Laboratorium Komputer & Sarana Prasarana</strong></div>
+            <div>Fakultas Ilmu Komputer, Universitas Dian Nuswantoro</div>
+            <div>di Tempat</div>
+          </div>
+
+          <!-- Isi Surat -->
+          <div style="font-size: 0.875rem; line-height: 1.6; text-align: justify; margin-bottom: 16px;">
+            <p style="margin-bottom: 10px;">Dengan hormat,</p>
+            <p style="margin-bottom: 12px;">
+              Sehubungan dengan pelaksanaan program kerja pengembangan kompetensi mahasiswa di bidang teknologi informasi dan rekayasa perangkat lunak, kami pengurus organisasi bermaksud mengajukan permohonan peminjaman fasilitas laboratorium komputer dengan rincian jadwal sebagai berikut:
+            </p>
+
+            <!-- Tabel Spesifikasi Peminjaman -->
+            <table class="letter-table-spec">
+              <tbody>
+                <tr>
+                  <td>Organisasi Pemohon</td>
+                  <td id="letterOrgName">HMTI (Himpunan Mahasiswa Teknik Informatika)</td>
+                </tr>
+                <tr>
+                  <td>Nama Kegiatan</td>
+                  <td id="letterEventName"><strong>Workshop Flutter & Mobile App Development</strong></td>
+                </tr>
+                <tr>
+                  <td>Hari / Tanggal</td>
+                  <td id="letterEventDate">Senin, 05 Oktober 2026</td>
+                </tr>
+                <tr>
+                  <td>Waktu / Sesi</td>
+                  <td id="letterEventTime">07.00 - 10.20 WIB</td>
+                </tr>
+                <tr>
+                  <td>Ruangan Dimohon</td>
+                  <td id="letterRoomsName">Lab H.4.1, H.4.2, H.4.3 (Lantai 4 Gedung H)</td>
+                </tr>
+                <tr>
+                  <td>Penanggung Jawab (PIC)</td>
+                  <td id="letterPicName">Ahmad Fauzi (0812-3456-7890)</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p style="margin-top: 12px; margin-bottom: 10px;">
+              Kami berkomitmen untuk menjaga ketertiban, kebersihan, serta memelihara seluruh inventaris perangkat komputer dan fasilitas yang digunakan selama kegiatan berlangsung hingga selesai.
+            </p>
+            <p style="margin-bottom: 0;">
+              Demikian surat permohonan peminjaman ini kami sampaikan. Atas perhatian, dukungan, dan izin yang diberikan oleh Bapak/Ibu, kami mengucapkan terima kasih.
+            </p>
+          </div>
+
+          <!-- Tanda Tangan & Stempel Resmi -->
+          <div class="letter-signatures">
+            <div class="letter-sig-box">
+              <div>Ketua Pelaksana Kegiatan,</div>
+              <div style="height: 54px;"></div>
+              <div><strong><u>M. Rizky Pratama</u></strong></div>
+              <div style="font-size: 0.75rem; color: #64748b;">NIM: A11.2023.14920</div>
+            </div>
+
+            <!-- Stempel Digital Verification -->
+            <div class="letter-stamp-seal" title="Stempel Verifikasi Resmi Sistem Bengkel Koding">
+              <span>BENGKEL KODING</span>
+              <span style="font-size: 0.8rem; font-weight: 900;">UDINUS</span>
+              <span>TERVERIFIKASI</span>
+            </div>
+
+            <div class="letter-sig-box">
+              <div>Ketua Umum Organisasi,</div>
+              <div style="height: 54px;"></div>
+              <div><strong><u>Ahmad Fauzi</u></strong></div>
+              <div style="font-size: 0.75rem; color: #64748b;">NIM: A11.2022.14102</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Footer Surat Modal -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--color-border-subtle);">
+        <button type="button" class="btn btn-light" onclick="backToDetailModal()">
+          &larr; Kembali ke Rincian
+        </button>
+        <button type="button" class="btn btn-primary" onclick="downloadAttachmentFile()" style="gap: 8px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Unduh Salinan PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script>
+    let activeReservationData = {};
+
+    function openReservationDetail(btn) {
+      const row = btn.closest('tr');
+      activeReservationData = {
+        id: row.getAttribute('data-id') || 'BK-2026-0042',
+        status: row.getAttribute('data-status') || 'Menunggu',
+        rooms: row.getAttribute('data-rooms') || 'H.4.1',
+        date: row.getAttribute('data-date') || '05/10/2026',
+        fulldate: row.getAttribute('data-fulldate') || 'Senin, 05 Oktober 2026',
+        time: row.getAttribute('data-time') || '07.00 - 10.20',
+        org: row.getAttribute('data-org') || 'Organisasi Kemahasiswaan',
+        event: row.getAttribute('data-event') || 'Kegiatan Pelatihan',
+        pic: row.getAttribute('data-pic') || 'Penanggung Jawab',
+        keterangan: row.getAttribute('data-keterangan') || 'Tidak ada catatan tambahan.',
+        suratName: row.getAttribute('data-surat-name') || 'Surat_Permohonan.pdf',
+        suratSize: row.getAttribute('data-surat-size') || '1.0 MB',
+        letterNo: row.getAttribute('data-letter-no') || '042/ORMAWA/EXT/X/2026'
+      };
+
+      // Populate ID
+      document.getElementById('detailModalId').textContent = `ID RESERVASI: #${activeReservationData.id}`;
+
+      // Populate Status Badge
+      const statusBadgeContainer = document.getElementById('detailStatusBadgeWrapper');
+      let statusClass = 'status-menunggu';
+      if (activeReservationData.status === 'Disetujui') statusClass = 'status-disetujui';
+      if (activeReservationData.status === 'Ditolak') statusClass = 'status-ditolak';
+      if (activeReservationData.status === 'Selesai') statusClass = 'status-selesai';
+
+      statusBadgeContainer.innerHTML = `
+        <span class="status-badge ${statusClass}">
+          <span class="status-dot"></span>
+          ${activeReservationData.status}
+        </span>
+      `;
+
+      // Populate Rooms
+      const roomsContainer = document.getElementById('detailModalRooms');
+      const roomList = activeReservationData.rooms.split(',').map(r => r.trim());
+      roomsContainer.innerHTML = roomList.map(r => `<span class="room-chip">${r}</span>`).join(' ');
+
+      // Populate Data Fields
+      document.getElementById('detailModalDate').textContent = activeReservationData.fulldate;
+      document.getElementById('detailModalTime').textContent = `${activeReservationData.time} WIB`;
+      document.getElementById('detailModalOrg').textContent = activeReservationData.org;
+      document.getElementById('detailModalEvent').textContent = activeReservationData.event;
+      document.getElementById('detailModalPic').textContent = activeReservationData.pic;
+
+      // Populate Remarks / Keterangan Card
+      const remarkCard = document.getElementById('detailRemarkCard');
+      const remarkText = document.getElementById('detailModalKeterangan');
+      remarkText.textContent = activeReservationData.keterangan;
+
+      remarkCard.className = 'remark-note-card';
+      if (activeReservationData.status === 'Menunggu') {
+        remarkCard.classList.add('remark-note-pending');
+      } else if (activeReservationData.status === 'Disetujui') {
+        remarkCard.classList.add('remark-note-approved');
+      } else if (activeReservationData.status === 'Ditolak') {
+        remarkCard.classList.add('remark-note-rejected');
+      } else {
+        remarkCard.classList.add('remark-note-completed');
+      }
+
+      // Populate Attachment
+      document.getElementById('detailAttachmentName').textContent = activeReservationData.suratName;
+      document.getElementById('detailAttachmentSize').textContent = activeReservationData.suratSize;
+
+      openModal('detailModal');
+    }
+
+    function viewOfficialLetterPreview() {
+      // Populate Letter preview with active data
+      document.getElementById('letterDocNo').textContent = activeReservationData.letterNo;
+      document.getElementById('letterOrgName').textContent = activeReservationData.org;
+      document.getElementById('letterEventName').textContent = activeReservationData.event;
+      document.getElementById('letterEventDate').textContent = activeReservationData.fulldate;
+      document.getElementById('letterEventTime').textContent = `${activeReservationData.time} WIB`;
+      document.getElementById('letterRoomsName').textContent = `Lab ${activeReservationData.rooms} (Gedung H)`;
+      document.getElementById('letterPicName').textContent = activeReservationData.pic;
+
+      closeModal(document.getElementById('detailModal'));
+      openModal('officialLetterModal');
+    }
+
+    function backToDetailModal() {
+      closeModal(document.getElementById('officialLetterModal'));
+      openModal('detailModal');
+    }
+
+    function downloadAttachmentFile() {
+      showToast(`Mengunduh berkas ${activeReservationData.suratName}...`, 'success');
+    }
+
+    // Interactive Dropdown Filter & Search
+    const statusFilterSelect = document.getElementById('statusFilterSelect');
+    const searchInput = document.getElementById('searchInput');
+    const tableRows = document.querySelectorAll('#tableBody tr');
+    const footerCount = document.getElementById('footerCount');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    statusFilterSelect.addEventListener('change', (e) => {
+      currentFilter = e.target.value;
+      applyFilters();
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      applyFilters();
+    });
+
+    function applyFilters() {
+      let visibleCount = 0;
+      tableRows.forEach(row => {
+        const rowStatus = row.getAttribute('data-status');
+        const rowText = row.textContent.toLowerCase();
+
+        const matchesStatus = (currentFilter === 'all') || (rowStatus === currentFilter);
+        const matchesSearch = !searchQuery || rowText.includes(searchQuery);
+
+        if (matchesStatus && matchesSearch) {
+          row.style.display = '';
+          visibleCount++;
+        } else {
+          row.style.display = 'none';
+        }
+      });
+
+      footerCount.textContent = `Menampilkan ${visibleCount} dari ${tableRows.length} reservasi`;
+    }
+  </script>
+</body>
+</html>

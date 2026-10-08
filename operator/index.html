@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jadwal Pemakaian Kelas - Operator Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #dbeafe; color: #1e40af; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Operator Lantai 5
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 0.85rem; color: #64748b; font-weight: 600; display: none; @media(min-width: 768px){display: inline;}">
+          Gedung H • Lantai 5
+        </span>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Operator -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Operator">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link active" title="Kalender Jadwal Pemakaian" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Kalender</span>
+            </a>
+          </li>
+          <li>
+            <a href="permintaan.html" class="nav-link" title="Permintaan Pindah Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Permintaan</span>
+            </a>
+          </li>
+          <li>
+            <a href="activity-log.html" class="nav-link" title="Activity Log Operator">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Activity Log</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - OPERATOR LANTAI 5</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">JADWAL PEMAKAIAN KELAS</span>
+        </nav>
+
+        <!-- Schedule Container Card -->
+        <div class="card-container">
+          <div class="calendar-card-header">
+            <div>
+              <h1 class="calendar-header-title">Jadwal Pemakaian Kelas</h1>
+              <p class="calendar-header-sub">Melihat jadwal pemakaian kelas dan status operasional ruang di Lantai 5</p>
+            </div>
+            <div class="schedule-controls">
+              <!-- Date Picker Pill -->
+              <button type="button" class="date-selector-pill" id="btnChangeDate" title="Klik untuk mengganti tanggal">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="currentDateDisplay">1 Januari 2026</span>
+              </button>
+
+              <!-- Floor Indicator (Dedicated Lantai 5 Only) -->
+              <div class="floor-badge-locked" title="Wilayah tugas Operator khusus Lantai 5">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                  <line x1="9" y1="22" x2="9" y2="2"></line>
+                  <path d="M4 12h16"></path>
+                </svg>
+                <span>Lantai 5 (Khusus Operasional)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Schedule Matrix Table -->
+          <div class="schedule-table-wrapper">
+            <table class="schedule-table" aria-label="Tabel Matriks Sesi Pemakaian Kelas">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 170px;">
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>Sesi / Jam</span>
+                    </div>
+                  </th>
+                  <th scope="col" class="room-col-header" data-room-idx="1">H.5.1</th>
+                  <th scope="col" class="room-col-header" data-room-idx="2">H.5.2</th>
+                  <th scope="col" class="room-col-header" data-room-idx="3">H.5.3</th>
+                  <th scope="col" class="room-col-header" data-room-idx="4">H.5.4</th>
+                  <th scope="col" class="room-col-header" data-room-idx="5">H.5.5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1: 07.00 - 07.40 -->
+                <tr>
+                  <th scope="row">07.00 - 07.40</th>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 1, '07.00 - 07.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 2, '07.00 - 07.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <div class="slot-booked" style="cursor: pointer;" onclick="openSlotAction(this, 3, '07.00 - 07.40', 'booked', 'Praktikum Mandiri', 'Lab Tim Bengkod')">
+                      <div class="slot-booked-title">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Terjadwal</span>
+                      </div>
+                      <div class="slot-booked-sub">Praktikum Mandiri</div>
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 4, '07.00 - 07.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 5, '07.00 - 07.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 2: 07.40 - 08.20 -->
+                <tr>
+                  <th scope="row">07.40 - 08.20</th>
+                  <td>
+                    <div class="slot-booked" style="cursor: pointer;" onclick="openSlotAction(this, 1, '07.40 - 08.20', 'booked', 'Praktikum Mandiri', 'Lab Tim Bengkod')">
+                      <div class="slot-booked-title">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Terjadwal</span>
+                      </div>
+                      <div class="slot-booked-sub">Praktikum Mandiri</div>
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 2, '07.40 - 08.20', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 3, '07.40 - 08.20', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 4, '07.40 - 08.20', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 5, '07.40 - 08.20', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                </tr>
+
+                <!-- Row 3: 08.20 - 09.00 -->
+                <tr>
+                  <th scope="row">08.20 - 09.00</th>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 1, '08.20 - 09.00', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <div class="slot-booked" style="cursor: pointer;" onclick="openSlotAction(this, 2, '08.20 - 09.00', 'booked', 'Praktikum Mandiri', 'Lab Tim Bengkod')">
+                      <div class="slot-booked-title">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        <span>Terjadwal</span>
+                      </div>
+                      <div class="slot-booked-sub">Praktikum Mandiri</div>
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 3, '08.20 - 09.00', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 4, '08.20 - 09.00', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <div class="slot-class" style="cursor: pointer; background: #fffbeb; border-color: #fde68a;" onclick="openSlotAction(this, 5, '08.20 - 09.00', 'maintenance', 'Upgrade GPU Server', 'Tim Jaringan & Hardware')">
+                      <div class="slot-class-title" style="color: #92400e; display: inline-flex; align-items: center; justify-content: center; gap: 5px;">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                        </svg>
+                        <span>Maintenance Lab</span>
+                      </div>
+                      <div class="slot-class-sub" style="color: #b45309;">Upgrade GPU Server</div>
+                    </div>
+                  </td>
+                </tr>
+
+                <!-- Row 4: 09.00 - 09.40 -->
+                <tr>
+                  <th scope="row">09.00 - 09.40</th>
+                  <td>
+                    <div class="slot-class" style="cursor: pointer; background: #eff6ff; border-color: #bfdbfe;" onclick="openSlotAction(this, 1, '09.00 - 09.40', 'kuliah', 'Kuliah Teori Koding', 'Dr. Setiawan')">
+                      <div class="slot-class-title" style="color: #1e40af;">Kuliah Teori Koding</div>
+                      <div class="slot-class-sub" style="color: #3b82f6;">Dosen: Dr. Setiawan</div>
+                    </div>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 2, '09.00 - 09.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 3, '09.00 - 09.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 4, '09.00 - 09.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                  <td>
+                    <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, 5, '09.00 - 09.40', 'available')">
+                      + Tersedia
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Atur / Rincian Slot Ruangan -->
+  <div class="modal-overlay" id="slotDetailModal" role="dialog" aria-modal="true" aria-labelledby="modalSlotTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h2 id="modalSlotTitle" class="modal-title">Rincian Slot Ruangan</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Dialog">&times;</button>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <div style="background: var(--color-bg-subtle); padding: 16px 20px; border-radius: var(--radius-sm); font-size: 0.925rem; display: flex; flex-direction: column; gap: 10px; border: 1px solid var(--color-border-subtle);">
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-text-muted);">Ruangan:</span>
+            <strong id="modalSlotRuang" style="color: #0f172a;">-</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-text-muted);">Sesi Waktu:</span>
+            <strong id="modalSlotJam" style="color: #0f172a;">-</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: var(--color-text-muted);">Status Saat Ini:</span>
+            <strong id="modalSlotStatus" style="color: #0f172a;">-</strong>
+          </div>
+          <div id="modalSlotDetailRow" style="display: flex; justify-content: space-between; border-top: 1px dashed #cbd5e1; padding-top: 8px;">
+            <span style="color: var(--color-text-muted);">Penanggung Jawab:</span>
+            <strong id="modalSlotPIC" style="color: #0f172a;">-</strong>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;" id="modalSlotActionsContainer">
+        <!-- Dynamic actions injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Pilih Tanggal -->
+  <div class="modal-overlay" id="datePickerModal" role="dialog" aria-modal="true" aria-labelledby="modalDateTitle">
+    <div class="modal-dialog" style="max-width: 420px;">
+      <div class="modal-header">
+        <h2 id="modalDateTitle" class="modal-title">Pilih Tanggal Jadwal</h2>
+        <button type="button" class="modal-close-btn" aria-label="Tutup Dialog">&times;</button>
+      </div>
+      <div style="margin-bottom: 20px;">
+        <label for="dateSelectInput" style="display: block; font-size: 0.85rem; font-weight: 600; color: #475569; margin-bottom: 6px;">
+          Tanggal Operasional (Januari 2026):
+        </label>
+        <input type="date" id="dateSelectInput" value="2026-01-01" min="2026-01-01" max="2026-01-31" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-family: inherit; font-size: 0.95rem;">
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" class="btn btn-light" data-close-modal>Batal</button>
+        <button type="button" class="btn btn-primary" id="btnApplyDate">Terapkan Tanggal</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script>
+    let activeCellElement = null;
+    const currentFloorNumber = '5'; // Khusus Operator Lantai 5
+
+    // Date Picker Modal Logic
+    document.getElementById('btnChangeDate').addEventListener('click', () => {
+      openModal('datePickerModal');
+    });
+
+    document.getElementById('btnApplyDate').addEventListener('click', () => {
+      const dateVal = document.getElementById('dateSelectInput').value;
+      if (dateVal) {
+        const parts = dateVal.split('-');
+        const day = parseInt(parts[2], 10);
+        const formatted = `${day} Januari 2026`;
+        document.getElementById('currentDateDisplay').textContent = formatted;
+        showToast(`Jadwal diubah ke ${formatted}`, 'success');
+      }
+      closeModal(document.getElementById('datePickerModal'));
+    });
+
+    // Open Slot Action Modal
+    function openSlotAction(el, roomIdx, jam, type, detailTitle, pic) {
+      activeCellElement = el.closest('td');
+      const roomName = `H.${currentFloorNumber}.${roomIdx}`;
+
+      document.getElementById('modalSlotRuang').textContent = roomName;
+      document.getElementById('modalSlotJam').textContent = jam;
+
+      const modalTitle = document.getElementById('modalSlotTitle');
+      const statusText = document.getElementById('modalSlotStatus');
+      const picText = document.getElementById('modalSlotPIC');
+      const actionsContainer = document.getElementById('modalSlotActionsContainer');
+
+      if (type === 'available') {
+        modalTitle.textContent = 'Atur Slot Tersedia';
+        statusText.innerHTML = '<span style="color: #16a34a; font-weight: 700;">Tersedia (Siap Digunakan)</span>';
+        picText.textContent = 'Belum ada reservasi';
+
+        actionsContainer.innerHTML = `
+          <button type="button" class="btn btn-light" data-close-modal>Batal</button>
+          <button type="button" class="btn" style="background: #f59e0b; color: #ffffff;" onclick="setSlotToMaintenance('${roomName}', '${jam}')">
+            Set Maintenance
+          </button>
+          <button type="button" class="btn btn-primary" onclick="setSlotToBooked('${roomName}', '${jam}')">
+            Jadwalkan Praktikum
+          </button>
+        `;
+      } else if (type === 'maintenance') {
+        modalTitle.textContent = 'Rincian Maintenance Lab';
+        statusText.innerHTML = '<span style="color: #b45309; font-weight: 700;">Dalam Perawatan (Maintenance)</span>';
+        picText.textContent = pic || 'Tim Jaringan & Hardware';
+
+        actionsContainer.innerHTML = `
+          <button type="button" class="btn btn-light" data-close-modal>Tutup</button>
+          <button type="button" class="btn btn-primary" style="background: #10b981; border-color: #059669;" onclick="setSlotToAvailable('${roomName}', '${jam}')">
+            Selesaikan Maintenance
+          </button>
+        `;
+      } else {
+        modalTitle.textContent = 'Rincian Jadwal Pemakaian';
+        statusText.innerHTML = `<span style="color: #1e40af; font-weight: 700;">${detailTitle || 'Terjadwal'}</span>`;
+        picText.textContent = pic || 'Lab Tim Bengkod';
+
+        actionsContainer.innerHTML = `
+          <button type="button" class="btn btn-light" data-close-modal>Tutup</button>
+          <button type="button" class="btn" style="background: #ef4444; color: #ffffff;" onclick="setSlotToAvailable('${roomName}', '${jam}')">
+            Kosongkan Jadwal
+          </button>
+        `;
+      }
+
+      openModal('slotDetailModal');
+    }
+
+    function setSlotToMaintenance(room, jam) {
+      if (activeCellElement) {
+        activeCellElement.innerHTML = `
+          <div class="slot-class" style="cursor: pointer; background: #fffbeb; border-color: #fde68a;" onclick="openSlotAction(this, ${room.split('.')[2]}, '${jam}', 'maintenance', 'Perawatan Rutin', 'Tim Teknisi Lab')">
+            <div class="slot-class-title" style="color: #92400e; display: inline-flex; align-items: center; justify-content: center; gap: 5px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+              <span>Maintenance Lab</span>
+            </div>
+            <div class="slot-class-sub" style="color: #b45309;">Perawatan Rutin</div>
+          </div>
+        `;
+        showToast(`Ruangan ${room} pada sesi ${jam} dialihkan ke Maintenance`, 'warning');
+      }
+      closeModal(document.getElementById('slotDetailModal'));
+    }
+
+    function setSlotToBooked(room, jam) {
+      if (activeCellElement) {
+        activeCellElement.innerHTML = `
+          <div class="slot-booked" style="cursor: pointer;" onclick="openSlotAction(this, ${room.split('.')[2]}, '${jam}', 'booked', 'Praktikum Mandiri', 'Lab Tim Bengkod')">
+            <div class="slot-booked-title">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <span>Terjadwal</span>
+            </div>
+            <div class="slot-booked-sub">Praktikum Mandiri</div>
+          </div>
+        `;
+        showToast(`Praktikum dijadwalkan di ${room} (${jam})`, 'success');
+      }
+      closeModal(document.getElementById('slotDetailModal'));
+    }
+
+    function setSlotToAvailable(room, jam) {
+      if (activeCellElement) {
+        activeCellElement.innerHTML = `
+          <button type="button" class="slot-available" style="width:100%;" onclick="openSlotAction(this, ${room.split('.')[2]}, '${jam}', 'available')">
+            + Tersedia
+          </button>
+        `;
+        showToast(`Slot ${room} (${jam}) kini berstatus Tersedia`, 'info');
+      }
+      closeModal(document.getElementById('slotDetailModal'));
+    }
+  </script>
+</body>
+</html>
