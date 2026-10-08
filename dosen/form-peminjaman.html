@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Peminjaman Ruangan - Kirei Dosen Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Styling tombol aksi persis screenshot 4 */
+    .form-bottom-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .btn-dosen-draft {
+      background: #cbd5e1;
+      color: #1e293b;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .btn-dosen-draft:hover {
+      background: #94a3b8;
+    }
+    .btn-dosen-submit {
+      background: #bfdbfe;
+      color: #1e3a8a;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 36px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-dosen-submit:hover {
+      background: #0b3272;
+      color: #ffffff;
+    }
+    .modal-room-picker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .room-pick-btn {
+      padding: 10px;
+      border: 1.5px solid #e2e8f0;
+      background: #ffffff;
+      border-radius: 8px;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .room-pick-btn:hover {
+      border-color: #0b3272;
+      background: #eff6ff;
+      color: #0b3272;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #e0e7ff; color: #3730a3; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Role: Dosen
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;">
+            AL
+          </div>
+          <div style="display: flex; flex-direction: column; font-size: 0.75rem;">
+            <span style="font-weight: 700; color: var(--color-text-main);">Ardytha L., M.Kom</span>
+            <span style="color: var(--color-text-muted);">Dosen Pengampu</span>
+          </div>
+        </div>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Khusus Dosen -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Dosen">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kioku">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Kioku</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="tukar-ruang.html" class="nav-link" title="Tukar Ruang Mengajar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2v6h-6"></path>
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                <path d="M3 22v-6h6"></path>
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+              </svg>
+              <span>Tukar Ruang</span>
+            </a>
+          </li>
+          <li>
+            <a href="draft-reservasi.html" class="nav-link" title="Draft Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Draft Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori-reservasi.html" class="nav-link" title="Histori Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Histori Reservasi</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content Section -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - SISTEM RESERVASI</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">FORM PEMINJAMAN</span>
+        </nav>
+
+        <!-- Page Header -->
+        <h1 class="page-title">Form Peminjaman</h1>
+        <p class="page-subtitle">Lengkapi Data Data di bawah untuk meminjam ruangan</p>
+
+        <!-- Card Form Peminjaman Dosen -->
+        <div class="dosen-form-card">
+          <h2 class="dosen-form-title">Kelas dan Jadwal</h2>
+          <p class="dosen-form-sub">Kelas yang tersedia mengikuti tanggal dan jam yang kamu pilih</p>
+
+          <form id="dosenBookingForm" onsubmit="handleFormSubmit(event)">
+            <div class="dosen-form-grid">
+              <!-- Kolom Kiri Formulir -->
+              <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Field: Nama Dosen -->
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="namaDosen" class="form-label">Nama Dosen</label>
+                  <input type="text" id="namaDosen" class="form-input" value="Ardytha Luthfiarta, M.Kom" placeholder="Ex. Ardytha Luthfiarta, M.Kom" required>
+                </div>
+
+                <!-- Field: Kelas yang dipilih -->
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="selectedRoomInput" class="form-label">Kelas yang dipilih</label>
+                  <div class="selected-room-input" id="selectedRoomInput">
+                    <span class="room-tag-pill" id="roomBadgeDisplay">H.4.2</span>
+                    <button type="button" class="room-change-link" onclick="openRoomPicker()">ganti ruangan?</button>
+                  </div>
+                </div>
+
+                <!-- Field: Tanggal, Jam Mulai, Jam Selesai -->
+                <div class="form-time-row">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label for="tanggalPinjam" class="form-label">Tanggal</label>
+                    <input type="text" id="tanggalPinjam" class="form-input" value="15/03/2026" placeholder="DD/MM/YYYY" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label for="jamMulai" class="form-label">Jam Mulai</label>
+                    <input type="text" id="jamMulai" class="form-input" value="10.20" placeholder="00.00" required>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label for="jamSelesai" class="form-label">Jam Selesai</label>
+                    <input type="text" id="jamSelesai" class="form-input" value="11.10" placeholder="00.00" required>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kolom Kanan Formulir -->
+              <div style="display: flex; flex-direction: column;">
+                <div class="form-group" style="display: flex; flex-direction: column; height: 100%; margin-bottom: 0;">
+                  <label for="keperluanDosen" class="form-label">Keperluan</label>
+                  <textarea id="keperluanDosen" class="form-textarea" style="flex: 1; min-height: 180px; resize: vertical;" placeholder="Penjelasan singkat kegiatan" required>Kuliah Pengganti & Asistensi Coding Proyek Akhir Rekayasa Perangkat Lunak</textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tombol Aksi di Bawah -->
+            <div class="form-bottom-actions">
+              <button type="button" class="btn-dosen-draft" onclick="saveDraft()">
+                Simpan Draft
+              </button>
+              <button type="submit" class="btn-dosen-submit">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal Pilih Ruangan Alternatif -->
+  <div id="modalRoomPicker" class="modal-overlay" style="display: none;" aria-hidden="true" role="dialog">
+    <div class="modal-confirm-box" style="max-width: 540px; text-align: left;">
+      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-primary); margin-bottom: 8px;">Pilih Ruangan Pengganti</h3>
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 16px;">
+        Pilih ruangan yang tersedia di Lantai 3, Lantai 4, atau Lantai 5.
+      </p>
+
+      <div style="margin-bottom: 12px; font-weight: 700; font-size: 0.85rem; color: #475569;">Lantai 4:</div>
+      <div class="modal-room-picker-grid">
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.1')">H.4.1</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.2')">H.4.2</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.3')">H.4.3</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.7')">H.4.7</button>
+      </div>
+
+      <div style="margin-bottom: 12px; font-weight: 700; font-size: 0.85rem; color: #475569;">Lantai 3 & Lantai 5:</div>
+      <div class="modal-room-picker-grid">
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.3.1')">H.3.1</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.3.2')">H.3.2</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.5.1')">H.5.1</button>
+        <button type="button" class="room-pick-btn" onclick="selectRoom('H.5.2')">H.5.2</button>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+        <button type="button" class="btn btn-outline" style="min-height: 38px; padding: 6px 18px;" onclick="closeRoomPicker()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ambil parameter query jika ada
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomParam = urlParams.get('ruang');
+    const sesiParam = urlParams.get('sesi');
+
+    if (roomParam) {
+      document.getElementById('roomBadgeDisplay').textContent = roomParam;
+    }
+    if (sesiParam) {
+      const times = sesiParam.split(' - ');
+      if (times.length === 2) {
+        document.getElementById('jamMulai').value = times[0];
+        document.getElementById('jamSelesai').value = times[1];
+      }
+    }
+
+    function openRoomPicker() {
+      document.getElementById('modalRoomPicker').style.display = 'flex';
+    }
+
+    function closeRoomPicker() {
+      document.getElementById('modalRoomPicker').style.display = 'none';
+    }
+
+    function selectRoom(roomName) {
+      document.getElementById('roomBadgeDisplay').textContent = roomName;
+      closeRoomPicker();
+    }
+
+    function saveDraft() {
+      const room = document.getElementById('roomBadgeDisplay').textContent;
+      alert(`Draft reservasi ruang ${room} berhasil disimpan ke Draft Reservasi Dosen.`);
+      window.location.href = 'draft-reservasi.html';
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const room = document.getElementById('roomBadgeDisplay').textContent;
+      const tanggal = document.getElementById('tanggalPinjam').value;
+      alert(`Permohonan peminjaman ruang ${room} pada ${tanggal} berhasil diajukan!`);
+      window.location.href = 'histori-reservasi.html';
+    }
+  </script>
+  <script src="../app.js"></script>
+</body>
+</html>
