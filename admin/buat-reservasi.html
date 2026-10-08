@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buat Reservasi Ruangan - Admin Operasional Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span class="admin-header-badge">
+          Admin Operasional
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="text-align: right; display: none; @media(min-width: 768px){display: block;}">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-main);">Bambang Prasetyo, S.Kom.</div>
+          <div style="font-size: 0.75rem; color: var(--color-text-muted);">Biro Sarpras & Akademik</div>
+        </div>
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
+          BP
+        </div>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Admin -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Admin">
+        <div style="font-size: 0.725rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 12px 8px 12px;">
+          Menu Operasional
+        </div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Dashboard Admin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor"/>
+              </svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="persetujuan-reservasi.html" class="nav-link" title="Persetujuan Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor"/>
+              </svg>
+              <span>Persetujuan Reservasi</span>
+              <span style="margin-left: auto; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 9999px;">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="persetujuan-pindah.html" class="nav-link" title="Persetujuan Pindah Jadwal">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M16 3h5v5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 20L21 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 16v5h-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 15l6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 4l5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Pindah Jadwal</span>
+              <span style="margin-left: auto; background: #2563eb; color: #fff; font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 9999px;">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="buat-reservasi.html" class="nav-link active" title="Buat Reservasi Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor"/>
+                <line x1="12" y1="9" x2="12" y2="15" stroke="currentColor" stroke-linecap="round"/>
+                <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-linecap="round"/>
+              </svg>
+              <span>Buat Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="kondisi-ruangan.html" class="nav-link" title="Monitoring Ketersediaan Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="currentColor"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="currentColor"/>
+              </svg>
+              <span>Monitoring Ruang</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori.html" class="nav-link" title="Histori Peminjaman & Jadwal">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                <polyline points="12 6 12 12 16 14" stroke="currentColor"/>
+              </svg>
+              <span>Histori</span>
+            </a>
+          </li>
+          <li>
+            <a href="activity-log.html" class="nav-link" title="Activity Log & Audit Trail">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Activity Log</span>
+            </a>
+          </li>
+          <li>
+            <a href="profil.html" class="nav-link" title="Profil Admin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor"/>
+                <circle cx="12" cy="7" r="4" stroke="currentColor"/>
+              </svg>
+              <span>Profil</span>
+            </a>
+          </li>
+        </ul>
+
+        <div style="margin-top: auto; padding: 16px 12px 8px 12px; border-top: 1px solid var(--color-border-subtle);">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #15803d; font-weight: 700;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #15803d; display: inline-block;"></span>
+            <span>Koneksi SIAKAD: Terhubung</span>
+          </div>
+          <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">
+            TA 2026/2027 Ganjil
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - ADMIN OPERASIONAL</span>
+          <span class="breadcrumb-dot">•</span>
+          <span class="breadcrumb-page">BUAT RESERVASI RUANGAN</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="admin-page-header">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #2563eb; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px;">
+              Modul Pengalokasian Terpusat
+            </div>
+            <h1 class="page-title" style="margin-bottom: 4px;">Buat Reservasi Ruangan</h1>
+            <p class="page-subtitle" style="margin-bottom: 0;">
+              Entri langsung hak otorisasi administratif atas nama sivitas akademika dan unit kerja kampus.
+            </p>
+          </div>
+
+          <div>
+            <span style="display: inline-flex; align-items: center; gap: 8px; background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; font-size: 0.8rem; font-weight: 700; padding: 8px 16px; border-radius: 9999px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Otoritas Input: <strong>Super Admin Operasional #ADM-084</strong></span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 2-Column Form Layout: Left Steps Form, Right Room Details -->
+        <div class="admin-grid-layout">
+          <!-- Left Column: Form Multi-Steps -->
+          <form id="formBuatReservasi">
+            <!-- Step 1: Identitas Pemesan & Tipe Layanan -->
+            <div class="reservation-step-card">
+              <div class="step-card-header">
+                <div class="step-number-badge">1</div>
+                <div>
+                  <h2 class="step-card-title">Identitas Pemesan & Tipe Layanan</h2>
+                  <div class="step-card-sub">Pilih sivitas pemohon yang terdaftar dalam pangkalan data SIAKAD.</div>
+                </div>
+                <div class="step-count-pill">Langkah 1 dari 3</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px; align-items: start; margin-bottom: 20px;">
+                <div class="admin-input-group">
+                  <label for="selectPemesan" class="admin-input-label">Nama Pemesan / Sivitas Akademika</label>
+                  <select id="selectPemesan" class="admin-input-control" required>
+                    <option value="Dr. Sri Mulyani, S.Kom., M.T." selected>Dr. Sri Mulyani, S.Kom., M.T. (Dosen Ilmu Komputer)</option>
+                    <option value="Dr. Ir. Hendra Gunawan, M.T.">Dr. Ir. Hendra Gunawan, M.T. (Dosen Teknik Elektro)</option>
+                    <option value="Prof. Joko Susilo">Prof. Joko Susilo (Dosen Teknik Informatika)</option>
+                    <option value="Arya Pratama (Ketua UKM Robotika)">Arya Pratama (Ketua UKM Robotika)</option>
+                    <option value="BEM Fakultas Teknik">BEM Fakultas Teknik (Ormawa)</option>
+                  </select>
+                </div>
+
+                <div class="admin-input-group">
+                  <label class="admin-input-label">Peran / Afiliasi Terverifikasi</label>
+                  <div style="height: 42px; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; color: #166534; font-size: 0.825rem; font-weight: 700;">
+                    <span>Dosen / Tenaga Pendidik</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label class="admin-input-label">Jenis Reservasi</label>
+                <div class="type-radio-grid">
+                  <label class="type-radio-card active">
+                    <input type="radio" name="jenisReservasi" value="kelas" checked style="margin-top: 3px;">
+                    <div>
+                      <div style="font-size: 0.9rem; font-weight: 800; color: var(--color-text-main); display: flex; align-items: center; gap: 6px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                        <span>Kelas Akademik</span>
+                      </div>
+                      <div style="font-size: 0.775rem; color: #64748b; margin-top: 2px;">
+                        Perkuliahan, ujian, tutorial, asistensi laboratorium
+                      </div>
+                    </div>
+                  </label>
+
+                  <label class="type-radio-card">
+                    <input type="radio" name="jenisReservasi" value="meeting" style="margin-top: 3px;">
+                    <div>
+                      <div style="font-size: 0.9rem; font-weight: 800; color: var(--color-text-main); display: flex; align-items: center; gap: 6px;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>Meeting Room / Seminar</span>
+                      </div>
+                      <div style="font-size: 0.775rem; color: #64748b; margin-top: 2px;">
+                        Rapat senat, dekanat, sidang, dan seminar umum
+                      </div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Waktu, Tanggal & Alokasi Ruang -->
+            <div class="reservation-step-card">
+              <div class="step-card-header">
+                <div class="step-number-badge">2</div>
+                <div>
+                  <h2 class="step-card-title">Waktu, Tanggal & Alokasi Ruang</h2>
+                  <div class="step-card-sub">Sinkronisasi jadwal untuk mendeteksi tumpang tindih waktu perkuliahan.</div>
+                </div>
+                <div class="step-count-pill">Langkah 2 dari 3</div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 20px;">
+                <div class="admin-input-group">
+                  <label for="inputTanggalPakai" class="admin-input-label">Tanggal Pemakaian</label>
+                  <input type="date" id="inputTanggalPakai" class="admin-input-control" value="2026-10-10" required>
+                </div>
+
+                <div class="admin-input-group">
+                  <label for="inputJamMulai" class="admin-input-label">Jam Mulai</label>
+                  <input type="time" id="inputJamMulai" class="admin-input-control" value="09:00" required>
+                </div>
+
+                <div class="admin-input-group">
+                  <label for="inputJamSelesai" class="admin-input-label">Jam Selesai</label>
+                  <input type="time" id="inputJamSelesai" class="admin-input-control" value="11:00" required>
+                </div>
+              </div>
+
+              <div class="admin-input-group" style="margin-bottom: 18px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <label for="selectRuangKampus" class="admin-input-label">Pilihan Ruangan Kampus</label>
+                  <span style="font-size: 0.75rem; color: #64748b;">Kapasitas & status terfilter otomatis</span>
+                </div>
+                <select id="selectRuangKampus" class="admin-input-control" required>
+                  <option value="H.1.3" selected>Ruang H.1.3 (Tersedia - Kapasitas 45 Orang | Gedung H Lt. 1)</option>
+                  <option value="H.1.5">Ruang H.1.5 (Tersedia - Kapasitas 50 Orang | Gedung H Lt. 1)</option>
+                  <option value="Lab 5.1">Lab Komputer 5.1 (Tersedia - Kapasitas 36 Orang | Gedung H Lt. 5)</option>
+                </select>
+              </div>
+
+              <!-- Real-time Validation Banner -->
+              <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 8px; padding: 16px; display: flex; gap: 14px; align-items: flex-start;">
+                <div style="width: 24px; height: 24px; border-radius: 6px; background: #15803d; color: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <div style="flex: 1;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                    <div style="font-size: 0.9rem; font-weight: 800; color: #166534;">
+                      Ruangan H.1.3 bebas bentrok pada 10 Okt 2026, 09.00 - 11.00 WIB
+                    </div>
+                    <span style="background: #dcfce7; color: #15803d; font-size: 0.725rem; font-weight: 800; padding: 2px 8px; border-radius: 4px;">
+                      Real-time Valid
+                    </span>
+                  </div>
+                  <p style="font-size: 0.8rem; color: #334155; margin-top: 4px; line-height: 1.5;">
+                    Tidak ditemukan irisan jadwal perkuliahan semester ganjil atau reservasi ormawa pada blok waktu ini. Ruangan siap dipesan secara instan.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Deskripsi & Keperluan Pemakaian -->
+            <div class="reservation-step-card">
+              <div class="step-card-header">
+                <div class="step-number-badge">3</div>
+                <div>
+                  <h2 class="step-card-title">Deskripsi & Keperluan Pemakaian</h2>
+                  <div class="step-card-sub">Rincian peruntukan aktivitas untuk laporan rekapitulasi audit pemakaian ruang.</div>
+                </div>
+                <div class="step-count-pill">Langkah 3 dari 3</div>
+              </div>
+
+              <div class="admin-input-group" style="margin-bottom: 8px;">
+                <label for="inputAgendaKegiatan" class="admin-input-label">Keperluan / Agenda Kegiatan</label>
+                <textarea id="inputAgendaKegiatan" rows="4" class="admin-input-control" style="height: auto; resize: vertical;" maxlength="250" placeholder="Contoh: Kuliah Pengganti Sistem Operasi atau Rapat Koordinasi Kurikulum..." required>Seminar Dosen Tamu: Kecerdasan Buatan Terapan untuk Mahasiswa Semester 5</textarea>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #64748b; margin-bottom: 20px;">
+                <span>Mohon cantumkan nama mata kuliah / topik umum untuk display pintu digital.</span>
+                <span id="descCharCounter" style="font-weight: 700;">74 / 250 karakter</span>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; gap: 14px; pt: 14px; border-top: 1px solid var(--color-border-subtle); padding-top: 14px;">
+                <button type="button" class="btn btn-outline" id="btnResetFormReservasi" style="min-height: 44px; padding: 0 20px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                  <span>Reset Formulir</span>
+                </button>
+                <button type="submit" class="btn btn-primary" style="min-height: 44px; padding: 0 28px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Buat Reservasi</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Right Column: Room Preview & Day Schedule -->
+          <div>
+            <!-- Pratinjau Ruang Terpilih Card -->
+            <div class="card-container" style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <div style="font-size: 0.75rem; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Pratinjau Ruang Terpilih
+                </div>
+                <span style="background: #064e3b; color: #ecfdf5; font-size: 0.725rem; font-weight: 800; padding: 3px 10px; border-radius: 4px;">
+                  Aktif Operasional
+                </span>
+              </div>
+
+              <!-- Graphic Preview of Room -->
+              <div class="room-preview-box" style="height: 160px; background: #1e3a8a;">
+                <div class="room-sensor-badge" style="background: rgba(15, 23, 42, 0.85);">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                  <span id="previewRoomTitle">Ruang H.1.3 - Lantai 1</span>
+                </div>
+              </div>
+
+              <div style="margin-top: 16px; display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #64748b;">Kapasitas Standar</span>
+                  <strong style="color: var(--color-text-main);">45 Kursi Kuliah</strong>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #64748b;">Fasilitas Ruang</span>
+                  <strong style="color: var(--color-text-main);">Proyektor Laser, AC, Audio Mic</strong>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="color: #64748b;">Pengelola Gedung</span>
+                  <strong style="color: var(--color-text-main);">Unit Sarpras FTI</strong>
+                </div>
+
+                <div style="padding-top: 12px; border-top: 1px solid var(--color-border-subtle); margin-top: 4px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                    <span style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Okupansi Hari Ini</span>
+                    <span style="font-size: 0.775rem; font-weight: 800; color: #2563eb;">3 dari 5 Sesi Terisi</span>
+                  </div>
+                  <div style="height: 8px; background: #e2e8f0; border-radius: 9999px; overflow: hidden;">
+                    <div style="width: 60%; height: 100%; background: #2563eb; border-radius: 9999px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Jadwal Ruangan Hari Ini Card -->
+            <div class="card-container">
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                <h3 style="font-size: 0.95rem; font-weight: 800; color: var(--color-text-main); margin: 0;">
+                  Jadwal Ruangan Hari Ini (10 Okt 2026)
+                </h3>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px;">
+                <!-- Slot 1 -->
+                <div style="padding: 10px 12px; background: #f8fafc; border: 1px solid var(--color-border-subtle); border-radius: 6px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #64748b;">07.30 - 09.00 WIB</span>
+                    <span style="background: #e2e8f0; color: #475569; font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 4px;">Selesai</span>
+                  </div>
+                  <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-text-main); margin-top: 4px;">
+                    Struktur Data & Algoritma
+                  </div>
+                  <div style="font-size: 0.75rem; color: #64748b;">Kelas Reguler TI-3A</div>
+                </div>
+
+                <!-- Slot 2 (Current selected) -->
+                <div style="padding: 10px 12px; background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 6px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.75rem; font-weight: 800; color: #1e40af;">09.00 - 11.00 WIB (Slot Dipilih)</span>
+                    <span style="background: #2563eb; color: #ffffff; font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 4px;">Dipesan</span>
+                  </div>
+                  <div style="font-size: 0.825rem; font-weight: 800; color: #0b3272; margin-top: 4px;">
+                    Seminar Kecerdasan Buatan
+                  </div>
+                  <div style="font-size: 0.75rem; color: #1e40af;">Dr. Sri Mulyani, S.Kom., M.T.</div>
+                </div>
+
+                <!-- Slot 3 -->
+                <div style="padding: 10px 12px; background: #f8fafc; border: 1px solid var(--color-border-subtle); border-radius: 6px;">
+                  <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.75rem; font-weight: 700; color: #64748b;">13.00 - 15.30 WIB</span>
+                    <span style="background: #dbeafe; color: #1e40af; font-size: 0.7rem; font-weight: 700; padding: 1px 6px; border-radius: 4px;">Terjadwal</span>
+                  </div>
+                  <div style="font-size: 0.825rem; font-weight: 700; color: var(--color-text-main); margin-top: 4px;">
+                    Jaringan Komputer Lanjut
+                  </div>
+                  <div style="font-size: 0.75rem; color: #64748b;">Kelas Ekstensi TI-5B</div>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 0.725rem; color: #64748b; margin-top: 14px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <span>Pembaruan jadwal sinkron otomatis tiap 60 detik dengan server SIAKAD.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

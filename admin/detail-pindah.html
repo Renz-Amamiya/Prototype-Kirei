@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Pengajuan #PR-2026-0042 - Admin Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span class="admin-header-badge">
+          Admin Operasional
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="text-align: right; display: none; @media(min-width: 768px){display: block;}">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-text-main);">Bambang Prasetyo, S.Kom.</div>
+          <div style="font-size: 0.75rem; color: var(--color-text-muted);">Biro Sarpras & Akademik</div>
+        </div>
+        <div style="width: 36px; height: 36px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;">
+          BP
+        </div>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Admin -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Admin">
+        <div style="font-size: 0.725rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; padding: 0 12px 8px 12px;">
+          Menu Operasional
+        </div>
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Dashboard Admin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor"/>
+                <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor"/>
+              </svg>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="persetujuan-reservasi.html" class="nav-link" title="Persetujuan Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor"/>
+              </svg>
+              <span>Persetujuan Reservasi</span>
+              <span style="margin-left: auto; background: #dc2626; color: #fff; font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 9999px;">12</span>
+            </a>
+          </li>
+          <li>
+            <a href="persetujuan-pindah.html" class="nav-link active" title="Persetujuan Pindah Jadwal" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M16 3h5v5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 20L21 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 16v5h-5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M15 15l6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M4 4l5 5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Pindah Jadwal</span>
+              <span style="margin-left: auto; background: #2563eb; color: #fff; font-size: 0.7rem; font-weight: 800; padding: 2px 7px; border-radius: 9999px;">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="buat-reservasi.html" class="nav-link" title="Buat Reservasi Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor"/>
+                <line x1="12" y1="9" x2="12" y2="15" stroke="currentColor" stroke-linecap="round"/>
+                <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-linecap="round"/>
+              </svg>
+              <span>Buat Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="kondisi-ruangan.html" class="nav-link" title="Monitoring Ketersediaan Ruangan">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="currentColor"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="currentColor"/>
+              </svg>
+              <span>Monitoring Ruang</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori.html" class="nav-link" title="Histori Peminjaman & Jadwal">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="currentColor"/>
+                <polyline points="12 6 12 12 16 14" stroke="currentColor"/>
+              </svg>
+              <span>Histori</span>
+            </a>
+          </li>
+          <li>
+            <a href="activity-log.html" class="nav-link" title="Activity Log & Audit Trail">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Activity Log</span>
+            </a>
+          </li>
+          <li>
+            <a href="profil.html" class="nav-link" title="Profil Admin">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor"/>
+                <circle cx="12" cy="7" r="4" stroke="currentColor"/>
+              </svg>
+              <span>Profil</span>
+            </a>
+          </li>
+        </ul>
+
+        <div style="margin-top: auto; padding: 16px 12px 8px 12px; border-top: 1px solid var(--color-border-subtle);">
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 0.75rem; color: #15803d; font-weight: 700;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #15803d; display: inline-block;"></span>
+            <span>Koneksi SIAKAD: Terhubung</span>
+          </div>
+          <div style="font-size: 0.7rem; color: #64748b; margin-top: 2px;">
+            TA 2026/2027 Ganjil
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Breadcrumb & Top Action Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <nav class="breadcrumb-container" aria-label="Breadcrumb" style="margin-bottom: 0;">
+            <a href="persetujuan-pindah.html" style="text-decoration: none; color: #2563eb;">Persetujuan Pindah Jadwal</a>
+            <span class="breadcrumb-dot">•</span>
+            <span class="breadcrumb-page" style="color: #0f172a; font-weight: 800;">Pengajuan #PR-2026-0042</span>
+          </nav>
+
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <a href="persetujuan-pindah.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              <span>Kembali ke Persetujuan Pindah Jadwal</span>
+            </a>
+            <span id="detailStatusBadge" style="background: #eff6ff; color: #1d4ed8; font-size: 0.8rem; font-weight: 700; padding: 6px 14px; border-radius: 9999px; border: 1px solid #bfdbfe;">
+              Status: Menunggu Keputusan
+            </span>
+          </div>
+        </div>
+
+        <!-- Banner Alert: Validasi Alokasi Ruang & SIAKAD -->
+        <div class="admin-banner-alert info">
+          <div class="admin-banner-content">
+            <div class="admin-banner-icon blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 3h5v5"/>
+                <path d="M4 20L21 3"/>
+                <path d="M21 16v5h-5"/>
+              </svg>
+            </div>
+            <div>
+              <div class="admin-banner-title">
+                Validasi Alokasi Ruang & Jadwal SIAKAD
+                <span style="background: #dcfce7; color: #15803d; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px;">
+                  Bebas Bentrok 100%
+                </span>
+              </div>
+              <div class="admin-banner-desc">
+                Sistem otomatis telah mengunci slot Ruang H.1.5 selama masa peninjauan operasional Biro Sarpras.
+              </div>
+            </div>
+          </div>
+          <div class="admin-banner-meta">
+            <div class="admin-banner-meta-label">Batas Waktu Review</div>
+            <div class="admin-banner-meta-val">Hari Ini, 12.00 WIB</div>
+          </div>
+        </div>
+
+        <!-- Layout 2 Kolom: Konten Utama (Kiri) & Sidebar Informasi (Kanan) -->
+        <div class="admin-grid-layout">
+          <!-- Kolom Kiri -->
+          <div>
+            <!-- Kategori Mutasi Subheader -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+              <div>
+                <span style="font-size: 0.725rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em;">Kategori Mutasi Ruangan</span>
+                <div style="margin-top: 4px;">
+                  <span style="background: #0b3272; color: #ffffff; font-size: 0.8rem; font-weight: 700; padding: 5px 12px; border-radius: 6px; display: inline-flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    Sementara (1 Kali Pertemuan)
+                  </span>
+                </div>
+              </div>
+              <div style="text-align: right;">
+                <span style="font-size: 0.725rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em;">Klasifikasi Alternatif</span>
+                <div style="font-size: 0.85rem; color: #334155; font-weight: 600; margin-top: 4px;">
+                  Bukan Mutasi Permanen (Semesteran)
+                </div>
+              </div>
+            </div>
+
+            <!-- Comparison Grid: Jadwal Lama vs Jadwal Diminta -->
+            <div class="comparison-grid">
+              <!-- Kartu Jadwal Lama -->
+              <div class="comparison-card old-schedule">
+                <span class="comparison-card-badge red">Akan Dikosongkan</span>
+                <div style="display: flex; align-items: center; gap: 8px; color: #dc2626; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                  <span>Jadwal Lama</span>
+                </div>
+
+                <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Ruang Terdaftar</div>
+                <div class="comparison-room-name" style="color: #b91c1c;">Ruang H.1.2</div>
+                <div style="font-size: 0.8rem; color: #64748b;">
+                  Lantai 1 Gedung H • Kapasitas: 45 Mhs
+                </div>
+
+                <div class="comparison-meta-list">
+                  <div class="comparison-meta-item">
+                    <span>Tanggal Kuliah</span>
+                    <strong>10 Oktober 2026</strong>
+                  </div>
+                  <div class="comparison-meta-item">
+                    <span>Alokasi Waktu</span>
+                    <strong>13.00 - 15.00 WIB</strong>
+                  </div>
+                  <div class="comparison-meta-item">
+                    <span>Status Pasca-Pindah</span>
+                    <strong style="color: #b91c1c; display: flex; align-items: center; gap: 4px;">
+                      <span style="width: 7px; height: 7px; border-radius: 50%; background: #b91c1c; display: inline-block;"></span>
+                      Dikosongkan kembali
+                    </strong>
+                  </div>
+                </div>
+
+                <!-- Room Preview / Condition Graphic -->
+                <div class="room-preview-box" style="background: #334155;">
+                  <div class="room-sensor-badge" style="background: rgba(185, 28, 28, 0.9); border-color: rgba(254, 202, 202, 0.4);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    <span>Kendala Perangkat Fisik (Proyektor Rusak)</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: 14px; font-size: 0.775rem; color: #64748b; font-weight: 600;">
+                  ID Jadwal SIAKAD: <strong>SK-2026-ENG-4910</strong>
+                </div>
+              </div>
+
+              <!-- Kartu Jadwal Diminta -->
+              <div class="comparison-card new-schedule">
+                <span class="comparison-card-badge green">Terverifikasi Kosong</span>
+                <div style="display: flex; align-items: center; gap: 8px; color: #15803d; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line></svg>
+                  <span>Jadwal Diminta</span>
+                </div>
+
+                <div style="font-size: 0.75rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Ruang Target Pemindahan</div>
+                <div class="comparison-room-name" style="color: #0b3272;">Ruang H.1.5</div>
+                <div style="font-size: 0.8rem; color: #64748b;">
+                  Lantai 1 Gedung H • Kapasitas: 50 Mhs
+                </div>
+
+                <div class="comparison-meta-list">
+                  <div class="comparison-meta-item">
+                    <span>Tanggal Diminta</span>
+                    <strong>10 Oktober 2026</strong>
+                  </div>
+                  <div class="comparison-meta-item">
+                    <span>Alokasi Waktu</span>
+                    <strong>13.00 - 15.00 WIB</strong>
+                  </div>
+                  <div class="comparison-meta-item">
+                    <span>Kondisi Sarpras</span>
+                    <strong style="color: #15803d; display: flex; align-items: center; gap: 4px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      AC Normal & Proyektor Aktif
+                    </strong>
+                  </div>
+                </div>
+
+                <!-- Room Preview / Condition Graphic -->
+                <div class="room-preview-box" style="background: #1e3a8a;">
+                  <div class="room-sensor-badge" style="background: rgba(16, 185, 129, 0.9); border-color: rgba(187, 247, 208, 0.4);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                    <span>IoT Sensor: Ruang Kosong & Siap</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: 14px; font-size: 0.775rem; color: #15803d; font-weight: 700; display: flex; justify-content: space-between;">
+                  <span>Status Tabrakan Jadwal:</span>
+                  <span>Nihil (0 Bentrok)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alasan Pemindahan & Kebutuhan Fasilitas -->
+            <div class="card-container" style="margin-bottom: 24px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                <h2 style="font-size: 1.05rem; font-weight: 800; color: var(--color-text-main); display: flex; align-items: center; gap: 8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                  <span>Alasan Pemindahan & Kebutuhan Fasilitas</span>
+                </h2>
+                <span style="font-size: 0.75rem; color: #64748b; background: #f1f5f9; padding: 3px 10px; border-radius: 9999px; font-weight: 600;">
+                  Diajukan via Portal Dosen
+                </span>
+              </div>
+
+              <blockquote style="background: #f8fafc; border-left: 4px solid var(--color-primary); padding: 14px 18px; border-radius: 4px; font-size: 0.925rem; color: var(--color-text-label); line-height: 1.6; font-style: italic; margin-bottom: 16px;">
+                "Proyektor di Ruang H.1.2 mengalami kerusakan lampu display mendadak dan pendingin ruangan kurang optimal untuk 40 mahasiswa. Memerlukan ruang H.1.5 yang fasilitas multimedia-nya siap pakai."
+              </blockquote>
+
+              <div class="facility-chips-row">
+                <div class="facility-chip">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Kapasitas Kursi: <strong>Memadai (50 Kursi)</strong></span>
+                </div>
+                <div class="facility-chip">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Fasilitas Proyektor: <strong>HDMI & Wireless Siap</strong></span>
+                </div>
+                <div class="facility-chip">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Petugas Gedung: <strong>Kunci Siaga di Pos 1</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Keputusan Administrator Operasional Form Box -->
+            <div class="card-container" style="border: 2px solid var(--color-primary-border); background: #ffffff;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                <h2 style="font-size: 1.05rem; font-weight: 800; color: var(--color-primary); display: flex; align-items: center; gap: 8px;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Keputusan Administrator Operasional</span>
+                </h2>
+                <span style="font-size: 0.75rem; color: #b91c1c; font-weight: 700;">
+                  Wajib Dilengkapi
+                </span>
+              </div>
+
+              <div style="margin-bottom: 16px;">
+                <label for="adminDecisionNotes" style="display: block; font-size: 0.825rem; font-weight: 700; color: var(--color-text-label); margin-bottom: 6px;">
+                  Alasan Penolakan / Catatan Tambahan (Ditampilkan langsung kepada Dosen pemohon bila ditolak)
+                </label>
+                <textarea id="adminDecisionNotes" rows="3" class="admin-input-control" style="height: auto; resize: vertical;" placeholder="Tuliskan catatan teknis atau kendala yang mendasari keputusan jika permohonan ini tidak dapat disetujui..."></textarea>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end; gap: 14px;">
+                <button type="button" class="btn btn-outline" id="btnRejectPindah" style="background: #fef2f2; border-color: #fecaca; color: #b91c1c; min-height: 42px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  <span>Tidak Setujui</span>
+                </button>
+                <button type="button" class="btn btn-primary" id="btnApprovePindah" style="background: #15803d; border-color: #166534; min-height: 42px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Setujui Perpindahan</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kolom Kanan: Sidebar Detail Informasi -->
+          <div>
+            <!-- Card 1: Informasi Pemohon -->
+            <div class="card-container" style="margin-bottom: 20px;">
+              <h2 style="font-size: 0.95rem; font-weight: 800; color: var(--color-text-main); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span>Informasi Pemohon</span>
+              </h2>
+
+              <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px;">
+                <div style="width: 48px; height: 48px; border-radius: 50%; background: #0b3272; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; flex-shrink: 0;">
+                  HG
+                </div>
+                <div>
+                  <div style="font-size: 0.95rem; font-weight: 800; color: var(--color-text-main);">Dr. Ir. Hendra Gunawan</div>
+                  <div style="font-size: 0.775rem; color: #64748b;">NIP: 197805122003121002</div>
+                  <span style="display: inline-block; background: #eff6ff; color: #1e40af; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-top: 4px;">
+                    Dosen (Fakultas Teknik)
+                  </span>
+                </div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.85rem; border-top: 1px solid var(--color-border-subtle); pt: 12px; padding-top: 12px;">
+                <div>
+                  <div style="font-size: 0.725rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Mata Kuliah</div>
+                  <div style="font-weight: 700; color: var(--color-text-main);">Sistem Tenaga Listrik</div>
+                </div>
+
+                <div style="display: flex; justify-content: space-between;">
+                  <div>
+                    <div style="font-size: 0.725rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Kelas & SKS</div>
+                    <div style="font-weight: 700;">Kelas A (3 SKS)</div>
+                  </div>
+                  <div style="text-align: right;">
+                    <div style="font-size: 0.725rem; color: #64748b; font-weight: 700; text-transform: uppercase;">Total Peserta</div>
+                    <div style="font-weight: 700;">38 Terdaftar</div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 4px; padding-top: 10px; border-top: 1px dashed var(--color-border-subtle); display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 0.75rem; color: #64748b;">Kontak Dosen:</span>
+                  <a href="tel:+6281288904122" style="font-weight: 700; color: #2563eb; text-decoration: none; font-size: 0.85rem;">
+                    +62 812-8890-4122
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Rekam Jejak Operator Lapangan -->
+            <div class="card-container" style="margin-bottom: 20px;">
+              <h2 style="font-size: 0.95rem; font-weight: 800; color: var(--color-text-main); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><polyline points="9 15 12 18 16 13"></polyline></svg>
+                <span>Rekam Jejak Operator Lapangan</span>
+              </h2>
+
+              <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 14px; margin-bottom: 14px;">
+                <div style="display: flex; align-items: center; gap: 6px; font-weight: 800; font-size: 0.85rem; color: #166534; margin-bottom: 6px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  <span>Verifikasi Fisik Selesai</span>
+                </div>
+                <p style="font-size: 0.8rem; color: #334155; line-height: 1.5; margin-bottom: 8px;">
+                  Operator Lantai 1 (Sdr. Agus Supriyadi) telah memeriksa langsung kondisi ruang H.1.2 dan mengonfirmasi bahwa unit projector mengalami lamp ballast failure. Ruang H.1.5 telah dibersihkan, kabel converter HDMI terpasang, dan AC disetel pada 22°C.
+                </p>
+                <div style="font-size: 0.725rem; color: #15803d; font-weight: 600;">
+                  10 Okt 2026 • 08:45 WIB
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; text-align: center;">
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #1e40af; text-transform: uppercase;">Temperatur H.1.5</div>
+                  <div style="font-size: 1.25rem; font-weight: 800; color: #2563eb; margin-top: 2px;">22.4°C</div>
+                </div>
+
+                <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; text-align: center;">
+                  <div style="font-size: 0.7rem; font-weight: 700; color: #1e40af; text-transform: uppercase;">Sinyal Wi-Fi</div>
+                  <div style="font-size: 1.25rem; font-weight: 800; color: #2563eb; margin-top: 2px;">-58 dBm</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Kronologi Pengajuan -->
+            <div class="card-container">
+              <h2 style="font-size: 0.95rem; font-weight: 800; color: var(--color-text-main); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>Kronologi Pengajuan</span>
+              </h2>
+
+              <div class="chronology-list">
+                <div class="chronology-item">
+                  <div class="chronology-dot active"></div>
+                  <div class="chronology-title">Pengajuan Masuk ke Sistem</div>
+                  <div class="chronology-sub">07:15 WIB • Dosen Pemohon</div>
+                </div>
+
+                <div class="chronology-item">
+                  <div class="chronology-dot active"></div>
+                  <div class="chronology-title">Inspeksi Lapangan Disetujui</div>
+                  <div class="chronology-sub">08:45 WIB • Operator Gedung H</div>
+                </div>
+
+                <div class="chronology-item">
+                  <div class="chronology-dot"></div>
+                  <div class="chronology-title" style="color: #2563eb;">Menunggu Otorisasi Admin</div>
+                  <div class="chronology-sub">Sekarang • Loket Biro Sarpras</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
