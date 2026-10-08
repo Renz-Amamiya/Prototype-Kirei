@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender & Jadwal Mengajar - Kirei Dosen Bengkel Koding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Header Topbar -->
+    <header class="app-header">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <a href="index.html" class="brand-wrapper" aria-label="Beranda Bengkel Koding">
+          <div class="brand-logo-icon">
+            <svg width="40" height="40" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="44" height="44" rx="22" fill="#0B3272"/>
+              <circle cx="22" cy="22" r="16" stroke="white" stroke-width="2.5" stroke-dasharray="80 15"/>
+              <path d="M17 14V30M17 22H21L27 14M21 22L28 30" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">Bengkel</span>
+            <span class="brand-subtitle">Koding</span>
+          </div>
+        </a>
+        <span style="background: #e0e7ff; color: #3730a3; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
+          Role: Dosen
+        </span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;">
+            AL
+          </div>
+          <div style="display: flex; flex-direction: column; font-size: 0.75rem;">
+            <span style="font-weight: 700; color: var(--color-text-main);">Ardytha L., M.Kom</span>
+            <span style="color: var(--color-text-muted);">Dosen Pengampu</span>
+          </div>
+        </div>
+        <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
+          Ganti Role
+        </a>
+        <button type="button" class="mobile-nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <!-- Sidebar Navigation Khusus Dosen -->
+      <aside class="app-sidebar" aria-label="Navigasi Utama Dosen">
+        <ul class="sidebar-nav-list">
+          <li>
+            <a href="index.html" class="nav-link" title="Kioku">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Kioku</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none">
+                <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
+                <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
+                <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
+                <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
+              </svg>
+              <span>Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="tukar-ruang.html" class="nav-link" title="Tukar Ruang Mengajar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 2v6h-6"></path>
+                <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                <path d="M3 22v-6h6"></path>
+                <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+              </svg>
+              <span>Tukar Ruang</span>
+            </a>
+          </li>
+          <li>
+            <a href="draft-reservasi.html" class="nav-link" title="Draft Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="4" width="18" height="18" rx="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+                <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+                <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+                <path d="M8 15H16" stroke-linecap="round"/>
+              </svg>
+              <span>Draft Reservasi</span>
+            </a>
+          </li>
+          <li>
+            <a href="histori-reservasi.html" class="nav-link" title="Histori Reservasi">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Histori Reservasi</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Main Content Section -->
+      <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb-container" aria-label="Breadcrumb">
+          <span class="breadcrumb-system">KIREI - KALENDER</span>
+        </nav>
+
+        <!-- 2-Column Grid: Left Teaching Schedule + Right Monthly Calendar -->
+        <div class="dosen-calendar-grid">
+          <!-- Kolom Kiri: Jadwal Mengajar -->
+          <section class="teaching-column" aria-label="Jadwal Mengajar Dosen">
+            <h2 class="teaching-column-title">Jadwal Mengajar</h2>
+
+            <!-- Card 1: Rekayasa Perangkat Lunak -->
+            <article class="teaching-card">
+              <div class="teaching-card-header">
+                <h3 class="teaching-card-title">REKAYASA PERANGKAT LUNAK</h3>
+                <span class="teaching-sks-badge">4 SKS</span>
+              </div>
+              <div class="teaching-class-code">
+                Kel: A11.6302
+              </div>
+              <div class="teaching-schedule-list">
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>SENIN, 10.20–12.00</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.5.2&lantai=5" class="teaching-room-chip" title="Lihat Jadwal Ruang H.5.2">H.5.2</a>
+                </div>
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>KAMIS, 12.30–14.10</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.5.2&lantai=5" class="teaching-room-chip" title="Lihat Jadwal Ruang H.5.2">H.5.2</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Pemrograman Web Dasar -->
+            <article class="teaching-card">
+              <div class="teaching-card-header">
+                <h3 class="teaching-card-title">PEMOGRAMAN WEB DASAR</h3>
+                <span class="teaching-sks-badge">4 SKS</span>
+              </div>
+              <div class="teaching-class-code">
+                Kel: A11.6RPL
+              </div>
+              <div class="teaching-schedule-list">
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>SELASA, 10.20–12.00</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.4.7&lantai=4" class="teaching-room-chip" title="Lihat Jadwal Ruang H.4.7">H.4.7</a>
+                </div>
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>KAMIS, 10.20–12.00</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.3.1&lantai=3" class="teaching-room-chip" title="Lihat Jadwal Ruang H.3.1">H.3.1</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Kecerdasan Artifisial 1 -->
+            <article class="teaching-card">
+              <div class="teaching-card-header">
+                <h3 class="teaching-card-title">KECERDASAN ARTIFISIAL</h3>
+                <span class="teaching-sks-badge">4 SKS</span>
+              </div>
+              <div class="teaching-class-code">
+                Kel: A11.4UG1
+              </div>
+              <div class="teaching-schedule-list">
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>SELASA, 09.30–12.50</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.5.2&lantai=5" class="teaching-room-chip" title="Lihat Jadwal Ruang H.5.2">H.5.2</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Kecerdasan Artifisial 2 -->
+            <article class="teaching-card">
+              <div class="teaching-card-header">
+                <h3 class="teaching-card-title">KECERDASAN ARTIFISIAL</h3>
+                <span class="teaching-sks-badge">4 SKS</span>
+              </div>
+              <div class="teaching-class-code">
+                Kel: A11.4UG2
+              </div>
+              <div class="teaching-schedule-list">
+                <div class="teaching-schedule-item">
+                  <div class="teaching-time-info">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span>JUMAT, 10.20–12.00</span>
+                  </div>
+                  <a href="jadwal-kelas.html?ruang=H.5.2&lantai=5" class="teaching-room-chip" title="Lihat Jadwal Ruang H.5.2">H.5.2</a>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Kolom Kanan: Kalender Interaktif -->
+          <section class="calendar-panel" aria-label="Kalender Bulanan">
+            <div class="calendar-panel-header">
+              <h2 class="calendar-panel-title">Kalender</h2>
+              <p class="calendar-panel-subtitle">Jadwal Kelas</p>
+            </div>
+
+            <!-- Month Title Navigation -->
+            <div class="calendar-month-nav">
+              <button type="button" class="calendar-nav-btn" aria-label="Bulan Sebelumnya">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <h3 class="calendar-month-title">Januari 2026</h3>
+              <button type="button" class="calendar-nav-btn" aria-label="Bulan Berikutnya">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Calendar Table Grid -->
+            <table class="calendar-grid-table" aria-label="Kalender Jadwal Perkuliahan Januari 2026">
+              <thead>
+                <tr>
+                  <th scope="col" class="calendar-day-header">Minggu</th>
+                  <th scope="col" class="calendar-day-header">Senin</th>
+                  <th scope="col" class="calendar-day-header">Selasa</th>
+                  <th scope="col" class="calendar-day-header">Rabu</th>
+                  <th scope="col" class="calendar-day-header">Kamis</th>
+                  <th scope="col" class="calendar-day-header">Jumat</th>
+                  <th scope="col" class="calendar-day-header">Sabtu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Minggu 1 -->
+                <tr>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=1-Januari-2026" class="calendar-day-cell" title="1 Januari 2026 - Libur Tahun Baru">
+                      <div class="calendar-day-number">1</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon" title="Libur">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=2-Januari-2026" class="calendar-day-cell active-date" title="2 Januari 2026 - Klik untuk melihat Matriks Jadwal">
+                      <div class="calendar-day-number">2</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon" title="Praktikum Mandiri">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=3-Januari-2026" class="calendar-day-cell" title="3 Januari 2026">
+                      <div class="calendar-day-number">3</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=4-Januari-2026" class="calendar-day-cell" title="4 Januari 2026">
+                      <div class="calendar-day-number">4</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=5-Januari-2026" class="calendar-day-cell" title="5 Januari 2026">
+                      <div class="calendar-day-number">5</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=6-Januari-2026" class="calendar-day-cell" title="6 Januari 2026">
+                      <div class="calendar-day-number">6</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=7-Januari-2026" class="calendar-day-cell" title="7 Januari 2026">
+                      <div class="calendar-day-number">7</div>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Minggu 2 -->
+                <tr>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=8-Januari-2026" class="calendar-day-cell" title="8 Januari 2026">
+                      <div class="calendar-day-number">8</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=9-Januari-2026" class="calendar-day-cell" title="9 Januari 2026">
+                      <div class="calendar-day-number">9</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=10-Januari-2026" class="calendar-day-cell" title="10 Januari 2026">
+                      <div class="calendar-day-number">10</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=11-Januari-2026" class="calendar-day-cell" title="11 Januari 2026">
+                      <div class="calendar-day-number">11</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=12-Januari-2026" class="calendar-day-cell" title="12 Januari 2026">
+                      <div class="calendar-day-number">12</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=13-Januari-2026" class="calendar-day-cell" title="13 Januari 2026">
+                      <div class="calendar-day-number">13</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=14-Januari-2026" class="calendar-day-cell" title="14 Januari 2026">
+                      <div class="calendar-day-number">14</div>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Minggu 3 -->
+                <tr>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=15-Januari-2026" class="calendar-day-cell" title="15 Januari 2026">
+                      <div class="calendar-day-number">15</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=16-Januari-2026" class="calendar-day-cell" title="16 Januari 2026">
+                      <div class="calendar-day-number">16</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=17-Januari-2026" class="calendar-day-cell" title="17 Januari 2026">
+                      <div class="calendar-day-number">17</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=18-Januari-2026" class="calendar-day-cell" title="18 Januari 2026">
+                      <div class="calendar-day-number">18</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=19-Januari-2026" class="calendar-day-cell" title="19 Januari 2026">
+                      <div class="calendar-day-number">19</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=20-Januari-2026" class="calendar-day-cell" title="20 Januari 2026">
+                      <div class="calendar-day-number">20</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=21-Januari-2026" class="calendar-day-cell" title="21 Januari 2026">
+                      <div class="calendar-day-number">21</div>
+                    </a>
+                  </td>
+                </tr>
+
+                <!-- Minggu 4 -->
+                <tr>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=22-Januari-2026" class="calendar-day-cell" title="22 Januari 2026">
+                      <div class="calendar-day-number">22</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=23-Januari-2026" class="calendar-day-cell" title="23 Januari 2026">
+                      <div class="calendar-day-number">23</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=24-Januari-2026" class="calendar-day-cell" title="24 Januari 2026">
+                      <div class="calendar-day-number">24</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=25-Januari-2026" class="calendar-day-cell" title="25 Januari 2026">
+                      <div class="calendar-day-number">25</div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=26-Januari-2026" class="calendar-day-cell" title="26 Januari 2026">
+                      <div class="calendar-day-number">26</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#16A34A">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#0B3272">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=27-Januari-2026" class="calendar-day-cell" title="27 Januari 2026">
+                      <div class="calendar-day-number">27</div>
+                      <div class="calendar-markers">
+                        <span class="marker-icon">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="#EA580C">
+                            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                          </svg>
+                        </span>
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="jadwal-kelas.html?tanggal=28-Januari-2026" class="calendar-day-cell" title="28 Januari 2026">
+                      <div class="calendar-day-number">28</div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>
