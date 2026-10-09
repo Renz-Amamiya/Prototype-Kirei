@@ -3,71 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form Peminjaman Ruangan - Kirei Dosen Bengkel Koding</title>
+  <title>Form Peminjaman Ruangan Kuliah - Kirei Dosen Bengkel Koding</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
-  <style>
-    /* Styling tombol aksi persis screenshot 4 */
-    .form-bottom-actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 16px;
-      margin-top: 36px;
-    }
-    .btn-dosen-draft {
-      background: #cbd5e1;
-      color: #1e293b;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 28px;
-      cursor: pointer;
-      transition: background 0.15s ease;
-    }
-    .btn-dosen-draft:hover {
-      background: #94a3b8;
-    }
-    .btn-dosen-submit {
-      background: #bfdbfe;
-      color: #1e3a8a;
-      font-weight: 700;
-      font-size: 0.95rem;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 36px;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .btn-dosen-submit:hover {
-      background: #0b3272;
-      color: #ffffff;
-    }
-    .modal-room-picker-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin: 20px 0;
-    }
-    .room-pick-btn {
-      padding: 10px;
-      border: 1.5px solid #e2e8f0;
-      background: #ffffff;
-      border-radius: 8px;
-      font-weight: 700;
-      color: #1e293b;
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .room-pick-btn:hover {
-      border-color: #0b3272;
-      background: #eff6ff;
-      color: #0b3272;
-    }
-  </style>
 </head>
 <body>
   <div class="app-layout">
@@ -88,18 +28,26 @@
           </div>
         </a>
         <span style="background: #e0e7ff; color: #3730a3; font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px; text-transform: uppercase;">
-          Role: Dosen
+          ROLE: DOSEN
         </span>
       </div>
 
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <div style="display: flex; align-items: center; gap: 8px; margin-right: 8px;">
-          <div style="width: 32px; height: 32px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <!-- Notifikasi -->
+        <button type="button" class="btn btn-outline" style="min-height: 36px; padding: 6px 10px; border-radius: 8px; border-color: #e2e8f0;" aria-label="Notifikasi">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+        </button>
+
+        <div style="display: flex; align-items: center; gap: 8px; margin-right: 4px;">
+          <div style="width: 34px; height: 34px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700;">
             AL
           </div>
           <div style="display: flex; flex-direction: column; font-size: 0.75rem;">
             <span style="font-weight: 700; color: var(--color-text-main);">Ardytha L., M.Kom</span>
-            <span style="color: var(--color-text-muted);">Dosen Pengampu</span>
+            <span style="color: var(--color-text-muted);">Dosen Fasilkom</span>
           </div>
         </div>
         <a href="../index.html" class="btn btn-outline" style="min-height: 36px; padding: 6px 14px; font-size: 0.85rem;" title="Kembali ke Portal Role Switcher">
@@ -118,6 +66,9 @@
     <div class="app-body">
       <!-- Sidebar Navigation Khusus Dosen -->
       <aside class="app-sidebar" aria-label="Navigasi Utama Dosen">
+        <div style="padding: 10px 14px 4px 14px; font-size: 0.7rem; font-weight: 800; color: #94a3b8; letter-spacing: 0.05em; text-transform: uppercase;">
+          PORTAL DOSEN
+        </div>
         <ul class="sidebar-nav-list">
           <li>
             <a href="index.html" class="nav-link" title="Kioku">
@@ -125,18 +76,18 @@
                 <path d="M3 9.5L12 3L21 9.5V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9.5Z" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M9 21V12H15V21" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <span>Kioku</span>
+              <span>Dashboard / Beranda</span>
             </a>
           </li>
           <li>
-            <a href="index.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
+            <a href="kalender.html" class="nav-link active" title="Reservasi Ruangan" aria-current="page">
               <svg viewBox="0 0 24 24" fill="none">
                 <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
                 <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
                 <line x1="4" y1="17" x2="20" y2="17" stroke-linecap="round"/>
                 <circle cx="16" cy="17" r="2.5" fill="#0B3272"/>
               </svg>
-              <span>Reservasi</span>
+              <span>Reservasi Ruangan</span>
             </a>
           </li>
           <li>
@@ -147,7 +98,7 @@
                 <path d="M3 22v-6h6"></path>
                 <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
               </svg>
-              <span>Tukar Ruang</span>
+              <span>Pindah Kelas</span>
             </a>
           </li>
           <li>
@@ -167,7 +118,7 @@
               <svg viewBox="0 0 24 24" fill="none">
                 <path d="M4 15S7 12 12 12S20 15 20 15V3S17 6 12 6S4 3 4 3V21" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              <span>Histori Reservasi</span>
+              <span>Riwayat Peminjaman</span>
             </a>
           </li>
         </ul>
@@ -175,156 +126,577 @@
 
       <!-- Main Content Section -->
       <main class="main-content">
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb-container" aria-label="Breadcrumb">
-          <span class="breadcrumb-system">KIREI - SISTEM RESERVASI</span>
-          <span class="breadcrumb-dot">•</span>
-          <span class="breadcrumb-page">FORM PEMINJAMAN</span>
-        </nav>
-
-        <!-- Page Header -->
-        <h1 class="page-title">Form Peminjaman</h1>
-        <p class="page-subtitle">Lengkapi Data Data di bawah untuk meminjam ruangan</p>
-
-        <!-- Card Form Peminjaman Dosen -->
-        <div class="dosen-form-card">
-          <h2 class="dosen-form-title">Kelas dan Jadwal</h2>
-          <p class="dosen-form-sub">Kelas yang tersedia mengikuti tanggal dan jam yang kamu pilih</p>
-
-          <form id="dosenBookingForm" onsubmit="handleFormSubmit(event)">
-            <div class="dosen-form-grid">
-              <!-- Kolom Kiri Formulir -->
-              <div style="display: flex; flex-direction: column; gap: 20px;">
-                <!-- Field: Nama Dosen -->
-                <div class="form-group" style="margin-bottom: 0;">
-                  <label for="namaDosen" class="form-label">Nama Dosen</label>
-                  <input type="text" id="namaDosen" class="form-input" value="Ardytha Luthfiarta, M.Kom" placeholder="Ex. Ardytha Luthfiarta, M.Kom" required>
-                </div>
-
-                <!-- Field: Kelas yang dipilih -->
-                <div class="form-group" style="margin-bottom: 0;">
-                  <label for="selectedRoomInput" class="form-label">Kelas yang dipilih</label>
-                  <div class="selected-room-input" id="selectedRoomInput">
-                    <span class="room-tag-pill" id="roomBadgeDisplay">H.4.2</span>
-                    <button type="button" class="room-change-link" onclick="openRoomPicker()">ganti ruangan?</button>
-                  </div>
-                </div>
-
-                <!-- Field: Tanggal, Jam Mulai, Jam Selesai -->
-                <div class="form-time-row">
-                  <div class="form-group" style="margin-bottom: 0;">
-                    <label for="tanggalPinjam" class="form-label">Tanggal</label>
-                    <input type="text" id="tanggalPinjam" class="form-input" value="15/03/2026" placeholder="DD/MM/YYYY" required>
-                  </div>
-                  <div class="form-group" style="margin-bottom: 0;">
-                    <label for="jamMulai" class="form-label">Jam Mulai</label>
-                    <input type="text" id="jamMulai" class="form-input" value="10.20" placeholder="00.00" required>
-                  </div>
-                  <div class="form-group" style="margin-bottom: 0;">
-                    <label for="jamSelesai" class="form-label">Jam Selesai</label>
-                    <input type="text" id="jamSelesai" class="form-input" value="11.10" placeholder="00.00" required>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Kolom Kanan Formulir -->
-              <div style="display: flex; flex-direction: column;">
-                <div class="form-group" style="display: flex; flex-direction: column; height: 100%; margin-bottom: 0;">
-                  <label for="keperluanDosen" class="form-label">Keperluan</label>
-                  <textarea id="keperluanDosen" class="form-textarea" style="flex: 1; min-height: 180px; resize: vertical;" placeholder="Penjelasan singkat kegiatan" required>Kuliah Pengganti & Asistensi Coding Proyek Akhir Rekayasa Perangkat Lunak</textarea>
-                </div>
-              </div>
-            </div>
-
-            <!-- Tombol Aksi di Bawah -->
-            <div class="form-bottom-actions">
-              <button type="button" class="btn-dosen-draft" onclick="saveDraft()">
-                Simpan Draft
-              </button>
-              <button type="submit" class="btn-dosen-submit">
-                Submit
-              </button>
-            </div>
-          </form>
+        <!-- Top Context Header -->
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+          <div style="font-size: 0.8rem; color: #475569; display: flex; align-items: center; gap: 6px;">
+            <a href="index.html" style="color: #2563eb; text-decoration: none; font-weight: 600;">Portal Akademik</a>
+            <span>›</span>
+            <span>Layanan Penjadwalan & Ruang</span>
+          </div>
         </div>
+
+        <!-- Category Title & Semester Badge (Screenshot Gambar 4) -->
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px; color: #2563eb; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>FASILITAS & PERKULIAHAN FASILKOM</span>
+            </div>
+            <h1 style="font-size: 1.65rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; letter-spacing: -0.02em;">
+              Form Peminjaman Ruangan Kuliah
+            </h1>
+            <p style="font-size: 0.875rem; color: #64748b; margin: 0;">
+              Lengkapi data reservasi ruangan untuk kegiatan perkuliahan, responsi, atau bimbingan akademik.
+            </p>
+          </div>
+
+          <!-- Pill Badge Semester Genap -->
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 9999px; padding: 6px 14px; font-size: 0.775rem; font-weight: 700; color: #334155;">
+            <span style="width: 8px; height: 8px; border-radius: 50%; background: #16a34a; display: inline-block;"></span>
+            <span>Semester Genap 2025/2026</span>
+            <span style="color: #94a3b8;">|</span>
+            <span style="color: #64748b;">Minggu Efektif 6</span>
+          </div>
+        </div>
+
+        <!-- Alert Banner Akun Dosen Terverifikasi (Screenshot Gambar 4) -->
+        <div class="dosen-verified-banner">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: #dbeafe; color: #1d4ed8; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+              <strong style="color: #1e3a8a; font-size: 0.95rem;">Akun Dosen Terverifikasi</strong>
+              <span style="background: #bfdbfe; color: #1e40af; font-size: 0.7rem; font-weight: 800; padding: 2px 8px; border-radius: 4px;">
+                Jalur Prioritas Dosen
+              </span>
+            </div>
+            <p style="margin: 0; font-size: 0.825rem; color: #1e40af; line-height: 1.45;">
+              Pengajuan peminjaman ruangan tidak memerlukan lampiran surat izin atau birokrasi ormawa. Verifikasi jadwal sistem dilakukan secara instan untuk kuota ruang perkuliahan reguler.
+            </p>
+          </div>
+        </div>
+
+        <!-- Formulir 2 Kolom (Screenshot Gambar 4) -->
+        <form id="dosenLoanForm" onsubmit="handleFormSubmission(event)">
+          <div class="dosen-form-grid-layout">
+            <!-- KOLOM KIRI (Card 01 & Card 02) -->
+            <div class="form-col-left">
+              <!-- Card 01: Informasi Dosen & Kegiatan -->
+              <div class="dosen-form-card-box">
+                <div class="form-step-header">
+                  <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="step-number-pill">01</span>
+                    <div>
+                      <h2 class="form-step-title">Informasi Dosen & Kegiatan</h2>
+                      <p class="form-step-sub">Data penanggung jawab akademik dan peruntukan ruang</p>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Nama Dosen Pengampu Card -->
+                <div style="margin-bottom: 16px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;">
+                    <label class="form-label" style="margin-bottom: 0;">Nama Dosen Pengampu</label>
+                    <span style="color: #16a34a; font-size: 0.75rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                      NIP Terdaftar
+                    </span>
+                  </div>
+                  <div class="dosen-profile-snippet">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                      <div style="width: 38px; height: 38px; border-radius: 50%; background: #0b3272; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 800;">
+                        AL
+                      </div>
+                      <div>
+                        <div style="font-size: 0.9rem; font-weight: 800; color: #0f172a;">Ardytha Luthfiarta, M.Kom</div>
+                        <div style="font-size: 0.75rem; color: #64748b;">NIP: 198804122019031008</div>
+                      </div>
+                    </div>
+                    <span style="background: #e0e7ff; color: #3730a3; font-size: 0.725rem; font-weight: 700; padding: 4px 10px; border-radius: 9999px;">
+                      Dosen Tetap FIK
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Dropdown Mata Kuliah / Program Studi -->
+                <div class="form-group" style="margin-bottom: 18px;">
+                  <label for="selectMatkul" class="form-label">Mata Kuliah / Program Studi *</label>
+                  <select id="selectMatkul" class="form-select" onchange="onMatkulChange(this.value)" required>
+                    <option value="REKAYASA PERANGKAT LUNAK (4 SKS) - S1 Teknik Informatika (A11.6302)">Rekayasa Perangkat Lunak (4 SKS) - S1 Teknik Informatika (A11.6302)</option>
+                    <option value="PEMOGRAMAN WEB DASAR (4 SKS) - S1 Teknik Informatika (A11.6RPL)">Pemrograman Web Dasar (4 SKS) - S1 Teknik Informatika (A11.6RPL)</option>
+                    <option value="KECERDASAN ARTIFISIAL (4 SKS) - S1 Teknik Informatika (A11.4UG1)">Kecerdasan Artifisial (4 SKS) - S1 Teknik Informatika (A11.4UG1)</option>
+                    <option value="KECERDASAN ARTIFISIAL (4 SKS) - S1 Teknik Informatika (A11.4UG2)">Kecerdasan Artifisial (4 SKS) - S1 Teknik Informatika (A11.4UG2)</option>
+                    <option value="PEMROGRAMAN WEB LANJUT (4 SKS) - S1 Teknik Informatika (A11.4403)">Pemrograman Web Lanjut (4 SKS) - S1 Teknik Informatika (A11.4403)</option>
+                  </select>
+                </div>
+
+                <!-- PILIHAN PINDAH SEMENTARA ATAU 1 SEMESTER (Persyaratan Khusus Pengguna) -->
+                <div class="swap-duration-picker">
+                  <label class="form-label" style="display: block; margin-bottom: 4px;">
+                    Pilihan Periode Perpindahan Ruang *
+                  </label>
+                  <p style="font-size: 0.75rem; color: #64748b; margin: 0 0 8px 0;">
+                    Tentukan apakah perpindahan hanya berlaku pada pertemuan ini atau seterusnya:
+                  </p>
+                  <div class="swap-duration-grid">
+                    <!-- Opsi 1: Pindah Sementara -->
+                    <label class="swap-duration-card active" id="cardSwapSementara" onclick="selectDuration('sementara')">
+                      <div class="swap-duration-title">
+                        <input type="radio" name="durasiPerpindahan" id="radioSementara" value="sementara" checked style="accent-color: #2563eb;">
+                        <span>Pindah Sementara</span>
+                      </div>
+                      <div class="swap-duration-desc">
+                        Hanya berlaku untuk tanggal dan sesi yang dipilih (misal: kuliah pengganti, inhall, atau ujian khusus).
+                      </div>
+                    </label>
+
+                    <!-- Opsi 2: Pindah untuk 1 Semester -->
+                    <label class="swap-duration-card" id="cardSwapSemester" onclick="selectDuration('semester')">
+                      <div class="swap-duration-title">
+                        <input type="radio" name="durasiPerpindahan" id="radioSemester" value="semester" style="accent-color: #2563eb;">
+                        <span>Pindah untuk 1 Semester</span>
+                      </div>
+                      <div class="swap-duration-desc">
+                        Berlaku permanen setiap minggu hingga akhir Semester Genap 2025/2026.
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Keperluan Peminjaman (4 Opsi Radio Grid Sesuai Screenshot) -->
+                <div>
+                  <label class="form-label" style="display: block; margin-bottom: 6px;">Keperluan Peminjaman *</label>
+                  <div class="purpose-grid-options">
+                    <label class="purpose-option-item active" id="purposeOpt1" onclick="selectPurpose('Kuliah Pengganti (Inhall)', this)">
+                      <input type="radio" name="keperluanRadio" value="Kuliah Pengganti (Inhall)" checked style="accent-color: #2563eb;">
+                      <span>Kuliah Pengganti (Inhall)</span>
+                    </label>
+                    <label class="purpose-option-item" id="purposeOpt2" onclick="selectPurpose('Ujian Susulan / Praktikum', this)">
+                      <input type="radio" name="keperluanRadio" value="Ujian Susulan / Praktikum" style="accent-color: #2563eb;">
+                      <span>Ujian Susulan / Praktikum</span>
+                    </label>
+                    <label class="purpose-option-item" id="purposeOpt3" onclick="selectPurpose('Bimbingan Tugas Akhir', this)">
+                      <input type="radio" name="keperluanRadio" value="Bimbingan Tugas Akhir" style="accent-color: #2563eb;">
+                      <span>Bimbingan Tugas Akhir</span>
+                    </label>
+                    <label class="purpose-option-item" id="purposeOpt4" onclick="selectPurpose('Kegiatan Akademik Lainnya', this)">
+                      <input type="radio" name="keperluanRadio" value="Kegiatan Akademik Lainnya" style="accent-color: #2563eb;">
+                      <span>Kegiatan Akademik Lainnya</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 02: Waktu & Jadwal Penggunaan -->
+              <div class="dosen-form-card-box">
+                <div class="form-step-header">
+                  <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="step-number-pill">02</span>
+                    <div>
+                      <h2 class="form-step-title">Waktu & Jadwal Penggunaan</h2>
+                      <p class="form-step-sub">Tentukan jadwal spesifik dan perkiraan kapasitas ruang</p>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Field Tanggal Pelaksanaan -->
+                <div class="form-group" style="margin-bottom: 16px;">
+                  <label for="inputTanggal" class="form-label">Tanggal Pelaksanaan *</label>
+                  <div style="position: relative;">
+                    <input type="text" id="inputTanggal" class="form-input" value="15/03/2026" oninput="updateDateNote(this.value)" required style="padding-right: 40px;">
+                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                    </span>
+                  </div>
+                  <div id="dateNoteText" style="display: flex; align-items: center; gap: 6px; font-size: 0.775rem; color: #2563eb; margin-top: 6px; font-weight: 600;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>Hari Minggu, 15 Maret 2026 (Jadwal Kelas Eksekutif / Khusus)</span>
+                  </div>
+                </div>
+
+                <!-- Row Jam Mulai & Jam Selesai -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label for="inputJamMulai" class="form-label">Jam Mulai *</label>
+                    <div style="position: relative;">
+                      <input type="text" id="inputJamMulai" class="form-input" value="10:20 AM" oninput="updateTimeSummary()" required style="padding-right: 36px;">
+                      <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-group" style="margin-bottom: 0;">
+                    <label for="inputJamSelesai" class="form-label">Jam Selesai *</label>
+                    <div style="position: relative;">
+                      <input type="text" id="inputJamSelesai" class="form-input" value="11:10 AM" oninput="updateTimeSummary()" required style="padding-right: 36px;">
+                      <span style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); color: #94a3b8; pointer-events: none;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- KOLOM KANAN (Card 03 & Card 04) -->
+            <div class="form-col-right">
+              <!-- Card 03: Pilihan Ruang & Fasilitas -->
+              <div class="dosen-form-card-box">
+                <div class="form-step-header">
+                  <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="step-number-pill">03</span>
+                    <div>
+                      <h2 class="form-step-title">Pilihan Ruang & Fasilitas</h2>
+                      <p class="form-step-sub">Rekomendasi ruang aktif sesuai jam & kuota</p>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                      <polyline points="14 2 14 8 20 8"></polyline>
+                      <line x1="16" y1="13" x2="8" y2="13"></line>
+                      <line x1="16" y1="17" x2="8" y2="17"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <div style="font-size: 0.85rem; font-weight: 700; color: #334155; margin-bottom: 12px;">
+                  Rekomendasi Ruangan Kosong
+                </div>
+
+                <!-- Opsi Ruang 1: H.3.2 -->
+                <div class="room-rec-card active" id="roomCardH32" onclick="selectRoomCard('H.3.2', 'Lantai 3', '40', this)">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <input type="radio" name="targetRoomRadio" value="H.3.2" checked style="accent-color: #2563eb;">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <strong style="color: #0f172a; font-size: 0.95rem;">Ruang H.3.2</strong>
+                        <span style="background: #dcfce7; color: #166534; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px;">Tersedia</span>
+                      </div>
+                      <div style="font-size: 0.775rem; color: #64748b; margin-top: 2px;">
+                        Lantai 3 • Kapasitas 40 Kursi • Kelas Teori
+                      </div>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                      <line x1="8" y1="21" x2="16" y2="21"></line>
+                      <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Opsi Ruang 2: H.3.3 -->
+                <div class="room-rec-card" id="roomCardH33" onclick="selectRoomCard('H.3.3', 'Lantai 3', '45', this)">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <input type="radio" name="targetRoomRadio" value="H.3.3" style="accent-color: #2563eb;">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <strong style="color: #0f172a; font-size: 0.95rem;">Ruang H.3.3</strong>
+                        <span style="background: #dcfce7; color: #166534; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px;">Tersedia</span>
+                      </div>
+                      <div style="font-size: 0.775rem; color: #64748b; margin-top: 2px;">
+                        Lantai 3 • Kapasitas 45 Kursi • Kelas Smart Board
+                      </div>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="9" y1="3" x2="9" y2="21"></line>
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- Opsi Ruang 3: H.3.1 -->
+                <div class="room-rec-card" id="roomCardH31" onclick="selectRoomCard('H.3.1', 'Lantai 3', '42', this)">
+                  <div style="display: flex; align-items: center; gap: 12px;">
+                    <input type="radio" name="targetRoomRadio" value="H.3.1" style="accent-color: #2563eb;">
+                    <div>
+                      <div style="display: flex; align-items: center; gap: 8px;">
+                        <strong style="color: #0f172a; font-size: 0.95rem;">Ruang H.3.1</strong>
+                        <span style="background: #dcfce7; color: #166534; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 9999px;">Tersedia</span>
+                      </div>
+                      <div style="font-size: 0.775rem; color: #64748b; margin-top: 2px;">
+                        Lantai 3 • Kapasitas 42 Kursi • Laboratorium Praktik
+                      </div>
+                    </div>
+                  </div>
+                  <div style="color: #94a3b8;" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 04: Ringkasan Reservasi -->
+              <div class="dosen-form-card-box">
+                <div class="form-step-header">
+                  <div style="display: flex; align-items: flex-start; gap: 12px;">
+                    <span class="step-number-pill">04</span>
+                    <div>
+                      <h2 class="form-step-title">Ringkasan Reservasi</h2>
+                    </div>
+                  </div>
+                  <span style="background: #eff6ff; color: #2563eb; font-size: 0.725rem; font-weight: 700; padding: 3px 10px; border-radius: 9999px;">
+                    Draf Aktif
+                  </span>
+                </div>
+
+                <!-- Item Rincian -->
+                <div style="margin-bottom: 12px;">
+                  <div class="summary-row-item">
+                    <span class="summary-row-label">Ruangan Terpilih</span>
+                    <span class="summary-row-val" id="summaryRoomVal" style="color: #2563eb;">H.3.2 (Lantai 3)</span>
+                  </div>
+                  <div class="summary-row-item">
+                    <span class="summary-row-label">Jadwal</span>
+                    <span class="summary-row-val" id="summaryScheduleVal">Minggu, 15 Mar 2026 (10:20 - 11:10)</span>
+                  </div>
+                  <div class="summary-row-item">
+                    <span class="summary-row-label">Keperluan</span>
+                    <span class="summary-row-val" id="summaryPurposeVal">Kuliah Pengganti (Inhall)</span>
+                  </div>
+                  <div class="summary-row-item">
+                    <span class="summary-row-label">Tipe Perpindahan</span>
+                    <span class="summary-row-val" id="summaryDurationVal" style="color: #0b3272;">Pindah Sementara</span>
+                  </div>
+                  <div class="summary-row-item">
+                    <span class="summary-row-label">Estimasi Kapasitas</span>
+                    <span class="summary-row-val" id="summaryCapacityVal">35 Mahasiswa / Kuota 40</span>
+                  </div>
+                </div>
+
+                <!-- Status Persetujuan Alert -->
+                <div class="summary-status-alert">
+                  <div style="color: #16a34a; flex-shrink: 0; margin-top: 1px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="summary-status-title">Status Persetujuan</div>
+                    <div class="summary-status-desc">
+                      Otomatis masuk antrean prioritas verifikasi petugas operator sarana perkuliahan kampus.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tombol Aksi di Bawah Card 04 -->
+                <div class="summary-actions-grid">
+                  <button type="button" class="btn-card-draft" onclick="saveAsDraft()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                    </svg>
+                    <span>Draft</span>
+                  </button>
+                  <button type="submit" class="btn-card-submit">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <span>Ajukan Peminjaman</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
       </main>
     </div>
   </div>
 
-  <!-- Modal Pilih Ruangan Alternatif -->
-  <div id="modalRoomPicker" class="modal-overlay" style="display: none;" aria-hidden="true" role="dialog">
-    <div class="modal-confirm-box" style="max-width: 540px; text-align: left;">
-      <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--color-primary); margin-bottom: 8px;">Pilih Ruangan Pengganti</h3>
-      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 16px;">
-        Pilih ruangan yang tersedia di Lantai 3, Lantai 4, atau Lantai 5.
-      </p>
-
-      <div style="margin-bottom: 12px; font-weight: 700; font-size: 0.85rem; color: #475569;">Lantai 4:</div>
-      <div class="modal-room-picker-grid">
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.1')">H.4.1</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.2')">H.4.2</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.3')">H.4.3</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.4.7')">H.4.7</button>
-      </div>
-
-      <div style="margin-bottom: 12px; font-weight: 700; font-size: 0.85rem; color: #475569;">Lantai 3 & Lantai 5:</div>
-      <div class="modal-room-picker-grid">
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.3.1')">H.3.1</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.3.2')">H.3.2</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.5.1')">H.5.1</button>
-        <button type="button" class="room-pick-btn" onclick="selectRoom('H.5.2')">H.5.2</button>
-      </div>
-
-      <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
-        <button type="button" class="btn btn-outline" style="min-height: 38px; padding: 6px 18px;" onclick="closeRoomPicker()">
-          Tutup
-        </button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Ambil parameter query jika ada
+    // Ambil data query parameter dari langkah sebelumnya (Gambar 3)
     const urlParams = new URLSearchParams(window.location.search);
     const roomParam = urlParams.get('ruang');
     const sesiParam = urlParams.get('sesi');
+    const matkulParam = urlParams.get('matkul');
+    const kelasParam = urlParams.get('kelas');
+    const asalRuangParam = urlParams.get('asalRuang') || 'H.5.2';
+    const tglParam = urlParams.get('tgl');
 
-    if (roomParam) {
-      document.getElementById('roomBadgeDisplay').textContent = roomParam;
-    }
-    if (sesiParam) {
-      const times = sesiParam.split(' - ');
-      if (times.length === 2) {
-        document.getElementById('jamMulai').value = times[0];
-        document.getElementById('jamSelesai').value = times[1];
+    let selectedDuration = 'sementara';
+    let selectedRoom = 'H.3.2';
+    let selectedRoomFloor = 'Lantai 3';
+    let selectedRoomCapacity = '40';
+    let selectedPurpose = 'Kuliah Pengganti (Inhall)';
+
+    // Inisialisasi awal saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Matkul / Kelas
+      if (matkulParam) {
+        const selectMatkul = document.getElementById('selectMatkul');
+        for (let i = 0; i < selectMatkul.options.length; i++) {
+          if (selectMatkul.options[i].value.includes(matkulParam) || (kelasParam && selectMatkul.options[i].value.includes(kelasParam))) {
+            selectMatkul.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      // 2. Ruangan dari query param
+      if (roomParam) {
+        selectedRoom = roomParam;
+        // Cek apakah ada kartu ruangan yang cocok
+        const cardMatch = document.getElementById('roomCard' + roomParam.replace('.', ''));
+        if (cardMatch) {
+          document.querySelectorAll('.room-rec-card').forEach(c => c.classList.remove('active'));
+          cardMatch.classList.add('active');
+          const radio = cardMatch.querySelector('input[type="radio"]');
+          if (radio) radio.checked = true;
+        } else {
+          // Tambahkan kartu custom jika ruangan lain diklik
+          document.getElementById('summaryRoomVal').textContent = `${roomParam} (Lantai 3)`;
+        }
+      }
+
+      // 3. Sesi Jam
+      if (sesiParam) {
+        const times = sesiParam.split(' - ');
+        if (times.length === 2) {
+          document.getElementById('inputJamMulai').value = times[0].trim();
+          document.getElementById('inputJamSelesai').value = times[1].trim();
+        }
+      }
+
+      // 4. Tanggal
+      if (tglParam) {
+        if (tglParam.includes('Januari') || tglParam.includes('Maret')) {
+          document.getElementById('inputTanggal').value = '15/03/2026';
+          updateDateNote('15/03/2026');
+        } else {
+          document.getElementById('inputTanggal').value = tglParam;
+          updateDateNote(tglParam);
+        }
+      }
+
+      refreshSummary();
+    });
+
+    function selectDuration(type) {
+      selectedDuration = type;
+      const cardSementara = document.getElementById('cardSwapSementara');
+      const cardSemester = document.getElementById('cardSwapSemester');
+      const radioSementara = document.getElementById('radioSementara');
+      const radioSemester = document.getElementById('radioSemester');
+
+      if (type === 'sementara') {
+        cardSementara.classList.add('active');
+        cardSemester.classList.remove('active');
+        radioSementara.checked = true;
+        document.getElementById('summaryDurationVal').textContent = 'Pindah Sementara';
+      } else {
+        cardSemester.classList.add('active');
+        cardSementara.classList.remove('active');
+        radioSemester.checked = true;
+        document.getElementById('summaryDurationVal').textContent = 'Pindah 1 Semester Penuh';
       }
     }
 
-    function openRoomPicker() {
-      document.getElementById('modalRoomPicker').style.display = 'flex';
+    function selectPurpose(text, element) {
+      selectedPurpose = text;
+      document.querySelectorAll('.purpose-option-item').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+      const radio = element.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+      document.getElementById('summaryPurposeVal').textContent = text;
     }
 
-    function closeRoomPicker() {
-      document.getElementById('modalRoomPicker').style.display = 'none';
+    function selectRoomCard(room, floor, cap, element) {
+      selectedRoom = room;
+      selectedRoomFloor = floor;
+      selectedRoomCapacity = cap;
+      document.querySelectorAll('.room-rec-card').forEach(c => c.classList.remove('active'));
+      element.classList.add('active');
+      const radio = element.querySelector('input[type="radio"]');
+      if (radio) radio.checked = true;
+      document.getElementById('summaryRoomVal').textContent = `${room} (${floor})`;
+      document.getElementById('summaryCapacityVal').textContent = `35 Mahasiswa / Kuota ${cap}`;
     }
 
-    function selectRoom(roomName) {
-      document.getElementById('roomBadgeDisplay').textContent = roomName;
-      closeRoomPicker();
+    function updateDateNote(val) {
+      const noteEl = document.getElementById('dateNoteText');
+      if (val.includes('15/03') || val.includes('2026-03-15')) {
+        noteEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span>Hari Minggu, 15 Maret 2026 (Jadwal Kelas Eksekutif / Khusus)</span>`;
+      } else {
+        noteEl.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><span>Jadwal Perkuliahan Terpilih: ${val}</span>`;
+      }
+      refreshSummary();
     }
 
-    function saveDraft() {
-      const room = document.getElementById('roomBadgeDisplay').textContent;
-      alert(`Draft reservasi ruang ${room} berhasil disimpan ke Draft Reservasi Dosen.`);
-      window.location.href = 'draft-reservasi.html';
+    function updateTimeSummary() {
+      refreshSummary();
     }
 
-    function handleFormSubmit(e) {
+    function onMatkulChange(val) {
+      refreshSummary();
+    }
+
+    function refreshSummary() {
+      const tgl = document.getElementById('inputTanggal').value;
+      const jmMulai = document.getElementById('inputJamMulai').value;
+      const jmSelesai = document.getElementById('inputJamSelesai').value;
+      const scheduleText = `${tgl.includes('15/03') ? 'Minggu, 15 Mar 2026' : tgl} (${jmMulai} - ${jmSelesai})`;
+      document.getElementById('summaryScheduleVal').textContent = scheduleText;
+    }
+
+    function saveAsDraft() {
+      const room = selectedRoom;
+      const matkul = document.getElementById('selectMatkul').value;
+      window.location.href = `draft-reservasi.html?status=saved&room=${encodeURIComponent(room)}&matkul=${encodeURIComponent(matkul)}&periode=${encodeURIComponent(selectedDuration)}`;
+    }
+
+    function handleFormSubmission(e) {
       e.preventDefault();
-      const room = document.getElementById('roomBadgeDisplay').textContent;
-      const tanggal = document.getElementById('tanggalPinjam').value;
-      alert(`Permohonan peminjaman ruang ${room} pada ${tanggal} berhasil diajukan!`);
-      window.location.href = 'histori-reservasi.html';
+      const selectMatkulVal = document.getElementById('selectMatkul').value;
+      let courseCode = kelasParam || 'A11.6302';
+      let courseName = matkulParam || 'Rekayasa Perangkat Lunak';
+
+      if (selectMatkulVal.includes('A11.6RPL')) {
+        courseCode = 'A11.6RPL';
+        courseName = 'Pemrograman Web Dasar';
+      } else if (selectMatkulVal.includes('A11.4UG1')) {
+        courseCode = 'A11.4UG1';
+        courseName = 'Kecerdasan Artifisial';
+      } else if (selectMatkulVal.includes('A11.4UG2')) {
+        courseCode = 'A11.4UG2';
+        courseName = 'Kecerdasan Artifisial';
+      }
+
+      // Kembali ke Gambar 1 (tukar-ruang.html) dengan notifikasi sukses dan status menunggu operator
+      window.location.href = `tukar-ruang.html?status=success&from=${encodeURIComponent(asalRuangParam)}&to=${encodeURIComponent(selectedRoom)}&matkul=${encodeURIComponent(courseName)}&kelas=${encodeURIComponent(courseCode)}&periode=${encodeURIComponent(selectedDuration)}`;
     }
   </script>
   <script src="../app.js"></script>

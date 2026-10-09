@@ -162,22 +162,7 @@
           <span class="breadcrumb-page">JADWAL PEMAKAIAN KELAS</span>
         </nav>
 
-        <!-- Banner Info Mode Tukar Ruang (Jika Aktif) -->
-        <div id="swapModeNotice" class="swap-mode-banner" style="display: none;">
-          <div class="swap-mode-banner-text">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <line x1="12" y1="8" x2="12" y2="12"></line>
-              <line x1="12" y1="16" x2="12.01" y2="16"></line>
-            </svg>
-            <span>
-              <strong>Mode Pindah Kelas:</strong> Menampilkan slot yang dapat dipilih pada sesi <strong>10.20 – 12.00</strong> untuk mata kuliah <strong>Rekayasa Perangkat Lunak (A11.6302)</strong>.
-            </span>
-          </div>
-          <a href="tukar-ruang.html" class="btn btn-outline" style="min-height: 32px; padding: 4px 12px; font-size: 0.8rem; background: #ffffff;">
-            Batal
-          </a>
-        </div>
+
 
         <!-- Schedule Container Card -->
         <div class="card-container">
@@ -187,17 +172,45 @@
               <p class="calendar-header-sub">Melihat jadwal pemakaian kelas</p>
             </div>
             <div class="schedule-header-actions">
-              <span class="schedule-date-badge">2 Januari 2026</span>
+              <button type="button" class="schedule-date-badge" id="scheduleDateBtn" onclick="document.getElementById('hiddenDatePicker').showPicker ? document.getElementById('hiddenDatePicker').showPicker() : document.getElementById('hiddenDatePicker').click()" style="border: none; cursor: pointer;" title="Klik untuk ganti tanggal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span id="currentDateDisplay">2 Januari 2026</span>
+              </button>
+              <input type="date" id="hiddenDatePicker" style="position: absolute; opacity: 0; pointer-events: none; width: 0; height: 0;" value="2026-01-02" onchange="updateSelectedDate(this.value)">
               <div class="floor-badge-select">
                 <label for="floorSelect">Lantai:</label>
-                <select id="floorSelect" class="floor-pill" aria-label="Pilih Lantai Gedung">
-                  <option value="Lantai 5">Lantai 5</option>
-                  <option value="Lantai 4">Lantai 4</option>
-                  <option value="Lantai 3" selected>Lantai 3</option>
-                  <option value="Lantai 2">Lantai 2</option>
-                  <option value="Lantai 1">Lantai 1</option>
+                <select id="floorSelect" class="floor-pill" aria-label="Pilih Lantai Gedung" onchange="changeFloor(this.value)">
+                  <option value="Lantai 5">Lantai: 5</option>
+                  <option value="Lantai 4">Lantai: 4</option>
+                  <option value="Lantai 3" selected>Lantai: 3</option>
+                  <option value="Lantai 2">Lantai: 2</option>
+                  <option value="Lantai 1">Lantai: 1</option>
                 </select>
               </div>
+            </div>
+          </div>
+
+          <!-- Banner Panduan / Penjelasan Highlight Hijau (Gambar 3) -->
+          <div class="schedule-swap-guide-banner" id="scheduleSwapGuideBanner">
+            <div class="schedule-swap-guide-text">
+              <span class="schedule-swap-guide-badge">Penjelasan Highlight Hijau</span>
+              <div>
+                <strong style="color: #166534; font-size: 0.92rem; display: block; margin-bottom: 3px;">
+                  Jam Alokasi Kuliah: <span id="guideMatkulTitle">REKAYASA PERANGKAT LUNAK</span> (<span id="guideMatkulSlot">10.20 - 12.00</span>)
+                </strong>
+                <p style="margin: 0; font-size: 0.825rem; color: #15803d; line-height: 1.45;">
+                  Baris ber-highlight hijau menandakan <strong>jam alokasi waktu perkuliahan Anda saat ini</strong>. Highlight ini mempermudah Anda melihat ruangan mana saja yang masih kosong (<strong>+ Tersedia</strong>) pada jam tersebut. Silakan klik slot ruangan kosong untuk langsung mengisi formulir peminjaman/pemindahan ruangan (Gambar 4).
+                </p>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; flex-shrink: 0; background: #ffffff; border: 1px solid #86efac; padding: 6px 12px; border-radius: 8px;">
+              <span style="display: inline-block; width: 14px; height: 14px; background: #dcfce7; border: 1.5px solid #22c55e; border-radius: 4px;"></span>
+              <span style="font-size: 0.775rem; font-weight: 700; color: #166534;">Sesi Sesuai Jadwal Kuliah</span>
             </div>
           </div>
 
@@ -548,16 +561,16 @@
 
       <div class="modal-class-preview">
         <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px;">
-          <strong style="color: var(--color-primary); font-size: 0.95rem;">REKAYASA PERANGKAT LUNAK</strong>
-          <span class="teaching-sks-badge">4 SKS</span>
+          <strong id="swapModalTitle" style="color: var(--color-primary); font-size: 0.95rem;">REKAYASA PERANGKAT LUNAK</strong>
+          <span class="teaching-sks-badge" id="swapModalSks">4 SKS</span>
         </div>
-        <div style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 8px;">
+        <div style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: 8px;" id="swapModalKel">
           Kel: A11.6302
         </div>
         <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; font-weight: 600;">
-          <span style="color: #475569;">Sesi: SENIN, 10.20 – 12.00</span>
+          <span style="color: #475569;" id="swapModalSlot">Sesi: SENIN, 10.20 – 12.00</span>
           <div style="display: flex; align-items: center; gap: 6px;">
-            <span style="text-decoration: line-through; color: #94a3b8;">H.5.2</span>
+            <span style="text-decoration: line-through; color: #94a3b8;" id="swapModalOriginRoom">H.5.2</span>
             <span>&rarr;</span>
             <span id="targetRoomBadge" style="background: #2563eb; color: #ffffff; padding: 2px 8px; border-radius: 4px; font-weight: 700;">H.3.1</span>
           </div>
@@ -580,48 +593,102 @@
   </div>
 
   <script>
-    // Deteksi Mode Tukar Ruang dari URL query parameter
+    // Deteksi Mode Tukar Ruang dari URL query parameter (default aktif agar sesuai screenshot 1)
     const urlParams = new URLSearchParams(window.location.search);
-    const isSwapMode = urlParams.get('mode') === 'tukar';
+    const modeParam = urlParams.get('mode');
+    const isSwapMode = modeParam !== 'biasa';
+    const kelasParam = urlParams.get('kelas') || 'A11.6302';
+    const originRoom = urlParams.get('ruang') || 'H.5.2';
+    const matkulParam = urlParams.get('matkul') || 'REKAYASA PERANGKAT LUNAK';
+    const sksParam = urlParams.get('sks') || '4 SKS';
+    const slotParam = urlParams.get('slot') || 'SENIN, 10.20 – 12.00';
     let selectedTargetRoom = 'H.3.1';
 
+    const lantaiParam = urlParams.get('lantai');
+    if (lantaiParam) {
+      const floorSelect = document.getElementById('floorSelect');
+      if (floorSelect) {
+        for (let i = 0; i < floorSelect.options.length; i++) {
+          if (floorSelect.options[i].value.includes(lantaiParam)) {
+            floorSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    }
+
     if (isSwapMode) {
-      // Aktifkan menu sidebar Tukar Ruang
-      document.getElementById('navReservasi').classList.remove('active');
-      document.getElementById('navTukarRuang').classList.add('active');
+      // Aktifkan menu sidebar Tukar Ruang (sesuai screenshot 1)
+      const navReservasi = document.getElementById('navReservasi');
+      const navTukarRuang = document.getElementById('navTukarRuang');
+      if (navReservasi) navReservasi.classList.remove('active');
+      if (navTukarRuang) {
+        navTukarRuang.classList.add('active');
+        navTukarRuang.setAttribute('aria-current', 'page');
+      }
 
-      // Tampilkan banner notifikasi
-      document.getElementById('swapModeNotice').style.display = 'flex';
+      // Update teks panduan highlight hijau
+      const guideTitle = document.getElementById('guideMatkulTitle');
+      const guideSlot = document.getElementById('guideMatkulSlot');
+      if (guideTitle && matkulParam) guideTitle.textContent = matkulParam;
+      if (guideSlot && slotParam) guideSlot.textContent = slotParam;
 
-      // Berikan highlight hijau pada baris sesi 10.20-11.10 dan 11.10-12.00 (persis screenshot 7 & 8)
-      document.getElementById('rowSession5').classList.add('tr-row-swap-highlight');
-      document.getElementById('rowSession6').classList.add('tr-row-swap-highlight');
+      // Berikan highlight hijau pada baris sesi 10.20-11.10 dan 11.10-12.00 (persis screenshot 1)
+      const row5 = document.getElementById('rowSession5');
+      const row6 = document.getElementById('rowSession6');
+      if (row5) row5.classList.add('tr-row-swap-highlight');
+      if (row6) row6.classList.add('tr-row-swap-highlight');
 
-      // Ubah style slot tersedia menjadi hijau
+      // Ubah style slot tersedia menjadi hijau pada baris target
       document.querySelectorAll('.session-swap-target .slot-available').forEach(el => {
         el.classList.add('slot-available-green');
       });
     }
 
+    function updateSelectedDate(val) {
+      if (!val) return;
+      const parts = val.split('-');
+      const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+      const formatted = `${parseInt(parts[2], 10)} ${months[parseInt(parts[1], 10) - 1]} ${parts[0]}`;
+      const displayEl = document.getElementById('currentDateDisplay');
+      if (displayEl) displayEl.textContent = formatted;
+    }
+
+    function changeFloor(val) {
+      const currentUrl = new URL(window.location.href);
+      currentUrl.searchParams.set('lantai', val);
+      window.location.href = currentUrl.toString();
+    }
+
     function handleSlotClick(roomName, sessionTime) {
-      if (isSwapMode) {
-        selectedTargetRoom = roomName;
-        document.getElementById('targetRoomBadge').textContent = roomName;
-        document.getElementById('modalSwapConfirm').style.display = 'flex';
-      } else {
-        window.location.href = `form-peminjaman.html?ruang=${roomName}&sesi=${encodeURIComponent(sessionTime)}`;
-      }
+      // Sesuai alur pengguna: klik slot langsung melanjutkan ke Gambar 4 (Form Peminjaman)
+      const currentDate = document.getElementById('currentDateDisplay')?.textContent || '2 Januari 2026';
+      window.location.href = `form-peminjaman.html?ruang=${encodeURIComponent(roomName)}&sesi=${encodeURIComponent(sessionTime)}&matkul=${encodeURIComponent(matkulParam)}&kelas=${encodeURIComponent(kelasParam)}&sks=${encodeURIComponent(sksParam)}&asalRuang=${encodeURIComponent(originRoom)}&tgl=${encodeURIComponent(currentDate)}&mode=${encodeURIComponent(modeParam || 'tukar')}`;
     }
 
     function closeSwapModal() {
-      document.getElementById('modalSwapConfirm').style.display = 'none';
+      const modal = document.getElementById('modalSwapConfirm');
+      if (modal) modal.style.display = 'none';
     }
 
     function submitRoomSwap() {
       closeSwapModal();
-      alert(`Permintaan pindah ruang kelas Rekayasa Perangkat Lunak ke Ruang ${selectedTargetRoom} berhasil diajukan ke Operator!`);
-      window.location.href = 'tukar-ruang.html?status=success';
+      window.location.href = `tukar-ruang.html?status=success&from=${encodeURIComponent(originRoom)}&to=${encodeURIComponent(selectedTargetRoom)}&kelas=${encodeURIComponent(kelasParam)}&matkul=${encodeURIComponent(matkulParam)}`;
     }
+
+    // Dukungan tombol Escape & outside click untuk menutup modal
+    const swapModal = document.getElementById('modalSwapConfirm');
+    if (swapModal) {
+      swapModal.addEventListener('click', (e) => {
+        if (e.target === swapModal) closeSwapModal();
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeSwapModal();
+      }
+    });
   </script>
   <script src="../app.js"></script>
 </body>

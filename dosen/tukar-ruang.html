@@ -122,31 +122,46 @@
 
         <!-- Container Card: Ruangan Mengajar -->
         <div class="card-container" style="padding: 28px;">
+          <!-- Alert Banner Pengajuan Berhasil -->
+          <div id="swapSuccessBanner" class="admin-banner-alert success" style="display: none; margin-bottom: 24px; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; background: #ecfdf5; border: 1.5px solid #86efac; border-radius: 10px; padding: 14px 18px;">
+            <div style="display: flex; align-items: center; gap: 10px; color: #166534; font-size: 0.875rem;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span>
+                <strong>Permohonan Berhasil Dikirim:</strong> Pindah ruang kelas <strong>Rekayasa Perangkat Lunak (A11.6302)</strong> ke Ruang <strong id="swapSuccessTargetRoom">H.3.1</strong> sedang diverifikasi oleh Operator.
+              </span>
+            </div>
+            <a href="histori-reservasi.html?tab=tukar&highlight=DSN-2026-089" class="btn btn-outline" style="min-height: 32px; padding: 4px 14px; font-size: 0.8rem; background: #ffffff; color: #166534; border-color: #86efac;">
+              Lihat di Histori
+            </a>
+          </div>
+
           <h1 style="font-size: 1.35rem; font-weight: 800; color: var(--color-text-main); margin-bottom: 24px;">
             Ruangan Mengajar
           </h1>
 
-          <!-- Grid Kartu Kelas Mengajar (Screenshot 5) -->
+          <!-- Grid Kartu Kelas Mengajar (Screenshot Gambar 1) -->
           <div class="teaching-rooms-grid">
             <!-- Card 1: Rekayasa Perangkat Lunak -->
-            <article class="teaching-card" style="margin-bottom: 0;">
+            <article class="teaching-card" style="margin-bottom: 0; cursor: pointer;" onclick="openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'SENIN, 10.20-12.00', 'H.5.2')">
               <div class="teaching-card-header">
-                <h2 class="teaching-card-title">REKAYASA PERANGKAT LUNAK</h2>
+                <h2 class="teaching-card-title" style="cursor: pointer;">REKAYASA PERANGKAT LUNAK</h2>
                 <span class="teaching-sks-badge">4 SKS</span>
               </div>
               <div class="teaching-class-code">
                 Kel: A11.6302
               </div>
               <div class="teaching-schedule-list" style="margin-top: 8px;">
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">SENIN, 10.20–12.00</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'SENIN, 10.20–12.00', 'H.5.2')">
+                <div class="teaching-schedule-item" id="rplScheduleItemSenin">
+                  <span style="font-weight: 600; color: #475569;">SENIN, 10.20-12.00</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'SENIN, 10.20-12.00', 'H.5.2')">
                     H.5.2
                   </button>
                 </div>
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">KAMIS, 12.30–14.10</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'KAMIS, 12.30–14.10', 'H.5.2')">
+                <div class="teaching-schedule-item" id="rplScheduleItemKamis">
+                  <span style="font-weight: 600; color: #475569;">KAMIS, 12.30-14.10</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'KAMIS, 12.30-14.10', 'H.5.2')">
                     H.5.2
                   </button>
                 </div>
@@ -154,24 +169,24 @@
             </article>
 
             <!-- Card 2: Pemrograman Web Dasar -->
-            <article class="teaching-card" style="margin-bottom: 0;">
+            <article class="teaching-card" style="margin-bottom: 0; cursor: pointer;" onclick="openMoveModal('PEMOGRAMAN WEB DASAR', '4 SKS', 'A11.6RPL', 'SELASA, 10.20-12.00', 'H.4.7')">
               <div class="teaching-card-header">
-                <h2 class="teaching-card-title">PEMOGRAMAN WEB DASAR</h2>
+                <h2 class="teaching-card-title" style="cursor: pointer;">PEMOGRAMAN WEB DASAR</h2>
                 <span class="teaching-sks-badge">4 SKS</span>
               </div>
               <div class="teaching-class-code">
                 Kel: A11.6RPL
               </div>
               <div class="teaching-schedule-list" style="margin-top: 8px;">
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">SELASA, 10.20–12.00</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('PEMOGRAMAN WEB DASAR', '4 SKS', 'A11.6RPL', 'SELASA, 10.20–12.00', 'H.4.7')">
+                <div class="teaching-schedule-item" id="pwdScheduleItemSelasa">
+                  <span style="font-weight: 600; color: #475569;">SELASA, 10.20-12.00</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('PEMOGRAMAN WEB DASAR', '4 SKS', 'A11.6RPL', 'SELASA, 10.20-12.00', 'H.4.7')">
                     H.4.7
                   </button>
                 </div>
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">KAMIS, 10.20–12.00</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('PEMOGRAMAN WEB DASAR', '4 SKS', 'A11.6RPL', 'KAMIS, 10.20–12.00', 'H.3.1')">
+                <div class="teaching-schedule-item" id="pwdScheduleItemKamis">
+                  <span style="font-weight: 600; color: #475569;">KAMIS, 10.20-12.00</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('PEMOGRAMAN WEB DASAR', '4 SKS', 'A11.6RPL', 'KAMIS, 10.20-12.00', 'H.3.1')">
                     H.3.1
                   </button>
                 </div>
@@ -179,18 +194,18 @@
             </article>
 
             <!-- Card 3: Kecerdasan Artifisial 1 -->
-            <article class="teaching-card" style="margin-bottom: 0;">
+            <article class="teaching-card" style="margin-bottom: 0; cursor: pointer;" onclick="openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG1', 'SELASA, 09.30-12.50', 'H.5.2')">
               <div class="teaching-card-header">
-                <h2 class="teaching-card-title">KECERDASAN ARTIFISIAL</h2>
+                <h2 class="teaching-card-title" style="cursor: pointer;">KECERDASAN ARTIFISIAL</h2>
                 <span class="teaching-sks-badge">4 SKS</span>
               </div>
               <div class="teaching-class-code">
                 Kel: A11.4UG1
               </div>
               <div class="teaching-schedule-list" style="margin-top: 8px;">
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">SELASA, 09.30–12.50</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG1', 'SELASA, 09.30–12.50', 'H.5.2')">
+                <div class="teaching-schedule-item" id="ai1ScheduleItemSelasa">
+                  <span style="font-weight: 600; color: #475569;">SELASA, 09.30-12.50</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG1', 'SELASA, 09.30-12.50', 'H.5.2')">
                     H.5.2
                   </button>
                 </div>
@@ -198,18 +213,18 @@
             </article>
 
             <!-- Card 4: Kecerdasan Artifisial 2 -->
-            <article class="teaching-card" style="margin-bottom: 0;">
+            <article class="teaching-card" style="margin-bottom: 0; cursor: pointer;" onclick="openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG2', 'JUMAT, 10.20-12.00', 'H.5.2')">
               <div class="teaching-card-header">
-                <h2 class="teaching-card-title">KECERDASAN ARTIFISIAL</h2>
+                <h2 class="teaching-card-title" style="cursor: pointer;">KECERDASAN ARTIFISIAL</h2>
                 <span class="teaching-sks-badge">4 SKS</span>
               </div>
               <div class="teaching-class-code">
                 Kel: A11.4UG2
               </div>
               <div class="teaching-schedule-list" style="margin-top: 8px;">
-                <div class="teaching-schedule-item">
-                  <span style="font-weight: 600; color: #475569;">JUMAT, 10.20–12.00</span>
-                  <button type="button" class="teaching-room-chip" onclick="openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG2', 'JUMAT, 10.20–12.00', 'H.5.2')">
+                <div class="teaching-schedule-item" id="ai2ScheduleItemJumat">
+                  <span style="font-weight: 600; color: #475569;">JUMAT, 10.20-12.00</span>
+                  <button type="button" class="teaching-room-chip" onclick="event.stopPropagation(); openMoveModal('KECERDASAN ARTIFISIAL', '4 SKS', 'A11.4UG2', 'JUMAT, 10.20-12.00', 'H.5.2')">
                     H.5.2
                   </button>
                 </div>
@@ -224,16 +239,16 @@
   <!-- Modal Konfirmasi Pindah Kelas (Screenshot 6) -->
   <div id="modalMoveClass" class="modal-overlay" style="display: none;" aria-hidden="true" role="dialog">
     <div class="modal-confirm-box">
-      <!-- Icon Tanda Seru Lingkaran -->
+      <!-- Icon Tanda Seru Lingkaran (Screenshot 2) -->
       <div class="modal-confirm-icon" aria-hidden="true">
-        <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="12"></line>
           <line x1="12" y1="16" x2="12.01" y2="16"></line>
         </svg>
       </div>
 
-      <h2 class="modal-confirm-title" style="font-size: 1.25rem;">
+      <h2 class="modal-confirm-title">
         Apakah Anda ingin memindah kelas ini?
       </h2>
 
@@ -252,7 +267,7 @@
         </div>
       </div>
 
-      <!-- Tombol Ya dan Tidak (Screenshot 6) -->
+      <!-- Tombol Ya dan Tidak (Screenshot 2) -->
       <div class="modal-actions-row">
         <button type="button" class="btn-modal-action btn-yes" onclick="confirmMoveClass()">
           Ya
@@ -289,8 +304,115 @@
 
     function confirmMoveClass() {
       closeMoveModal();
-      // Navigasi ke Matriks Jadwal Pemakaian Kelas dengan Mode Tukar (Screenshot 7 & 8)
-      window.location.href = `jadwal-kelas.html?mode=tukar&kelas=${encodeURIComponent(currentMovingClass.kel)}&ruang=${encodeURIComponent(currentMovingClass.room)}&slot=${encodeURIComponent(currentMovingClass.time)}`;
+      // Navigasi ke Matriks Jadwal Pemakaian Kelas dengan Mode Tukar (Screenshot 1)
+      window.location.href = `jadwal-kelas.html?mode=tukar&kelas=${encodeURIComponent(currentMovingClass.kel)}&ruang=${encodeURIComponent(currentMovingClass.room)}&slot=${encodeURIComponent(currentMovingClass.time)}&matkul=${encodeURIComponent(currentMovingClass.title)}&sks=${encodeURIComponent(currentMovingClass.sks)}`;
+    }
+
+    // Penanganan status setelah pengajuan dari jadwal-kelas.html
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const isSuccess = urlParams.get('status') === 'success';
+      const toRoom = urlParams.get('to') || 'H.3.1';
+      const fromRoom = urlParams.get('from') || 'H.5.2';
+      const matkul = urlParams.get('matkul') || 'Rekayasa Perangkat Lunak';
+      const kelas = urlParams.get('kelas') || 'A11.6302';
+
+      if (isSuccess) {
+        const banner = document.getElementById('swapSuccessBanner');
+        const periode = urlParams.get('periode') === 'semester' ? '1 Semester Penuh' : 'Sementara';
+        let targetItem = document.getElementById('rplScheduleItemSenin');
+        if (kelas.includes('6RPL')) targetItem = document.getElementById('pwdScheduleItemSelasa');
+        else if (kelas.includes('4UG1')) targetItem = document.getElementById('ai1ScheduleItemSelasa');
+        else if (kelas.includes('4UG2')) targetItem = document.getElementById('ai2ScheduleItemJumat');
+
+        if (banner) {
+          banner.style.display = 'flex';
+          const infoText = banner.querySelector('span');
+          if (infoText) {
+            infoText.innerHTML = `<strong>Permohonan Berhasil Dikirim:</strong> Pindah ruang kelas <strong>${matkul} (${kelas})</strong> ke Ruang <strong id="swapSuccessTargetRoom">${toRoom}</strong> (${periode}) sedang diverifikasi oleh Operator.`;
+          }
+        }
+
+        if (targetItem) {
+          const originalSlotTime = targetItem.querySelector('span').textContent;
+          targetItem.setAttribute('data-original-html', targetItem.innerHTML);
+          targetItem.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-weight: 600; color: #475569;">${originalSlotTime}</span>
+              <span style="font-size: 0.72rem; font-weight: 800; background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 9999px; display: inline-flex; align-items: center; gap: 4px;">
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: #b45309; display: inline-block;"></span>
+                Menunggu Operator
+              </span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-decoration: line-through;">${fromRoom}</span>
+              <span style="font-size: 0.85rem; font-weight: 800; color: #2563eb;">→ ${toRoom}</span>
+              <button type="button" class="btn btn-outline" style="min-height: 26px; padding: 2px 8px; font-size: 0.725rem; color: #dc2626; border-color: #fca5a5;" onclick="cancelSwap(this)">
+                Batalkan
+              </button>
+            </div>
+          `;
+        }
+
+        // Tampilkan notifikasi toast
+        showToast(`Permohonan tukar ruang kelas ${kelas} ke ${toRoom} berhasil diajukan ke Operator!`, 'success');
+      }
+
+      // Close modal on outside click
+      const modal = document.getElementById('modalMoveClass');
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeMoveModal();
+        });
+      }
+
+      // Close modal on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMoveModal();
+      });
+    });
+
+    function cancelSwap(btn) {
+      if (confirm('Apakah Anda yakin ingin membatalkan permohonan pindah ruangan ini?')) {
+        const banner = document.getElementById('swapSuccessBanner');
+        if (banner) banner.style.display = 'none';
+
+        const item = btn ? btn.closest('.teaching-schedule-item') : document.getElementById('rplScheduleItemSenin');
+        if (item && item.getAttribute('data-original-html')) {
+          item.innerHTML = item.getAttribute('data-original-html');
+        } else if (item) {
+          item.innerHTML = `
+            <span style="font-weight: 600; color: #475569;">SENIN, 10.20–12.00</span>
+            <button type="button" class="teaching-room-chip" onclick="openMoveModal('REKAYASA PERANGKAT LUNAK', '4 SKS', 'A11.6302', 'SENIN, 10.20–12.00', 'H.5.2')">
+              H.5.2
+            </button>
+          `;
+        }
+        showToast('Permohonan pindah ruangan berhasil dibatalkan.', 'info');
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    }
+
+    function showToast(message, type = 'info') {
+      let container = document.querySelector('.toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+      }
+
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.2s ease';
+        setTimeout(() => toast.remove(), 200);
+      }, 3200);
     }
   </script>
   <script src="../app.js"></script>

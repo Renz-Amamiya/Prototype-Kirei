@@ -8,6 +8,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+  <style>
+    .draft-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .search-input-box {
+      position: relative;
+      flex: 1;
+      max-width: 360px;
+    }
+    .search-input-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+    }
+    .search-input-box input {
+      width: 100%;
+      padding: 10px 14px 10px 42px;
+      border: 1.5px solid var(--color-border-subtle);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.15s ease;
+    }
+    .search-input-box input:focus {
+      border-color: var(--color-primary);
+    }
+    .tab-panel-container {
+      display: block;
+    }
+    .tab-panel-container.hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="app-layout">
@@ -69,7 +109,7 @@
             </a>
           </li>
           <li>
-            <a href="index.html" class="nav-link" title="Reservasi Ruangan">
+            <a href="kalender.html" class="nav-link" title="Reservasi Ruangan">
               <svg viewBox="0 0 24 24" fill="none">
                 <line x1="4" y1="7" x2="20" y2="7" stroke-linecap="round"/>
                 <circle cx="8" cy="7" r="2.5" fill="#0B3272"/>
@@ -125,78 +165,340 @@
         <h1 class="page-title">Draft Reservasi Dosen</h1>
         <p class="page-subtitle">Daftar permohonan reservasi ruang yang disimpan sementara dan belum disubmit ke operasional.</p>
 
-        <!-- Draft Cards Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin-top: 24px;">
-          <!-- Draft Card 1 -->
-          <article class="card-container" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                <span class="room-tag-pill" style="background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;">
-                  Ruang H.4.2 (Lantai 4)
-                </span>
-                <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">
-                  Disimpan 2 hari lalu
-                </span>
+        <!-- Tab Navigasi Rapi: Reservasi vs Tukar Ruang (Pemisahan Draft Sesuai Permintaan Pengguna) -->
+        <div class="histori-tabs-bar" role="tablist" aria-label="Kategori Draft">
+          <button type="button" class="histori-tab-btn active" id="tabBtnDraftReservasi" role="tab" aria-selected="true" aria-controls="panelDraftReservasi" onclick="switchDraftTab('reservasi')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Reservasi</span>
+            <span class="histori-tab-badge" id="badgeDraftReservasi">2</span>
+          </button>
+
+          <button type="button" class="histori-tab-btn" id="tabBtnDraftTukar" role="tab" aria-selected="false" aria-controls="panelDraftTukar" onclick="switchDraftTab('tukar')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 2v6h-6"></path>
+              <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+              <path d="M3 22v-6h6"></path>
+              <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+            </svg>
+            <span>Tukar Ruang</span>
+            <span class="histori-tab-badge" id="badgeDraftTukar">1</span>
+          </button>
+        </div>
+
+        <!-- ==========================================================================
+             PANEL 1: TABEL DRAFT RESERVASI RUANGAN (Bukan Card, Tabel Rapi)
+             ========================================================================== -->
+        <div id="panelDraftReservasi" class="tab-panel-container" role="tabpanel" aria-labelledby="tabBtnDraftReservasi">
+          <div class="card-container" style="padding: 24px;">
+            <!-- Toolbar Filter & Pencarian Draft Reservasi -->
+            <div class="draft-toolbar">
+              <div class="search-input-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchDraftRsv" placeholder="Cari draft ruangan atau keperluan..." oninput="filterDraftReservasiTable()">
               </div>
-              <h2 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">
-                Kuliah Pengganti Rekayasa Perangkat Lunak
-              </h2>
-              <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 16px;">
-                Sesi tambahan praktikum mandiri dan bimbingan proyek sprint 3 untuk kelas A11.6302.
-              </p>
-              <div style="font-size: 0.8rem; font-weight: 600; color: #475569; display: flex; flex-direction: column; gap: 4px;">
-                <div>Tanggal: 15/03/2026</div>
-                <div>Sesi Jam: 10.20 – 11.10 WIB</div>
+
+              <div style="font-size: 0.825rem; color: #64748b; font-weight: 600;">
+                Tersimpan di Penyimpanan Lokal Browser
               </div>
             </div>
 
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-              <a href="form-peminjaman.html?ruang=H.4.2&sesi=10.20+-+11.10" class="btn btn-primary" style="flex: 1; min-height: 38px; font-size: 0.85rem; padding: 6px 12px;">
-                Lanjutkan Form
-              </a>
-              <button type="button" class="btn btn-outline" style="min-height: 38px; font-size: 0.85rem; padding: 6px 14px;" onclick="alert('Draft berhasil dihapus')">
-                Hapus
-              </button>
-            </div>
-          </article>
+            <!-- Tabel Draft Reservasi -->
+            <div class="schedule-table-wrapper">
+              <table class="schedule-table" id="tableDraftReservasi" aria-label="Tabel Draft Reservasi Dosen">
+                <thead>
+                  <tr>
+                    <th scope="col">ID Draft</th>
+                    <th scope="col">Ruangan</th>
+                    <th scope="col">Rencana Jadwal & Sesi</th>
+                    <th scope="col">Keperluan / Keterangan</th>
+                    <th scope="col">Disimpan</th>
+                    <th scope="col" style="text-align: center; min-width: 220px;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="rowDraftRsv1">
+                    <td style="font-weight: 700; color: var(--color-primary);">DFT-RSV-01</td>
+                    <td>
+                      <span class="room-tag-pill" style="background: #eff6ff; color: #1d4ed8;">Ruang H.4.2 (Lantai 4)</span>
+                    </td>
+                    <td>
+                      <div style="font-weight: 600;">15 Maret 2026</div>
+                      <div style="font-size: 0.775rem; color: var(--color-text-muted);">10.20 - 11.10 WIB</div>
+                    </td>
+                    <td>
+                      <div style="font-weight: 600;">Kuliah Pengganti Rekayasa Perangkat Lunak</div>
+                      <div style="font-size: 0.775rem; color: var(--color-text-muted);">Praktikum mandiri dan bimbingan proyek sprint 3 (A11.6302)</div>
+                    </td>
+                    <td>
+                      <span style="font-size: 0.8rem; color: #64748b;">2 hari lalu</span>
+                    </td>
+                    <td style="text-align: center; white-space: nowrap;">
+                      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <a href="form-peminjaman.html?ruang=H.4.2&sesi=10.20+-+11.10&matkul=REKAYASA+PERANGKAT+LUNAK&kelas=A11.6302" class="btn-table-action primary">
+                          Lanjutkan Form
+                        </a>
+                        <button type="button" class="btn-table-action danger" onclick="deleteTableRow('rowDraftRsv1', 'Kuliah Pengganti RPL', 'reservasi')">
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
 
-          <!-- Draft Card 2 -->
-          <article class="card-container" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between;">
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-                <span class="room-tag-pill" style="background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe;">
-                  Ruang H.3.1 (Lantai 3)
-                </span>
-                <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 600;">
-                  Disimpan kemarin
-                </span>
+                  <tr id="rowDraftRsv2">
+                    <td style="font-weight: 700; color: var(--color-primary);">DFT-RSV-02</td>
+                    <td>
+                      <span class="room-tag-pill" style="background: #eff6ff; color: #1d4ed8;">Ruang H.3.1 (Lantai 3)</span>
+                    </td>
+                    <td>
+                      <div style="font-weight: 600;">18 Maret 2026</div>
+                      <div style="font-size: 0.775rem; color: var(--color-text-muted);">13.00 - 14.40 WIB</div>
+                    </td>
+                    <td>
+                      <div style="font-weight: 600;">Workshop Pemrograman Web Dasar</div>
+                      <div style="font-size: 0.775rem; color: var(--color-text-muted);">Sesi pendalaman framework CSS dan JavaScript modern (A11.6RPL)</div>
+                    </td>
+                    <td>
+                      <span style="font-size: 0.8rem; color: #64748b;">Kemarin</span>
+                    </td>
+                    <td style="text-align: center; white-space: nowrap;">
+                      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <a href="form-peminjaman.html?ruang=H.3.1&sesi=13.00+-+14.40&matkul=PEMOGRAMAN+WEB+DASAR&kelas=A11.6RPL" class="btn-table-action primary">
+                          Lanjutkan Form
+                        </a>
+                        <button type="button" class="btn-table-action danger" onclick="deleteTableRow('rowDraftRsv2', 'Workshop Pemrograman Web Dasar', 'reservasi')">
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             PANEL 2: TABEL DRAFT TUKAR RUANG MENGAJAR (Bukan Card, Tabel Rapi)
+             ========================================================================== -->
+        <div id="panelDraftTukar" class="tab-panel-container hidden" role="tabpanel" aria-labelledby="tabBtnDraftTukar">
+          <div class="card-container" style="padding: 24px;">
+            <!-- Toolbar Filter & Pencarian Draft Tukar Ruang -->
+            <div class="draft-toolbar">
+              <div class="search-input-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchDraftSwp" placeholder="Cari draft tukar kelas atau ruangan..." oninput="filterDraftTukarTable()">
               </div>
-              <h2 style="font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 8px;">
-                Workshop Pemrograman Web Dasar
-              </h2>
-              <p style="font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.5; margin-bottom: 16px;">
-                Sesi pendalaman framework CSS dan JavaScript modern untuk mahasiswa tingkat 1.
-              </p>
-              <div style="font-size: 0.8rem; font-weight: 600; color: #475569; display: flex; flex-direction: column; gap: 4px;">
-                <div>Tanggal: 18/03/2026</div>
-                <div>Sesi Jam: 13.00 – 14.40 WIB</div>
+
+              <div style="font-size: 0.825rem; color: #64748b; font-weight: 600;">
+                Tersimpan di Penyimpanan Lokal Browser
               </div>
             </div>
 
-            <div style="display: flex; gap: 10px; margin-top: 20px;">
-              <a href="form-peminjaman.html?ruang=H.3.1&sesi=13.00+-+14.40" class="btn btn-primary" style="flex: 1; min-height: 38px; font-size: 0.85rem; padding: 6px 12px;">
-                Lanjutkan Form
-              </a>
-              <button type="button" class="btn btn-outline" style="min-height: 38px; font-size: 0.85rem; padding: 6px 14px;" onclick="alert('Draft berhasil dihapus')">
-                Hapus
-              </button>
+            <!-- Tabel Draft Tukar Ruang -->
+            <div class="schedule-table-wrapper">
+              <table class="schedule-table" id="tableDraftTukar" aria-label="Tabel Draft Tukar Ruang Dosen">
+                <thead>
+                  <tr>
+                    <th scope="col">ID Draft</th>
+                    <th scope="col">Mata Kuliah & Kelas</th>
+                    <th scope="col">Rencana Perpindahan</th>
+                    <th scope="col">Jadwal & Sesi</th>
+                    <th scope="col">Tipe Durasi</th>
+                    <th scope="col">Disimpan</th>
+                    <th scope="col" style="text-align: center; min-width: 220px;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="rowDraftSwp1">
+                    <td style="font-weight: 700; color: var(--color-primary);">DFT-SWP-01</td>
+                    <td>
+                      <div style="font-weight: 700; color: #0f172a;">Rekayasa Perangkat Lunak</div>
+                      <div style="font-size: 0.775rem; color: #64748b;">Kel: A11.6302 • 4 SKS</div>
+                    </td>
+                    <td>
+                      <div class="swap-path-chip">
+                        <span class="swap-path-from" title="Ruang Asal">H.5.2</span>
+                        <span class="swap-path-arrow">→</span>
+                        <span class="swap-path-to" title="Ruang Tujuan">H.3.2 (Lt. 3)</span>
+                      </div>
+                    </td>
+                    <td>
+                      <div style="font-weight: 600;">Senin, 10.20 - 12.00 WIB</div>
+                      <div style="font-size: 0.775rem; color: var(--color-text-muted);">Sesi Reguler Kuliah</div>
+                    </td>
+                    <td>
+                      <span style="display: inline-block; padding: 3px 8px; border-radius: 6px; background: #eff6ff; color: #1d4ed8; font-size: 0.75rem; font-weight: 700;">
+                        Pindah Sementara
+                      </span>
+                    </td>
+                    <td>
+                      <span style="font-size: 0.8rem; color: #64748b;">Hari ini, 10.15 WIB</span>
+                    </td>
+                    <td style="text-align: center; white-space: nowrap;">
+                      <div style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <a href="form-peminjaman.html?ruang=H.3.2&sesi=10.20+-+12.00&matkul=REKAYASA+PERANGKAT+LUNAK&kelas=A11.6302&asalRuang=H.5.2&mode=tukar" class="btn-table-action primary">
+                          Lanjutkan Form
+                        </a>
+                        <button type="button" class="btn-table-action danger" onclick="deleteTableRow('rowDraftSwp1', 'Tukar Ruang RPL', 'tukar')">
+                          Hapus
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-          </article>
+          </div>
         </div>
       </main>
     </div>
   </div>
 
+  <script>
+    // Logika Pemisahan Tab Draft: Reservasi vs Tukar Ruang
+    function switchDraftTab(targetTab) {
+      const btnReservasi = document.getElementById('tabBtnDraftReservasi');
+      const btnTukar = document.getElementById('tabBtnDraftTukar');
+      const panelReservasi = document.getElementById('panelDraftReservasi');
+      const panelTukar = document.getElementById('panelDraftTukar');
+
+      if (targetTab === 'tukar') {
+        btnReservasi.classList.remove('active');
+        btnReservasi.setAttribute('aria-selected', 'false');
+        btnTukar.classList.add('active');
+        btnTukar.setAttribute('aria-selected', 'true');
+
+        panelReservasi.classList.add('hidden');
+        panelTukar.classList.remove('hidden');
+
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('tab', 'tukar');
+        window.history.replaceState({}, '', currentUrl);
+      } else {
+        btnTukar.classList.remove('active');
+        btnTukar.setAttribute('aria-selected', 'false');
+        btnReservasi.classList.add('active');
+        btnReservasi.setAttribute('aria-selected', 'true');
+
+        panelTukar.classList.add('hidden');
+        panelReservasi.classList.remove('hidden');
+
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('tab', 'reservasi');
+        window.history.replaceState({}, '', currentUrl);
+      }
+    }
+
+    // Filter Tabel Draft Reservasi
+    function filterDraftReservasiTable() {
+      const q = document.getElementById('searchDraftRsv').value.toLowerCase();
+      const rows = document.querySelectorAll('#tableDraftReservasi tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    // Filter Tabel Draft Tukar Ruang
+    function filterDraftTukarTable() {
+      const q = document.getElementById('searchDraftSwp').value.toLowerCase();
+      const rows = document.querySelectorAll('#tableDraftTukar tbody tr');
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    // Hapus Baris Draft
+    function deleteTableRow(rowId, title, category) {
+      if (confirm(`Apakah Anda yakin ingin menghapus draft "${title}"?`)) {
+        const row = document.getElementById(rowId);
+        if (row) {
+          row.style.transition = 'all 0.25s ease';
+          row.style.opacity = '0';
+          setTimeout(() => {
+            row.remove();
+            updateDraftCounts();
+            showToast(`Draft "${title}" berhasil dihapus.`, 'info');
+          }, 200);
+        }
+      }
+    }
+
+    // Update Counter Badge
+    function updateDraftCounts() {
+      const countRsv = document.querySelectorAll('#tableDraftReservasi tbody tr').length;
+      const countSwp = document.querySelectorAll('#tableDraftTukar tbody tr').length;
+
+      const badgeRsv = document.getElementById('badgeDraftReservasi');
+      const badgeSwp = document.getElementById('badgeDraftTukar');
+
+      if (badgeRsv) badgeRsv.textContent = countRsv;
+      if (badgeSwp) badgeSwp.textContent = countSwp;
+
+      if (countRsv === 0) {
+        const tbodyRsv = document.querySelector('#tableDraftReservasi tbody');
+        if (tbodyRsv) {
+          tbodyRsv.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 24px; color: #94a3b8;">Belum ada draft reservasi ruangan yang tersimpan.</td></tr>';
+        }
+      }
+
+      if (countSwp === 0) {
+        const tbodySwp = document.querySelector('#tableDraftTukar tbody');
+        if (tbodySwp) {
+          tbodySwp.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 24px; color: #94a3b8;">Belum ada draft tukar ruang yang tersimpan.</td></tr>';
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      const periodeParam = urlParams.get('periode');
+
+      // Jika dari simpan form tukar ruang
+      if (tabParam === 'tukar' || periodeParam) {
+        switchDraftTab('tukar');
+      }
+
+      if (urlParams.get('status') === 'saved') {
+        const room = urlParams.get('room') || 'ruangan';
+        showToast(`Draft reservasi untuk ${room} berhasil disimpan!`, 'success');
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+    });
+
+    function showToast(message, type = 'info') {
+      let container = document.querySelector('.toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+      }
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${type}`;
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = `<span>${message}</span>`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(10px)';
+        toast.style.transition = 'all 0.2s ease';
+        setTimeout(() => toast.remove(), 200);
+      }, 3000);
+    }
+  </script>
   <script src="../app.js"></script>
 </body>
 </html>
